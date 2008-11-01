@@ -12,6 +12,7 @@
  # incoming results ticker
  # your states
  # pretty
+ # ajaxit
 
 == state page ==
  # races
