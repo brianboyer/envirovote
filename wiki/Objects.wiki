@@ -1,0 +1,29 @@
+#summary A rough design
+
+= The elements of envirovote =
+
+== race ==
+ * state
+ * type (senate, guber, cong, prop?)
+ * candidates
+ * winner
+ * results
+ * last updated (django automatic?)
+ * % vote reported
+ * description of why its key (district info, stances, 
+
+== endorsement ==
+ * source
+ * year
+ * candidate
+
+== candidate ==
+ * state
+ * links (sep table? array?)
+ * political courage test results
+ * badges (dirty dozen, etc.  set table?  array?  merge w/ links?)
+ * photo
+ * lastelected
+
+== proposition??? ==
+== state (env stats, etc?) ==
