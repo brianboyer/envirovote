@@ -1,0 +1,17 @@
+#summary Tasks for three furious days
+
+== home page ==
+ # key races
+ # green-o-meter
+ # % change
+ # incoming results ticker
+ # your states
+ # pretty
+
+== state page ==
+ # races
+ # mini green-o-meters
+ # mini percent-change
+ # state pic/info
+ # env stats?
+ # pretty
