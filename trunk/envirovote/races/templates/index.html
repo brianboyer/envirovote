@@ -3,14 +3,20 @@
 {% block filling %}
 <h2>Key Races</h2>
 {% for race in races %}
-<h3>{{race.headline}}</h3>
-<h4>{{race.deck}}</h4>
-<h5>
-{% ifequal race.race_type 'pre' %}President of the United States{% endifequal %}
-{% ifequal race.race_type 'con' %}U.S. House of Representatives, {{race.get_state_display}} {{race.district|ordinal}} District{% endifequal %}
-{% ifequal race.race_type 'sen' %}U.S. Senate{% endifequal %}
-{% ifequal race.race_type 'gub' %}Governor of {{race.get_state_display}}{% endifequal %}
-</h5>
-<p>{{race.body|linebreaks}}</p>
+    <h3>{{race.headline}}</h3>
+    <h4>{{race.deck}}</h4>
+    <h5>
+    {% ifequal race.race_type 'pre' %}President of the United States{% endifequal %}
+    {% ifequal race.race_type 'con' %}U.S. House of Representatives, {{race.get_state_display}} {{race.district|ordinal}} District{% endifequal %}
+    {% ifequal race.race_type 'sen' %}U.S. Senate{% endifequal %}
+    {% ifequal race.race_type 'gub' %}Governor of {{race.get_state_display}}{% endifequal %}
+    </h5>
+    {% for candidate in race.candidate_set.all %}
+        {% if candidate.is_key %}
+            <h6>{{candidate.name}}{% if candidate.last_elected %} (incumbent, last elected {{candidate.last_elected}}){% endif %}</h6>
+            <img src="{{candidate.photo}}"/>
+        {% endif %}
+    {% endfor%}
+    <p>{{race.body|linebreaks}}</p>
 {% endfor %}
 {% endblock %}
