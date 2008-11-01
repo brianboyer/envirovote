@@ -4,6 +4,7 @@
 
 == race ==
  * state
+ * district
  * type (senate, guber, cong, prop?)
  * winner
  * results
