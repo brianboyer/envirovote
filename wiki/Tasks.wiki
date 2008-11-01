@@ -20,3 +20,8 @@
  # state pic/info
  # env stats?
  # pretty
+
+== data ==
+ # get pvs incumbent data
+ # get pvs candidate data
+ # clear dupes
