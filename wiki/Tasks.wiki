@@ -3,7 +3,9 @@
 = TODO =
 
 == home page ==
- # key races
+ # key race info
+ # key race candidates
+ # key race voting info (vote count, % in, winner, etc)
  # green-o-meter
  # % change
  # incoming results ticker
