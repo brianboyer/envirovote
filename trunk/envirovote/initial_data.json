@@ -1,0 +1,54 @@
+[
+{
+"model": "races.race",
+"pk": 1,
+"fields": {
+    "race_type": "pre",
+    "state": null,
+    "district": null,
+    "key": false,
+    "headline": "The big kahuna",
+    "deck": "Who will be America's next top president?",
+    "body": "I swore that I would stop watching America's Next Top Model aft"
+    }
+},
+{
+"model": "races.race",
+"pk": 2,
+"fields": {
+    "race_type": "con",
+    "state": "MO",
+    "district": 1,
+    "key": true,
+    "headline": "Missouri catfight",
+    "deck": "Who will be Missouri's next top legislator?",
+    "body": "I swore that I would stop watching America's Next Top Model after Cycle 4, but five seasons later, here I am, counting the days until these 13 would-be catwalkers strut their stuff across my TV. This year’s crop of doe-eyed, long-limbed beauties include Janet, an aesthetician from Georgia who looks like she’s been in front of a camera or two; Kimberly, an Ali Larter doppelganger; and the sixth Sara/Sarah to compete in the show (the last five were less than spectacular).\n\nFashion icon Twiggy, photographer Nigel Barker, and runway expert J. Alexander are back for another season behind the judges' table. I’m curious to see what Miss J will be using to countdown the fallen models. First it was numbers, then ruffles. Might I suggest a subtle, yet fierce candelabrum this year?"
+    }
+},
+{
+"model": "races.race",
+"pk": 3,
+"fields": {
+    "race_type": "sen",
+    "state": "WA",
+    "district": null,
+    "key": true,
+    "headline": "Wacky Washington's wild ride",
+    "deck": "Who will win in Walla Walla?",
+    "body": "Walla Walla is the largest city in and the county seat of Walla Walla County, Washington, United States.[3] The population was 29,686 at the 2000 census. Walla Walla is in the southeastern region of Washington, approximately five hours by car from Seattle, Washington and thirteen miles from the Oregon border.\n\nWhitman College, Walla Walla Community College, and the Washington State Penitentiary are located in Walla Walla. Walla Walla University is located in nearby College Place, Washington. In addition, Baker Boyer Bank, the oldest bank in the state of Washington, was founded in Walla Walla in 1869.\n\nWalla Walla is famous for its sweet onions. Many wineries are located in the area and it is a popular vacation spot for wine enthusiasts."
+    }
+},
+{
+"model": "races.race",
+"pk": 4,
+"fields": {
+    "race_type": "gub",
+    "state": "IL",
+    "district": null,
+    "key": true,
+    "headline": "Blago's been busted!",
+    "deck": "You wish it were true.",
+    "body": "A Cook County judge on Wednesday removed a law firm that had been representing Illinois’ child-welfare agency in the criminal case of a former friend of Gov. Rod Blagojevich who faces charges of stealing $2 million from the state.\n\nAtty. Gen. Lisa Madigan’s office, which has complained about Blagojevich’s use of private law firms to represent state agencies, had asked that the firm of Meckler, Bulger and Tilson be prevented from representing the Department of Children and Family Services in the case of Anita Mahajan, who is accused of billing the state for drug tests that her firm, K.K. Bio-Science, did not perform.\n\nMadigan’s office argued that only the attorney general has the authority to represent state agencies in court or hire outside firms for that work."
+    }
+}
+]

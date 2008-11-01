@@ -72,8 +72,14 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.humanize',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'envirovote.races',
 )
+
+PIE_ROOT = '/home/bboyer/Sourcecode/envirovote/trunk/envirovote'
+STATIC_DOC_ROOT = PIE_ROOT + '/public'
