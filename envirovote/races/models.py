@@ -9,10 +9,10 @@ RACE_TYPE_CHOICES = (
 )
 
 class Race(models.Model):
-    race_type = models.CharField(max_length=3, choices=RACE_TYPE_CHOICES) #sen,con,gub,pre
+    race_type = models.CharField(max_length=3, choices=RACE_TYPE_CHOICES)
     state = models.CharField(max_length=2, choices=STATE_CHOICES, blank=True, null=True)
     district = models.IntegerField(blank=True, null=True)
-    key = models.BooleanField()
+    is_key = models.BooleanField()
     headline = models.CharField(max_length=200, blank=True)
     deck = models.CharField(max_length=200, blank=True)
     body = models.TextField(blank=True)
@@ -22,4 +22,21 @@ class Race(models.Model):
     #get greenness from candidate
 
     def __unicode__(self):
-        return '%s %s' % (self.state, self.race_type)
+        return "%s %s" % (self.state, self.race_type)
+    
+class Candidate(models.Model):
+    name = models.CharField(max_length=200)
+    photo = models.URLField(blank=True)
+    race = models.ForeignKey(Race)
+    is_key = models.BooleanField()
+    incumbent = models.BooleanField()
+    last_elected = models.IntegerField(blank=True, null=True)
+    #votes = models.IntegerField(blank=True, null=True)
+    #is_winner = models.BooleanField
+    
+    #links = models.TextField(blank=True) ??
+    #political courage test results
+    #badges (dirty dozen, etc.  set table?  array?  merge w/ links?)
+    
+    def __unicode__(self):
+        return self.name
