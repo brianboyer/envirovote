@@ -19,13 +19,16 @@
  * candidate
 
 == candidate ==
+ * name
+ * photo
  * race
- * state
+ * incumbent
+ * lastelected
+ * votes
+ * winner
  * links (sep table? array?)
  * political courage test results
  * badges (dirty dozen, etc.  set table?  array?  merge w/ links?)
- * photo
- * lastelected
 
 == proposition??? ==
 == state (env stats, etc?) ==
