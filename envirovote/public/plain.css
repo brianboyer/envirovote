@@ -1,12 +1,17 @@
 html {font-family:Arial, sans-serif;font-size:1em;}
 h1,h2,h3,h4,h5 {font-family:Verdana, Arial, sans-serif;}
-body {width:54em;margin:0 auto;}
+h1,h2 {border-bottom:.1em solid #d6f4b8;}
+body {margin:0 auto;}
 
 h1 a {font-size:2em; text-decoration:none;}
-h1 span.enviro {color:#a6ba1f;font-weight:normal;}
+h1 span.enviro {color:#61bb0a;font-weight:normal;}
 h1 span.vote {color:#333; font-variant: small-caps;}
 
-div.key-race {border-top:2px solid #999;}
+div.column {float:left;overflow:hidden;padding:.2em;}
+div.center {width:66%;}
+div.incoming-wins {width:30%;margin-left:.5em;padding-left:.5em;border-left:.1em solid #999;}
+
+div.key-race {border-bottom:2px solid #999;}
 div.key-race div.candidate-display {background:#efefef;float:left;width:46%;margin:0;padding:.8em;}
 div.key-race div.candidate-display img {float:left;margin-right:.4em;}
 div.key-race div.first {border-right:1px solid #999;}
@@ -25,4 +30,3 @@ div.endorse-o-meter div.meter div {height: 2em;}
 
 div.elections div.meter {height: 1em; border-width:0.1em;}
 div.elections div.meter div {height: 1em;}
-
