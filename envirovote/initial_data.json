@@ -31,7 +31,8 @@
     "tally_notes": "",
     "tally_updated": null,
     "winner": null,
-    "projected": false
+    "projected": false,
+    "incumbent":1
     }
 },
 {
@@ -48,7 +49,8 @@
     "tally_notes": "",
     "tally_updated": null,
     "winner": null,
-    "projected": false
+    "projected": false,
+    "incumbent":1
     }
 },
 {
@@ -65,7 +67,8 @@
     "tally_notes": "The Associated Press called the race with 63 out of 95 precincts reporting.",
     "tally_updated": "2008-11-01 18:48",
     "winner": 1,
-    "projected": true
+    "projected": true,
+    "incumbent":1
     }
 },
 {
@@ -82,7 +85,8 @@
     "tally_notes": "CBS called the race with 95 out of 95 precincts reporting.",
     "tally_updated": "2008-11-01 19:48",
     "winner": 4,
-    "projected": false
+    "projected": false,
+    "incumbent":1
     }
 },
 {
@@ -147,6 +151,24 @@
 "fields": {
     "name": "Sierra Club",
     "url": "http://www.sierraclub.org/politics/endorsements/index.asp"
+    }
+},
+{
+"model": "endorsements.endorsement",
+"pk": 1,
+"fields": {
+    "organization": 1,
+    "candidate": 1,
+    "year":2008
+    }
+},
+{
+"model": "endorsements.endorsement",
+"pk": 2,
+"fields": {
+    "organization": 2,
+    "candidate": 1,
+    "year":2004
     }
 }
 ]
