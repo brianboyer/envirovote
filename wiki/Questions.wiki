@@ -61,3 +61,5 @@ are these the elections?
  * West Virginia
  * Wisconsin
  * Wyoming
+
+If the incumbent won, do we show percent change in green-ness?
