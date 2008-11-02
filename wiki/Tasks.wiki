@@ -6,8 +6,8 @@
  # X key race info
  # X key race candidates
  # X key race voting info (vote count, % in, winner, etc)
- # key race green info
- # green-o-meter
+ # X key race green info
+ # X green-o-meter
  # % change
  # X incoming results ticker
  # your states
