@@ -79,6 +79,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'envirovote.races',
+    'envirovote.endorsements'
 )
 
 PIE_ROOT = '/home/bboyer/Sourcecode/envirovote/trunk/envirovote'
