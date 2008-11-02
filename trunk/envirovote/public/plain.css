@@ -23,11 +23,12 @@ div.key-race div.candidate-display span.incumbent {font-size:.8em;}
 div.key-race div.content {clear:both;}
 div.candidates {overflow:hidden;margin-bottom:.1em;}
 
-div.meter {width:100%; background-color:#d6f4b8; border-style:solid; border-color: #575a41;}
-div.meter div {background-color: #61bb0a;}
+div.meter div.bar {width:100%; background-color:#d6f4b8; border-style:solid; border-color: #575a41;}
+div.meter div.bar div {background-color: #61bb0a;}
 
-div.endorse-o-meter div.meter {height: 2em; border-width:0.1em;}
-div.endorse-o-meter div.meter div {height: 2em;}
+div.endorse-o-meter div.meter div.bar {height: 2em; border-width:0.1em;}
+div.endorse-o-meter div.meter div.bar div {height: 2em;}
 
-div.elections div.meter {height: 1em; border-width:0.1em;}
-div.elections div.meter div {height: 1em;}
+div.elections div.meter div.bar {height: 1em; border-width:0.1em;}
+div.elections div.meter div.bar div {height: 1em;}
+div.elections div.meter div.description {display:none;}

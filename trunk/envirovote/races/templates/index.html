@@ -6,9 +6,9 @@
 <div class="column states">
   <div class="elections">
       <h2>Elections</h2>
-      {% for name, election_percent_green in elections %}
+      {% for name, election_meter_info in elections %}
       {{name}}
-      {% show_meter election_percent_green %}
+      {% show_meter election_meter_info %}
       {% endfor %}
   </div>
 </div>
@@ -16,9 +16,7 @@
 <div class="column center">
 <div class="endorse-o-meter">
 <h2>Endorse-o-meter</h2>
-    {% show_meter percent_green %}
-    <p>{{green_races}} out of {{decided_races}} races decided, {{remaining_races}} to go.  (Learn how we calculate this)</p>
-    <p>Compared with last time: {{percent_change|floatformat:2}}% greener.</p>
+    {% show_meter meter_info %}
 </div>
 
 <h2>Key Races</h2>
