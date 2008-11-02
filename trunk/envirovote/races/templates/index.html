@@ -2,6 +2,8 @@
 {% load humanize %}
 {% load race_extras %}
 {% block filling %}
+
+<div class="column center">
 <div class="elections">
     <h2>Elections</h2>
     {% for name, election_percent_green in elections %}
@@ -14,32 +16,7 @@
     {% show_meter percent_green %}
     <p>{{green_races}} out of {{decided_races}} races decided, {{remaining_races}} to go.  (Learn how we calculate this)</p>
 </div>
-<h2>Incoming wins</h2>
-{% for race in incoming_races %}
-<div>
-    <h4>
-    {% ifequal race.race_type 'pre' %}U.S. President{% endifequal %}
-    {% ifequal race.race_type 'con' %}{{race.get_state_display}}, U.S. House{% endifequal %}
-    {% ifequal race.race_type 'sen' %}{{race.get_state_display}}, U.S. Senate{% endifequal %}
-    {% ifequal race.race_type 'gub' %}{{race.get_state_display}} Governor{% endifequal %}
-    </h4>
-    {% ifequal race.race_type 'con' %}<h5>{{race.district|ordinal}} District</h5>{% endifequal %}
-    <ol>
-    {% for candidate, percent in race.get_candidate_percentages %}
-        <li>
-        {{candidate}} {{percent|floatformat:2}}%
-        {% ifequal race.winner candidate %}***{% if race.projected %} (projected){% endif %}{% endifequal %}
-        </li>
-    {% endfor %}
-    </ol>
-    {% ifnotequal race.winner race.incumbent %}
-    <p>{{ race.percent_change }}% change in green-ness</p>
-    {% endifnotequal %}
-    <p>{{race.tally_notes}}</p>
-    <p>{{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
-</div>
-{% endfor %}
-<div>
+
 <h2>Key Races</h2>
 <div class="key-races">
 {% for race in key_races %}
@@ -79,4 +56,35 @@
   </div>
 {% endfor %}
 </div>
+</div>
+
+<div class="column incoming-wins">
+<h2>Incoming wins</h2>
+{% for race in incoming_races %}
+<div>
+    <h4>
+    {% ifequal race.race_type 'pre' %}U.S. President{% endifequal %}
+    {% ifequal race.race_type 'con' %}{{race.get_state_display}}, U.S. House{% endifequal %}
+    {% ifequal race.race_type 'sen' %}{{race.get_state_display}}, U.S. Senate{% endifequal %}
+    {% ifequal race.race_type 'gub' %}{{race.get_state_display}} Governor{% endifequal %}
+    </h4>
+    {% ifequal race.race_type 'con' %}<h5>{{race.district|ordinal}} District</h5>{% endifequal %}
+    <ol>
+    {% for candidate, percent in race.get_candidate_percentages %}
+        <li>
+        {{candidate}} {{percent|floatformat:2}}%
+        {% ifequal race.winner candidate %}***{% if race.projected %} (projected){% endif %}{% endifequal %}
+        </li>
+    {% endfor %}
+    </ol>
+    {% ifnotequal race.winner race.incumbent %}
+    <p>{{ race.percent_change }}% change in green-ness</p>
+    {% endifnotequal %}
+    <p>{{race.tally_notes}}</p>
+    <p>{{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
+</div>
+{% endfor %}
+<div>
+</div>
+
 {% endblock %}
