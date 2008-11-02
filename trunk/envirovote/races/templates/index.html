@@ -1,8 +1,31 @@
 {% extends "base.html" %}
 {% load humanize %}
 {% block filling %}
+<h2>Incoming results</h2>
+{% for race in incoming_races %}
+<div>
+    <h4>
+    {% ifequal race.race_type 'pre' %}U.S. President{% endifequal %}
+    {% ifequal race.race_type 'con' %}{{race.get_state_display}}, U.S. House{% endifequal %}
+    {% ifequal race.race_type 'sen' %}{{race.get_state_display}}, U.S. Senate{% endifequal %}
+    {% ifequal race.race_type 'gub' %}{{race.get_state_display}} Governor{% endifequal %}
+    </h4>
+    <h5>{% ifequal race.race_type 'con' %}{{race.district|ordinal}} District{% endifequal %}</h5>
+    <ol>
+    {% for candidate, percent in race.get_candidate_percentages %}
+        <li>
+        {% ifequal race.winner candidate %}***{% endifequal %}
+        {{candidate}} {{percent|floatformat:2}}%
+        </li>
+    {% endfor %}
+    </ol>
+    <p>{{race.tally_notes}}</p>
+    <p>{{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
+</div>
+{% endfor %}
+<div>
 <h2>Key Races</h2>
-{% for race in races %}
+{% for race in key_races %}
     <h3>{{race.headline}}</h3>
     <h4>{{race.deck}}</h4>
     <h5>
@@ -30,4 +53,5 @@
     {% endfor%}
     <p>{{race.body|linebreaks}}</p>
 {% endfor %}
+</div>
 {% endblock %}
