@@ -10,7 +10,7 @@
  # X green-o-meter
  # X % change
  # X incoming results ticker
- # your states
+ # X your states
  # pretty
  # description of how we get green-o-meter
  # ajaxit
