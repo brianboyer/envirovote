@@ -25,9 +25,10 @@
  # pretty
 
 == data ==
- # get pvs incumbent data
- # get pvs candidate data
+ # X get pvs incumbent data
+ # X get pvs candidate data
  # clear dupes
+ # get previous elections/candidate info?
 
 == Content ==
  # explain how we calculate the endorse-o-meter
