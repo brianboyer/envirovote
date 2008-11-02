@@ -30,7 +30,7 @@ class Race(models.Model):
         if self.race_type == 'pre':
             return "President of the United States"
         elif self.race_type == 'con':
-            return "U.S. House of Representatives, representing %s District of %s" % (humanize.ordinal(self.district),self.get_state_display())
+            return "U.S. House of Representatives, representing the %s District of %s" % (humanize.ordinal(self.district),self.get_state_display())
         elif self.race_type == 'sen':
             return "U.S. Senate, representing %s" % (self.get_state_display())
         elif self.race_type == 'gub':
