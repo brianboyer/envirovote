@@ -13,6 +13,8 @@ class Race(models.Model):
     race_type = models.CharField(max_length=3, choices=RACE_TYPE_CHOICES)
     state = models.CharField(max_length=2, choices=STATE_CHOICES, blank=True, null=True)
     district = models.IntegerField(blank=True, null=True)
+    year = models.IntegerField()
+    last_race = models.ForeignKey("Race", blank=True, null=True)
     is_key = models.BooleanField()
     headline = models.CharField(max_length=200, blank=True)
     deck = models.CharField(max_length=200, blank=True)
@@ -21,7 +23,6 @@ class Race(models.Model):
     tally_notes = models.CharField(max_length=200, blank=True)
     winner = models.ForeignKey("Candidate", blank=True, null=True, related_name="won")
     projected = models.BooleanField()
-    incumbent = models.ForeignKey("Candidate",related_name="is defending")
 
     def __unicode__(self):
         return "%s %s" % (self.state, self.race_type)
@@ -45,16 +46,12 @@ class Race(models.Model):
         high = 0
         ret = None
         for c in self.candidate_set.all():
-            if c.endorsement_count > high:
-                high = c.endorsement_count
+            count = c.endorsement_set.count()
+            if count > high:
+                high = count
                 ret = c
         return ret
     greenest = property(_get_greenest)
-    
-    def _get_percent_change(self):
-        """returns the change in the green-ness of the office"""
-        return (self.winner.endorsement_count - self.incumbent.old_endorsement_count) * 100
-    percent_change = property(_get_percent_change)
     
     def get_candidate_percentages(self):
         candidates = self.candidate_set.order_by('-votes')
@@ -63,12 +60,11 @@ class Race(models.Model):
         for c in candidates:
             total += c.votes
         return [ (c, 100*float(c.votes)/total) for c in candidates]
-    
-    
+
 class Candidate(models.Model):
     name = models.CharField(max_length=200)
     photo = models.URLField(blank=True)
-    race = models.ForeignKey(Race,blank=True,null=True)
+    race = models.ForeignKey(Race)
     is_key = models.BooleanField()
     last_elected = models.IntegerField(blank=True, null=True)
     votes = models.IntegerField(blank=True, null=True)
@@ -79,11 +75,3 @@ class Candidate(models.Model):
     
     def __unicode__(self):
         return self.name
-        
-    def _get_endorsement_count(self):
-        return self.endorsement_set.filter(year=2008).count()
-    endorsement_count = property(_get_endorsement_count)
-    
-    def _get_old_endorsement_count(self):
-        return self.endorsement_set.filter(year__lt=2008).count()
-    old_endorsement_count = property(_get_old_endorsement_count)
