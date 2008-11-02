@@ -21,6 +21,7 @@ class Race(models.Model):
     tally_notes = models.CharField(max_length=200, blank=True)
     winner = models.ForeignKey("Candidate", blank=True, null=True, related_name="won")
     projected = models.BooleanField()
+    incumbent = models.ForeignKey("Candidate",related_name="is defending")
 
     def __unicode__(self):
         return "%s %s" % (self.state, self.race_type)
@@ -50,6 +51,11 @@ class Race(models.Model):
         return ret
     greenest = property(_get_greenest)
     
+    def _get_percent_change(self):
+        """returns the change in the green-ness of the office"""
+        return (self.winner.endorsement_count - self.incumbent.old_endorsement_count) * 100
+    percent_change = property(_get_percent_change)
+    
     def get_candidate_percentages(self):
         candidates = self.candidate_set.order_by('-votes')
         #there's totally a more pythonic way to do this.  oh well.
@@ -62,7 +68,7 @@ class Race(models.Model):
 class Candidate(models.Model):
     name = models.CharField(max_length=200)
     photo = models.URLField(blank=True)
-    race = models.ForeignKey(Race)
+    race = models.ForeignKey(Race,blank=True,null=True)
     is_key = models.BooleanField()
     last_elected = models.IntegerField(blank=True, null=True)
     votes = models.IntegerField(blank=True, null=True)
@@ -75,5 +81,9 @@ class Candidate(models.Model):
         return self.name
         
     def _get_endorsement_count(self):
-        return self.endorsement_set.count()
+        return self.endorsement_set.filter(year=2008).count()
     endorsement_count = property(_get_endorsement_count)
+    
+    def _get_old_endorsement_count(self):
+        return self.endorsement_set.filter(year__lt=2008).count()
+    old_endorsement_count = property(_get_old_endorsement_count)

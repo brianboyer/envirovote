@@ -13,7 +13,7 @@
     {% ifequal race.race_type 'sen' %}{{race.get_state_display}}, U.S. Senate{% endifequal %}
     {% ifequal race.race_type 'gub' %}{{race.get_state_display}} Governor{% endifequal %}
     </h4>
-    <h5>{% ifequal race.race_type 'con' %}{{race.district|ordinal}} District{% endifequal %}</h5>
+    {% ifequal race.race_type 'con' %}<h5>{{race.district|ordinal}} District</h5>{% endifequal %}
     <ol>
     {% for candidate, percent in race.get_candidate_percentages %}
         <li>
@@ -22,6 +22,9 @@
         </li>
     {% endfor %}
     </ol>
+    {% ifnotequal race.winner race.incumbent %}
+    <p>{{ race.percent_change }}% change in green-ness</p>
+    {% endifnotequal %}
     <p>{{race.tally_notes}}</p>
     <p>{{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
 </div>
