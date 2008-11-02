@@ -62,4 +62,8 @@ are these the elections?
  * Wisconsin
  * Wyoming
 
-If the incumbent won, do we show percent change in green-ness?
+There are a lot of assumptions in the change in green-ness from past elections:
+ * If the winner of a race has more endorsements that the incumbent did (if the incumbent loses) in the last election, is the winner greener?
+ * What if no candidates were endorsed in the last race? Is the incumbent less green?
+ * Do we a assume zero endorsements for the incumbent in the last race means the previous challenger was the greener candidate?
+ * What if the incumbent wins and has more endorsements than in the last election? Is that a change?
