@@ -1,1 +1,7 @@
-<div class="meter"><div style="width:{{percent_green}}%;">&nbsp;</div></div>
+<div class="meter">
+    <div class="bar"><div style="width:{{percent_green}}%;">&nbsp;</div></div>
+    <div class="description">
+        <p>{{green_races}} out of {{decided_races}} races decided, {{remaining_races}} to go.  (Learn how we calculate this)</p>
+        <p>Compared with last time: {{percent_change|floatformat:2}}% greener.</p>
+    </div>
+</div>

@@ -7,20 +7,19 @@ def index(request):
     key = Race.objects.filter(is_key=True)
     incoming = Race.objects.filter(winner__isnull=False).order_by('-tally_updated')[:10]
     elections = get_elections()
-    info = get_races_info(Race.objects.filter(year=2008))
-    return render_to_response('index.html', {'key_races': key, 'incoming_races': incoming, 'decided_races': info['decided_races'], 'green_races': info['green_races'], 'percent_green': info['percent_green'], 'percent_change': info['percent_change'], 'remaining_races': info['remaining_races'], 'elections': elections,})
+    meter_info = get_meter_info(Race.objects.filter(year=2008))
+    return render_to_response('index.html', {'key_races': key, 'incoming_races': incoming, 'meter_info': meter_info, 'elections': elections,})
 
 def get_elections():
     elections = []
     for abbr, name in STATE_CHOICES:
-        info =get_races_info(Race.objects.filter(year=2008,state=abbr))
-        elections.append((name, info['percent_green']))
+        meter_info = get_meter_info(Race.objects.filter(year=2008,state=abbr))
+        elections.append((name, meter_info))
     return elections
 
-# TODO refactor meter so that it takes this dict??
 # all races must have a last_race, and all last_races must have a winner
 # TODO what about two races w/o a greenest candidate?  it should work if they have a winner.
-def get_races_info(races):
+def get_meter_info(races):
     total_races = 0
     decided_races = 0
     green_races = 0
