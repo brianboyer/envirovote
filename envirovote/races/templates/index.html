@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load humanize %}
 {% block filling %}
+<h2>Endorse-o-meter</h2>
+<div class="meter"><div style="width:{{percent_green}}%;">&nbsp;</div></div>
+<p>{{green_races}} out of {{decided_races}} races decided, {{remaining_races}} to go.  (Learn how we calculate this)</p>
 <h2>Incoming wins</h2>
 {% for race in incoming_races %}
 <div>

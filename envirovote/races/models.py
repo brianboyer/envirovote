@@ -39,16 +39,16 @@ class Race(models.Model):
             return "I don't know what race type this is"
     title = property(_get_title)
     
-    def _get_greenist(self):
-        """returns the greenist candidate in this race"""
+    def _get_greenest(self):
+        """returns the greenest candidate in this race"""
         high = 0
         ret = None
         for c in self.candidate_set.all():
             if c.endorsement_count > high:
+                high = c.endorsement_count
                 ret = c
-                
         return ret
-    greenist = property(_get_greenist)
+    greenest = property(_get_greenest)
     
     def get_candidate_percentages(self):
         candidates = self.candidate_set.order_by('-votes')
