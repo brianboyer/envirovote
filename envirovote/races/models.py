@@ -16,14 +16,22 @@ class Race(models.Model):
     headline = models.CharField(max_length=200, blank=True)
     deck = models.CharField(max_length=200, blank=True)
     body = models.TextField(blank=True)
-    percent_vote_reported = models.IntegerField(blank=True, null=True)
-    vote_last_updated = models.DateTimeField(blank=True, null=True)
+    tally_updated = models.DateTimeField(blank=True, null=True)
+    tally_notes = models.CharField(max_length=200, blank=True)
     winner = models.ForeignKey("Candidate", blank=True, null=True, related_name="won")
     projected = models.BooleanField()
 
     def __unicode__(self):
         return "%s %s" % (self.state, self.race_type)
-
+    
+    def get_candidate_percentages(self):
+        candidates = self.candidate_set.order_by('-votes')
+        #there's totally a more pythonic way to do this.  oh well.
+        total = 0
+        for c in candidates:
+            total += c.votes
+        return [ (c, 100*float(c.votes)/total) for c in candidates]
+    
 class Candidate(models.Model):
     name = models.CharField(max_length=200)
     photo = models.URLField(blank=True)

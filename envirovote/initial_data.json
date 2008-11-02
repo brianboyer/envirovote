@@ -28,8 +28,8 @@
     "headline": "The big kahuna",
     "deck": "Who will be America's next top president?",
     "body": "I swore that I would stop watching America's Next Top Model aft",
-    "percent_vote_reported": null,
-    "vote_last_updated": null,
+    "tally_notes": "",
+    "tally_updated": null,
     "winner": null,
     "projected": false
     }
@@ -45,8 +45,8 @@
     "headline": "Missouri catfight",
     "deck": "Who will be Missouri's next top legislator?",
     "body": "I swore that I would stop watching America's Next Top Model after Cycle 4, but five seasons later, here I am, counting the days until these 13 would-be catwalkers strut their stuff across my TV. This year‚Äôs crop of doe-eyed, long-limbed beauties include Janet, an aesthetician from Georgia who looks like she‚Äôs been in front of a camera or two; Kimberly, an Ali Larter doppelganger; and the sixth Sara/Sarah to compete in the show (the last five were less than spectacular).\n\nFashion icon Twiggy, photographer Nigel Barker, and runway expert J. Alexander are back for another season behind the judges' table. I‚Äôm curious to see what Miss J will be using to countdown the fallen models. First it was numbers, then ruffles. Might I suggest a subtle, yet fierce candelabrum this year?",
-    "percent_vote_reported": null,
-    "vote_last_updated": null,
+    "tally_notes": "",
+    "tally_updated": null,
     "winner": null,
     "projected": false
     }
@@ -62,8 +62,8 @@
     "headline": "Wacky Washington's wild ride",
     "deck": "Who will win in Walla Walla?",
     "body": "Walla Walla is the largest city in and the county seat of Walla Walla County, Washington, United States.[3] The population was 29,686 at the 2000 census. Walla Walla is in the southeastern region of Washington, approximately five hours by car from Seattle, Washington and thirteen miles from the Oregon border.\n\nWhitman College, Walla Walla Community College, and the Washington State Penitentiary are located in Walla Walla. Walla Walla University is located in nearby College Place, Washington. In addition, Baker Boyer Bank, the oldest bank in the state of Washington, was founded in Walla Walla in 1869.\n\nWalla Walla is famous for its sweet onions. Many wineries are located in the area and it is a popular vacation spot for wine enthusiasts.",
-    "percent_vote_reported": 63,
-    "vote_last_updated": "2008-11-01 18:48",
+    "tally_notes": "The Associated Press called the race with 63 out of 95 precincts reporting.",
+    "tally_updated": "2008-11-01 18:48",
     "winner": 1,
     "projected": true
     }
@@ -75,13 +75,13 @@
     "race_type": "gub",
     "state": "IL",
     "district": null,
-    "is_key": true,
+    "is_key": false,
     "headline": "Blago's been busted!",
     "deck": "You wish it were true.",
     "body": "A Cook County judge on Wednesday removed a law firm that had been representing Illinois‚Äô child-welfare agency in the criminal case of a former friend of Gov. Rod Blagojevich who faces charges of stealing $2 million from the state.\n\nAtty. Gen. Lisa Madigan‚Äôs office, which has complained about Blagojevich‚Äôs use of private law firms to represent state agencies, had asked that the firm of Meckler, Bulger and Tilson be prevented from representing the Department of Children and Family Services in the case of Anita Mahajan, who is accused of billing the state for drug tests that her firm, K.K. Bio-Science, did not perform.\n\nMadigan‚Äôs office argued that only the attorney general has the authority to represent state agencies in court or hire outside firms for that work.",
-    "percent_vote_reported": null,
-    "vote_last_updated": null,
-    "winner": null,
+    "tally_notes": "CBS called the race with 63 out of 95 precincts reporting.",
+    "tally_updated": "2008-11-01 19:48",
+    "winner": 4,
     "projected": false
     }
 },
@@ -107,6 +107,30 @@
     "is_key": true,
     "last_elected": null,
     "votes": 98765
+    }
+},
+{
+"model": "races.candidate",
+"pk": 3,
+"fields": {
+    "name": "Brian M. Boyer",
+    "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "race": 4,
+    "is_key": false,
+    "last_elected": "2004",
+    "votes": 34543
+    }
+},
+{
+"model": "races.candidate",
+"pk": 4,
+"fields": {
+    "name": "Ryan T. Mark",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "race": 4,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 1234567
     }
 },
 {
