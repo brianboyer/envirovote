@@ -14,8 +14,8 @@
     <ol>
     {% for candidate, percent in race.get_candidate_percentages %}
         <li>
-        {% ifequal race.winner candidate %}***{% endifequal %}
         {{candidate}} {{percent|floatformat:2}}%
+        {% ifequal race.winner candidate %}***{% if race.projected %} (projected){% endif %}{% endifequal %}
         </li>
     {% endfor %}
     </ol>
