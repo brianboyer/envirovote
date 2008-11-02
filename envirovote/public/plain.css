@@ -1,5 +1,20 @@
+html {font-family:Arial, sans-serif;font-size:1em;}
+h1,h2,h3,h4,h5 {font-family:Verdana, Arial, sans-serif;}
+body {width:54em;margin:0 auto;}
+
 h1 a {font-size:2em; text-decoration:none;}
 h1 span.enviro {color:green; font-family:Verdana, Arial, sans-serif;}
 h1 span.vote {color:gray; font-variant: small-caps; font-family: Georgia, Times, serif;}
+
+div.key-race {border-top:2px solid #999;}
+div.key-race div.candidate-display {background:#efefef;float:left;width:46%;margin:0;padding:.8em;}
+div.key-race div.candidate-display img {float:left;margin-right:.4em;}
+div.key-race div.first {border-right:1px solid #999;}
+div.key-race div.greenest {background:#b8ea96;}
+div.key-race div.candidate-display span {display:block;}
+div.key-race div.candidate-display span.name {font-size:1.2em;}
+div.key-race div.candidate-display span.incumbent {font-size:.8em;}
+div.key-race div.content {clear:both;}
+div.candidates {overflow:hidden;margin-bottom:.1em;}=======
 div.meter {width:100%; height:2em; background-color:gray;}
 div.meter div {height:2em;background-color: green;}

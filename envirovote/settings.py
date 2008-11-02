@@ -82,5 +82,5 @@ INSTALLED_APPS = (
     'envirovote.endorsements'
 )
 
-PIE_ROOT = '/home/bboyer/Sourcecode/envirovote/trunk/envirovote'
+PIE_ROOT = '/Users/rmark/Documents/django/envirovote'
 STATIC_DOC_ROOT = PIE_ROOT + '/public'
