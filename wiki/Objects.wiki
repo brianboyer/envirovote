@@ -17,6 +17,11 @@
  * source
  * year
  * candidate
+ * url
+
+== source ==
+ * name
+ * info
 
 == candidate ==
  * name
