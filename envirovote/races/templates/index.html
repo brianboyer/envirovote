@@ -73,20 +73,14 @@
     {% ifequal race.race_type 'con' %}<h5>{{race.district|ordinal}} District</h5>{% endifequal %}
     <ol>
     {% for candidate, percent in race.get_candidate_percentages %}
-        <li>
+        <li class="{% ifequal race.greenest candidate %}greenest{% endifequal %} {% ifequal race.winner candidate %}winner{% endifequal %}">
         {{candidate}} {{percent|floatformat:2}}%
-        {% ifequal race.winner candidate %}***{% if race.projected %} (projected){% endif %}{% endifequal %}
+        {% ifequal race.winner candidate %}{% if race.projected %} (projected){% endif %}{% endifequal %}
         </li>
     {% endfor %}
     </ol>
-    {% ifnotequal race.winner race.incumbent %}
-    <p>{{ race.percent_change }}% change in green-ness</p>
-    {% endifnotequal %}
-    <p>{{race.tally_notes}}</p>
-    <p>{{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
+    <p class="tally-notes">{{race.tally_notes}}</p>
+    <p class="tally-updated">{{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
 </div>
 {% endfor %}
-<div>
-</div>
-
 {% endblock %}
