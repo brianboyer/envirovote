@@ -90,5 +90,21 @@
     "last_elected": null,
     "votes": 98765
     }
+},
+{
+"model": "endorsements.organization",
+"pk": 1,
+"fields": {
+    "name": "League of Conservation Voters",
+    "url": "http://www.lcv.org/campaigns/endorsements/"
+    }
+},
+{
+"model": "endorsements.organization",
+"pk": 2,
+"fields": {
+    "name": "Sierra Club",
+    "url": "http://www.sierraclub.org/politics/endorsements/index.asp"
+    }
 }
 ]
