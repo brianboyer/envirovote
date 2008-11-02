@@ -12,9 +12,9 @@
  # X incoming results ticker
  # X your states
  # pretty
+ # description of how we get green-o-meter and % change
  # tests for green-o-meter
  # tests for % change
- # description of how we get green-o-meter and % change
  # ajaxit
 
 == state page ==
