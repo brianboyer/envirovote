@@ -15,6 +15,17 @@
         {% if candidate.is_key %}
             <h6>{{candidate.name}}{% if candidate.last_elected %} (incumbent, last elected {{candidate.last_elected}}){% endif %}</h6>
             <img src="{{candidate.photo}}"/>
+            {% if candidate.votes %}<p>{{candidate.votes}} votes</p>{% endif %}
+            <p>
+                {% ifequal race.winner candidate %}
+                    {% if race.projected %}
+                        Projected winner
+                    {% else %}
+                        Winner
+                    {% endif %}
+                {% endifequal %}
+            </p>
+            {% if race.vote_last_updated %}<p>Last updated at {{race.vote_last_updated|date:"h:i a"}} {{race.vote_last_updated|naturalday}}</p>{% endif %}
         {% endif %}
     {% endfor%}
     <p>{{race.body|linebreaks}}</p>
