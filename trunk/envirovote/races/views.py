@@ -5,7 +5,7 @@ from endorsements.models import *
 
 def index(request):
     key = Race.objects.filter(is_key=True)
-    incoming = Race.objects.filter(winner__isnull=False).order_by('-tally_updated')[:10]
+    incoming = Race.objects.filter(year=2008,winner__isnull=False).order_by('-tally_updated')[:10]
     elections = get_elections()
     meter_info = get_meter_info(Race.objects.filter(year=2008))
     return render_to_response('index.html', {'key_races': key, 'incoming_races': incoming, 'meter_info': meter_info, 'elections': elections,})

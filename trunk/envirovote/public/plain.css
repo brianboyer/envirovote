@@ -1,5 +1,5 @@
 html {font-family:Arial, sans-serif;font-size:1em;}
-h1,h2,h3,h4,h5 {font-family:Verdana, Arial, sans-serif;}
+h1,h2,h3,h4,h5 {font-family:Verdana,Arial,sans-serif;}
 h1,h2 {border-bottom:.1em solid #d6f4b8;}
 body {margin:0 auto;}
 
@@ -32,3 +32,14 @@ div.endorse-o-meter div.meter div.bar div {height: 2em;}
 div.elections div.meter div.bar {height: 1em; border-width:0.1em;}
 div.elections div.meter div.bar div {height: 1em;}
 div.elections div.meter div.description {display:none;}
+
+div.incoming-wins div {background-color:#efefef;border:#999 solid 1px;padding:0.5em;margin-bottom: 0.5em;}
+div.incoming-wins div p.tally-notes {font-size:0.8em;}
+div.incoming-wins div p.tally-updated {text-align:right;font-size:0.7em;margin-top:0.3em;}
+div.incoming-wins div p {margin:0;}
+div.incoming-wins div h4 {margin:0;}
+div.incoming-wins div ol {list-style:none;padding:0;}
+div.incoming-wins div ol li {padding:0.2em;}
+div.incoming-wins div ol li.greenest {background-color:#61bb0a;color:white;border:solid 1px #575a41;}
+div.incoming-wins div ol li.winner {font-weight:bold; font-size:1em;}
+div.incoming-wins div ol li {font-size:0.9em};
