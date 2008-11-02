@@ -15,7 +15,6 @@ class Endorsement(models.Model):
     organization = models.ForeignKey(Organization)
     candidate = models.ForeignKey(Candidate)
     url = models.URLField(blank=True,null=True)
-    year = models.IntegerField(default=2008)
     # positive vs negitive endorsements? dirty dozen?
     
     def __unicode__(self):

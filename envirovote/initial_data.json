@@ -24,15 +24,16 @@
     "race_type": "pre",
     "state": null,
     "district": null,
+    "year": 2008,
+    "last_race": 5,
     "is_key": false,
     "headline": "The big kahuna",
     "deck": "Who will be America's next top president?",
     "body": "I swore that I would stop watching America's Next Top Model aft",
-    "tally_notes": "",
-    "tally_updated": null,
-    "winner": null,
-    "projected": false,
-    "incumbent":1
+    "tally_notes": "Fox News called the race with 25 out of 25 precincts reporting.",
+    "tally_updated": "2008-11-02 12:12",
+    "winner": 6,
+    "projected": false
     }
 },
 {
@@ -42,6 +43,8 @@
     "race_type": "con",
     "state": "MO",
     "district": 1,
+    "year": 2008,
+    "last_race": 6,
     "is_key": true,
     "headline": "Missouri catfight",
     "deck": "Who will be Missouri's next top legislator?",
@@ -49,8 +52,7 @@
     "tally_notes": "",
     "tally_updated": null,
     "winner": null,
-    "projected": false,
-    "incumbent":1
+    "projected": false
     }
 },
 {
@@ -60,6 +62,8 @@
     "race_type": "sen",
     "state": "WA",
     "district": null,
+    "year": 2008,
+    "last_race": 7,
     "is_key": true,
     "headline": "Wacky Washington's wild ride",
     "deck": "Who will win in Walla Walla?",
@@ -67,8 +71,7 @@
     "tally_notes": "The Associated Press called the race with 63 out of 95 precincts reporting.",
     "tally_updated": "2008-11-01 18:48",
     "winner": 1,
-    "projected": true,
-    "incumbent":1
+    "projected": true
     }
 },
 {
@@ -78,6 +81,8 @@
     "race_type": "gub",
     "state": "IL",
     "district": null,
+    "year": 2008,
+    "last_race": 8,
     "is_key": false,
     "headline": "Blago's been busted!",
     "deck": "You wish it were true.",
@@ -85,8 +90,79 @@
     "tally_notes": "CBS called the race with 95 out of 95 precincts reporting.",
     "tally_updated": "2008-11-01 19:48",
     "winner": 4,
-    "projected": false,
-    "incumbent":1
+    "projected": false
+    }
+},
+{
+"model": "races.race",
+"pk": 5,
+"fields": {
+    "race_type": "pre",
+    "state": null,
+    "district": null,
+    "year": 2004,
+    "is_key": false,
+    "headline": "",
+    "deck": "",
+    "body": "",
+    "tally_notes": "",
+    "tally_updated": null,
+    "winner": 13,
+    "projected": false
+    }
+},
+{
+"model": "races.race",
+"pk": 6,
+"fields": {
+    "race_type": "con",
+    "state": "MO",
+    "district": 1,
+    "year": 2006,
+    "is_key": false,
+    "headline": "",
+    "deck": "",
+    "body": "",
+    "tally_notes": "",
+    "tally_updated": null,
+    "winner": 16,
+    "projected": false
+    }
+},
+{
+"model": "races.race",
+"pk": 7,
+"fields": {
+    "race_type": "sen",
+    "state": "WA",
+    "district": null,
+    "year": 2002,
+    "is_key": false,
+    "headline": "",
+    "deck": "",
+    "body": "",
+    "tally_notes": "",
+    "tally_updated": null,
+    "winner": 9,
+    "projected": false
+    }
+},
+{
+"model": "races.race",
+"pk": 8,
+"fields": {
+    "race_type": "gub",
+    "state": "IL",
+    "district": null,
+    "year": 2005,
+    "is_key": false,
+    "headline": "",
+    "deck": "",
+    "body": "",
+    "tally_notes": "",
+    "tally_updated": null,
+    "winner": 1,
+    "projected": false
     }
 },
 {
@@ -138,11 +214,155 @@
     }
 },
 {
+"model": "races.candidate",
+"pk": 5,
+"fields": {
+    "name": "Stuart Q. Tiffin, Jr.",
+    "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "race": 1,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 1234
+    }
+},
+{
+"model": "races.candidate",
+"pk": 6,
+"fields": {
+    "name": "Kayla Webley",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "race": 1,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 1235
+    }
+},
+{
+"model": "races.candidate",
+"pk": 7,
+"fields": {
+    "name": "Rich X. Gordon",
+    "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "race": 2,
+    "is_key": true,
+    "last_elected": null,
+    "votes": 29298
+    }
+},
+{
+"model": "races.candidate",
+"pk": 8,
+"fields": {
+    "name": "Jeremy T. Gilbert, III",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "race": 2,
+    "is_key": true,
+    "last_elected": null,
+    "votes": 39283
+    }
+},
+{
+"model": "races.candidate",
+"pk": 9,
+"fields": {
+    "name": "Edward M. 'Ted' Kennedy, Sr.",
+    "photo": "http://www.votesmart.org/canphoto/53305.jpg",
+    "race": 7,
+    "is_key": true,
+    "last_elected": "2001",
+    "votes": 1234567
+    }
+},
+{
+"model": "races.candidate",
+"pk": 10,
+"fields": {
+    "name": "Jeffrey K. Beatty",
+    "photo": "http://www.votesmart.org/canphoto/nophoto.gif",
+    "race": 7,
+    "is_key": true,
+    "last_elected": null,
+    "votes": 98765
+    }
+},
+{
+"model": "races.candidate",
+"pk": 11,
+"fields": {
+    "name": "Brian M. Boyer",
+    "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "race": 8,
+    "is_key": false,
+    "last_elected": "2004",
+    "votes": 34543
+    }
+},
+{
+"model": "races.candidate",
+"pk": 12,
+"fields": {
+    "name": "Ryan T. Mark",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "race": 8,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 1234567
+    }
+},
+{
+"model": "races.candidate",
+"pk": 13,
+"fields": {
+    "name": "Stuart Q. Tiffin, Jr.",
+    "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "race": 5,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 1234
+    }
+},
+{
+"model": "races.candidate",
+"pk": 14,
+"fields": {
+    "name": "Kayla Webley",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "race": 5,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 1235
+    }
+},
+{
+"model": "races.candidate",
+"pk": 15,
+"fields": {
+    "name": "Rich X. Gordon",
+    "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "race": 6,
+    "is_key": true,
+    "last_elected": null,
+    "votes": 29298
+    }
+},
+{
+"model": "races.candidate",
+"pk": 16,
+"fields": {
+    "name": "Jeremy T. Gilbert, III",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "race": 6,
+    "is_key": true,
+    "last_elected": null,
+    "votes": 39283
+    }
+},
+{
 "model": "endorsements.organization",
 "pk": 1,
 "fields": {
     "name": "League of Conservation Voters",
-    "url": "http://www.lcv.org/campaigns/endorsements/"
+    "url": "http://www.lcv.org/"
     }
 },
 {
@@ -150,7 +370,7 @@
 "pk": 2,
 "fields": {
     "name": "Sierra Club",
-    "url": "http://www.sierraclub.org/politics/endorsements/index.asp"
+    "url": "http://www.sierraclub.org/"
     }
 },
 {
@@ -159,7 +379,7 @@
 "fields": {
     "organization": 1,
     "candidate": 1,
-    "year":2008
+    "url": "http://www.lcv.org/campaigns/endorsements/"
     }
 },
 {
@@ -168,7 +388,43 @@
 "fields": {
     "organization": 2,
     "candidate": 1,
-    "year":2004
+    "url": "http://www.sierraclub.org/politics/endorsements/"
+    }
+},
+{
+"model": "endorsements.endorsement",
+"pk": 3,
+"fields": {
+    "organization": 1,
+    "candidate": 9,
+    "url": "http://www.lcv.org/campaigns/endorsements/"
+    }
+},
+{
+"model": "endorsements.endorsement",
+"pk": 4,
+"fields": {
+    "organization": 2,
+    "candidate": 9,
+    "url": "http://www.sierraclub.org/politics/endorsements/"
+    }
+},
+{
+"model": "endorsements.endorsement",
+"pk": 5,
+"fields": {
+    "organization": 1,
+    "candidate": 4,
+    "url": "http://www.lcv.org/campaigns/endorsements/"
+    }
+},
+{
+"model": "endorsements.endorsement",
+"pk": 6,
+"fields": {
+    "organization": 1,
+    "candidate": 12,
+    "url": "http://www.lcv.org/campaigns/endorsements/"
     }
 }
 ]

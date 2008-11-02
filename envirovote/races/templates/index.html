@@ -18,6 +18,7 @@
 <h2>Endorse-o-meter</h2>
     {% show_meter percent_green %}
     <p>{{green_races}} out of {{decided_races}} races decided, {{remaining_races}} to go.  (Learn how we calculate this)</p>
+    <p>Compared with last time: {{percent_change|floatformat:2}}% greener.</p>
 </div>
 
 <h2>Key Races</h2>
