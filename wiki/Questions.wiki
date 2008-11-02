@@ -1,0 +1,5 @@
+#summary Questions to ask Marcel
+
+how should we denote a winner?  AP has called the race with 25 out of 30 precincts reporting.  ??
+ * should we only use AP?
+ * will we always know precinct count?
