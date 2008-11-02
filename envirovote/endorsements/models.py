@@ -18,8 +18,4 @@ class Endorsement(models.Model):
     # positive vs negitive endorsements? dirty dozen?
     
     def __unicode__(self):
-        if self.year < 2008:
-            return "%s endorsed %s in %s" % (self.organization.name,self.candidate.name,self.year)
-        else:
-            return "%s endorses %s" % (self.organization.name,self.candidate.name)
-    
+        return "%s endorsed %s in %s" % (self.organization.name,self.candidate.name,self.candidate.race.year)    
