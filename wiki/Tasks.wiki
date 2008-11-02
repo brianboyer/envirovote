@@ -8,11 +8,13 @@
  # X key race voting info (vote count, % in, winner, etc)
  # X key race green info
  # X green-o-meter
- # % change
+ # X % change
  # X incoming results ticker
  # X your states
  # pretty
- # description of how we get green-o-meter
+ # tests for green-o-meter
+ # tests for % change
+ # description of how we get green-o-meter and % change
  # ajaxit
 
 == state page ==
