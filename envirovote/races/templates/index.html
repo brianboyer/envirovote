@@ -25,20 +25,20 @@
 {% endfor %}
 <div>
 <h2>Key Races</h2>
+<div class="key-races">
 {% for race in key_races %}
-    <h3>{{race.headline}}</h3>
-    <h4>{{race.deck}}</h4>
-    <h5>
-    {% ifequal race.race_type 'pre' %}President of the United States{% endifequal %}
-    {% ifequal race.race_type 'con' %}U.S. House of Representatives, {{race.get_state_display}} {{race.district|ordinal}} District{% endifequal %}
-    {% ifequal race.race_type 'sen' %}U.S. Senate{% endifequal %}
-    {% ifequal race.race_type 'gub' %}Governor of {{race.get_state_display}}{% endifequal %}
-    </h5>
+  <div class="key-race">
+    <h3>{{race.title}}</h3>
     {% for candidate in race.candidate_set.all %}
         {% if candidate.is_key %}
+        <div ></div>
             <h6>{{candidate.name}}{% if candidate.last_elected %} (incumbent, last elected {{candidate.last_elected}}){% endif %}</h6>
             <img src="{{candidate.photo}}"/>
             {% if candidate.votes %}<p>{{candidate.votes}} votes</p>{% endif %}
+            {% ifequal race.greenist candidate %}<p>This is the greenist candidate!</p>{% endifequal %}
+            {% for endorsement in candidate.endorsement_set.all %}
+              {{ endorsement }}<br/>
+            {% endfor %}
             <p>
                 {% ifequal race.winner candidate %}
                     {% if race.projected %}
@@ -48,10 +48,16 @@
                     {% endif %}
                 {% endifequal %}
             </p>
-            {% if race.vote_last_updated %}<p>Last updated at {{race.vote_last_updated|date:"h:i a"}} {{race.vote_last_updated|naturalday}}</p>{% endif %}
+            
         {% endif %}
     {% endfor%}
-    <p>{{race.body|linebreaks}}</p>
+    <h3>{{race.deck}}</h3>
+    <h4>{{race.title}}</h4>
+    {% if race.vote_last_updated %}
+      <p>Last updated at {{race.vote_last_updated|date:"h:i a"}} {{race.vote_last_updated|naturalday}}</p>
+    {% endif %}
+    {{race.body|linebreaks}}
+  </div>
 {% endfor %}
 </div>
 {% endblock %}

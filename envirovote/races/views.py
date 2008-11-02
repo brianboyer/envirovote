@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response
 from races.models import Race
+from endorsements.models import * 
 
 def index(request):
     key = Race.objects.filter(is_key=True)
