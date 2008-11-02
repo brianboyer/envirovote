@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% load humanize %}
+{% load race_extras %}
 {% block filling %}
+<div class="elections">
+    <h2>Elections</h2>
+    {% for name, election_percent_green in elections %}
+    {{name}}
+    {% show_meter election_percent_green %}
+    {% endfor %}
+</div>
+<div class="endorse-o-meter">
 <h2>Endorse-o-meter</h2>
-<div class="meter"><div style="width:{{percent_green}}%;">&nbsp;</div></div>
-<p>{{green_races}} out of {{decided_races}} races decided, {{remaining_races}} to go.  (Learn how we calculate this)</p>
+    {% show_meter percent_green %}
+    <p>{{green_races}} out of {{decided_races}} races decided, {{remaining_races}} to go.  (Learn how we calculate this)</p>
+</div>
 <h2>Incoming wins</h2>
 {% for race in incoming_races %}
 <div>
