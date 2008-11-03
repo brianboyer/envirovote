@@ -16,26 +16,25 @@ div.key-race {border-bottom:2px solid #999;}
 div.key-race div.candidate-display {background:#efefef;float:left;width:46%;margin:0;padding:.8em;}
 div.key-race div.candidate-display img {float:left;margin-right:.4em;}
 div.key-race div.first {border-right:1px solid #999;}
-div.key-race div.greenest {background:#61bb0a;}
+div.key-race div.greenest {background:#AED463;}
 div.key-race div.candidate-display span {display:block;}
 div.key-race div.candidate-display span.name {font-size:1.2em;}
 div.key-race div.candidate-display span.incumbent {font-size:.8em;}
 div.key-race div.content {clear:both;}
 div.candidates {overflow:hidden;margin-bottom:.1em;}
 
-div.meter div.bar {width:100%; background-color:#d6f4b8; border-style:solid; border-color: #575a41;}
+div.meter {overflow:hidden;}
+div.meter div.bar {background-color:#d6f4b8; border-style:solid; border-color: #575a41;}
 div.meter div.bar div {background-color: #61bb0a;}
 div.meter p.learn {text-align:right;font-size:0.8em;}
 
-div.endorse-o-meter div.meter div.bar {height: 2em; border-width:0.1em;}
-div.endorse-o-meter div.meter div.bar div {height: 2em;}
+div.endorse-o-meter {font-family:Verdana,Arial,sans-serif;}
+div.endorse-o-meter div.meter {background:url(/public/images/bar-right.png) top right no-repeat;height:44px;}
+div.endorse-o-meter div.meter div.bar {height: 2em; border-width:0.1em;height:44px;background:url(/public/images/bar-left.png) top left no-repeat;padding:6px;border:0 !important;}
+div.endorse-o-meter div.meter div.bar div {height: 2em;background:url(/public/images/bar-fill.png);}
 
-div.elections div.meter div.bar {height: 1em; border-width:0.1em;}
-div.elections div.meter div.bar div {height: 1em;}
-div.elections div.meter div.description {display:none;}
-div.elections div.meter p.learn {display:none;}
-
-div.about div.meter p.learn {display:none;}
+div.elections div.meter div.bar {height: 1em; border-width:0.1em;background:url(/public/images/mini-bar-back.png);}
+div.elections div.meter div.bar div {height: 1em;background:url(/public/images/mini-bar-fill.png);}
 
 div.incoming-wins div {background-color:#efefef;border:#999 solid 1px;padding:0.5em;margin-bottom: 0.5em;}
 div.incoming-wins div p.tally-notes {font-size:0.8em;}

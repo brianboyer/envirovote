@@ -1,9 +1,4 @@
 {% load humanize %}
 <div class="meter">
     <div class="bar" title="{{green_races}} / {{decided_races}}, {{percent_change|floatformat:2}}% more enviromintier"><div style="width:{{percent_green}}%;">&nbsp;</div></div>
-    <div class="description">
-        <p>{{green_races|apnumber|capfirst}} wins for the environment out of {{decided_races|apnumber}} races decided, {{remaining_races|apnumber}} to go.</p>
-        <p>Compared with last time: {{percent_change|floatformat:2}}% enviromintier.</p>
-    </div>
-    <p class="learn">(<a href="/about#calculations">Learn how we calculate this</a>)</p>
 </div>
