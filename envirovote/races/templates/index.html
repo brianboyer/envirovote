@@ -55,7 +55,11 @@
           {% endif %}
           <div class="detail">
           {% ifnotequal candidate.endorsement_set.all.count 0 %}
-          <span class="endorsement">Endorsed by {{candidate.endorsement_set.all.count|apnumber}} 
+          <span class="endorsement">
+            {% ifequal race.greenest candidate  %}
+              <img src="/public/images/world.png" alt="Most endorsed by environmental groups" title="Most endorsed by environmental groups" class="badge"/>
+            {% endifequal %}
+            Endorsed by {{candidate.endorsement_set.all.count|apnumber}} 
             organization{% ifnotequal candidate.endorsement_set.all.count 1 %}s{% endifnotequal %}</span>
           {% else %}
           <span class="endorsement">No endorsements</span>

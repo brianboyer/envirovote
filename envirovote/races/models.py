@@ -85,11 +85,11 @@ class Race(models.Model):
     year = models.IntegerField()
     last_race = models.ForeignKey("Race", blank=True, null=True)
     is_key = models.BooleanField()
-    headline = models.CharField(max_length=200, blank=True)
-    deck = models.CharField(max_length=200, blank=True)
-    body = models.TextField(blank=True)
+    headline = models.CharField(max_length=200, blank=True, null=True)
+    deck = models.CharField(max_length=200, blank=True, null=True)
+    body = models.TextField(blank=True, null=True)
     tally_updated = models.DateTimeField(blank=True, null=True)
-    tally_notes = models.CharField(max_length=200, blank=True)
+    tally_notes = models.CharField(max_length=200, blank=True, null=True)
     winner = models.ForeignKey("Candidate", blank=True, null=True, related_name="won")
     projected = models.BooleanField()
 
@@ -136,8 +136,8 @@ class Race(models.Model):
 
 class Candidate(models.Model):
     name = models.CharField(max_length=200)
-    party_type = models.CharField(max_length=3, choices=PARTY_TYPE_CHOICES)
-    photo = models.URLField(blank=True)
+    party = models.CharField(max_length=120)
+    photo = models.URLField(blank=True, null=True)
     race = models.ForeignKey(Race)
     is_key = models.BooleanField()
     last_elected = models.IntegerField(blank=True, null=True)
@@ -157,12 +157,12 @@ class Candidate(models.Model):
         return (float(self.votes)/tot)*100
     vote_percentage = property(_get_vote_percentage)
 
-    def _get_party(self):
+    def _get_party_abbv(self):
         """full party name"""
         for k,v in PARTY_TYPE_CHOICES:
-            if k == self.party_type:
+            if k == self.party:
                 return v
-    party = property(_get_party)
+    party_abbv = property(_get_party_abbv)
     
     def __unicode__(self):
-        return "%s (%s)" % (self.name,self.party_type)
+        return "%s (%s)" % (self.name,self.party)
