@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     
     (r'^$', 'envirovote.races.views.index'),
     (r'^about$', 'envirovote.races.views.about'),
+    (r'^race/(?P<race_id>\w+)$', 'envirovote.races.views.detail'),
     (r'^public/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_DOC_ROOT}),
     (r'^(?P<state>.+)/$', 'envirovote.races.views.state'),
 )

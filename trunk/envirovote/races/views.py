@@ -17,6 +17,12 @@ def index(request):
     states = get_states_and_info()
     meter_info = calculate_meter_info(Race.objects.filter(year=2008))
     return render_to_response('index.html', {'key_races': key, 'incoming_races': incoming, 'meter_info': meter_info, 'states': states,})
+    
+def detail(request,race_id):
+    """detail on a race"""
+    race = Race.objects.get(pk=race_id)
+    candidates = race.candidate_set.order_by("-votes")
+    return render_to_response('race_detail.html',{'race':race,'candidates':candidates})
 
 def get_states_and_info():
     states = []
