@@ -18,7 +18,10 @@
  # ajaxit
 
 == race page ==
- # ???
+ # X candidate list
+ # X key race content
+ # pretty
+ # extra links
 
 == state page ==
  # basic race info, links to race page
@@ -38,3 +41,9 @@
 == Content ==
  # X explain how we calculate the endorse-o-meter
  # our story, affiliations, etc
+
+== Testing ==
+ # make sure it makes sense to people
+
+== idea ==
+ # show grand total of endorsements
