@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.humanize.templatetags import humanize
+#from pvs.Util import doWebServiceCall
+#from pvs.Common import PVSException
 
 RACE_TYPE_CHOICES = (
     ('pre', 'President'),
@@ -140,6 +142,8 @@ class Candidate(models.Model):
     is_key = models.BooleanField()
     last_elected = models.IntegerField(blank=True, null=True)
     votes = models.IntegerField(blank=True, null=True)
+    pvs_candidate_id = models.IntegerField(blank=True,null=True)
+    extra_info = models.TextField(blank=True,null=True)
     
     #links = models.TextField(blank=True) ??
     #political courage test results

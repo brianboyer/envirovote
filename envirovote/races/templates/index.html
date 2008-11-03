@@ -37,6 +37,7 @@
               Winner
             {% endif %}
             </span>
+          {% else %}<span class="winner" style="background:transparent">&nbsp;</span>
           {% endifequal %}
           <span class="name">
           {% ifequal race.winner candidate %}
@@ -92,7 +93,15 @@
     {% ifequal race.race_type 'con' %}<h5>{{race.district|ordinal}} District</h5>{% endifequal %}
     <ol>
     {% for candidate, percent in race.get_candidate_percentages %}
-        <li class="{% ifequal race.greenest candidate %}greenest{% endifequal %} {% ifequal race.winner candidate %}winner{% endifequal %}">
+        <li class="{% ifequal race.winner candidate %}winner{% endifequal %}">
+      {% ifequal race.winner candidate %}
+        <img src="/public/images/star.png" alt="{% if race.projected %}Projected {% endif %}Winner" title="{% if race.projected %}Projected {% endif %}Winner" class="badge"/>
+      {% endifequal %}
+      
+      {% ifequal race.greenest candidate  %}
+        <img src="/public/images/world.png" alt="Most endorsed by environmental groups" title="Most endorsed by environmental groups" class="badge"/>
+      {% endifequal %}
+
         {{candidate}} {{percent|floatformat:2}}%
         {% ifequal race.winner candidate %}{% if race.projected %} (projected){% endif %}{% endifequal %}
         </li>
