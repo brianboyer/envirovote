@@ -20,8 +20,9 @@
 == race page ==
  # X candidate list
  # X key race content
- # pretty
+ # other candidate content ??
  # extra links
+ # pretty
 
 == state page ==
  # X basic race info, links to race page
