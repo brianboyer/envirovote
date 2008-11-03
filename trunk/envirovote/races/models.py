@@ -9,6 +9,21 @@ RACE_TYPE_CHOICES = (
     ('gub', 'Gubernatorial'),
 )
 
+PARTY_TYPE_CHOICES = (
+    ('AI', 	'American Independent'),
+    ('C', 	'Constitution'),
+    ('D', 	'Democrat'),
+    ('G', 	'Green'),
+    ('I', 	'Independent'),
+    ('IP', 	'Independence'),
+    ('L', 	'Libertarian'),
+    ('Ref', 'Reform'),
+    ('R', 	'Republican'),
+    ('PF', 	'Peace and Freedom Party'),
+    ('S', 	'Socialist'),
+    ('SW', 	'Socialist Workers Party'),
+)
+
 class Race(models.Model):
     race_type = models.CharField(max_length=3, choices=RACE_TYPE_CHOICES)
     state = models.CharField(max_length=2, choices=STATE_CHOICES, blank=True, null=True)
@@ -63,6 +78,7 @@ class Race(models.Model):
 
 class Candidate(models.Model):
     name = models.CharField(max_length=200)
+    party_type = models.CharField(max_length=3, choices=PARTY_TYPE_CHOICES)
     photo = models.URLField(blank=True)
     race = models.ForeignKey(Race)
     is_key = models.BooleanField()
@@ -80,6 +96,13 @@ class Candidate(models.Model):
             tot += c.votes
         return (float(self.votes)/tot)*100
     vote_percentage = property(_get_vote_percentage)
+
+    def _get_party(self):
+        """full party name"""
+        for k,v in PARTY_TYPE_CHOICES:
+            if k == self.party_type:
+                return v
+    party = property(_get_party)
     
     def __unicode__(self):
         return self.name
