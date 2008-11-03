@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load race_extras %}
+{% block filling %}
+<div class="about">
+    <h2>About envirovote</h2>
+    <h3>Our story</h3>
+
+    <p>Ryan Mark and Brian Boyer are...</p>
+    <p>News 21, Medill Reports, blah blah blah...</p>
+
+    <a name="calculations" />
+    <h3>How we run the numbers</h3>
+
+    <p>On our homepage, you'll find a meter like the one below.</p>
+
+    <div class="endorse-o-meter">
+        {% show_meter meter_info %}
+    </div>
+
+    <p>It represents the potential environmental impact of the 2008 elections.  To create the meter, we compare endorsements or candidates made by environmental groups like the Sierra Club and Republicans for Environmental Protection.</p>
+
+    <p>The candidate in a race with the most endorsements is considered friendliest to the enviroment.  When the race is decided, if the environmentally friendly candidate won the race, then the meter registers a win for the environment.</p>
+
+    <h4>Environmintiness</h4>
+
+    <p>Below the bar, the meter shows a figure representing the percent change in environmentally-friendly candidates since the last elections.  This is a touch more complicated.</p>
+
+    <p>To calculate this number, we compare the current race with the last time the seat was up for election.  For example, in a race for a seat in the U.S. House of Representatives, we look back to the election two years ago.</p>
+
+    <p>If two years ago the friendly candidate <b>lost</b>, and this year...</p>
+    <ul>
+        <li>...the friendly candidate <b>won</b>, then the win counts towards environmintiness.</li>
+        <li>...the friendly candidate <b>lost again</b>, then the race is neutral.</li>
+    </ul>
+    <p>On the other hand, if two years ago the friendly candidate <b>won</b>, and this year...</p>
+    <ul>
+        <li>...the friendly candidate <b>won again</b>, then the race is neutral.</li>
+        <li>...the friendly candidate <b>lost</b>, then the loss counts against environmintiness.</li>
+    </ul>
+
+    <p>We give each environmentally-friendly win one point, and add up the points for the current and previous races.  We then subtract the previous points from the current points and divide by the number of races that we're comparing.  This figure, multiplied by 100, represents the environmintiness of the elections.</p>
+
+</div>
+{% endblock %}
