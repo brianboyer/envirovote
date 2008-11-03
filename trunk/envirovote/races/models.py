@@ -1,14 +1,68 @@
 from django.db import models
-from django.contrib.localflavor.us.us_states import STATE_CHOICES
 from django.contrib.humanize.templatetags import humanize
 
 RACE_TYPE_CHOICES = (
-    ('pre', 'Presidental'),
-    ('sen', 'Senatorial'),
-    ('con', 'Congressional'),
-    ('gub', 'Gubernatorial'),
+    ('pre', 'President'),
+    ('sen', 'Senate'),
+    ('hou', 'House'),
+    ('gov', 'Governor'),
 )
 
+<<<<<<< .mine
+STATE_CHOICES = (
+    ('AL', 'Alabama'),
+    ('AK', 'Alaska'),
+    ('AZ', 'Arizona'),
+    ('AR', 'Arkansas'),
+    ('CA', 'California'),
+    ('CO', 'Colorado'),
+    ('CT', 'Connecticut'),
+    ('DE', 'Delaware'),
+    ('FL', 'Florida'),
+    ('GA', 'Georgia'),
+    ('HI', 'Hawaii'),
+    ('ID', 'Idaho'),
+    ('IL', 'Illinois'),
+    ('IN', 'Indiana'),
+    ('IA', 'Iowa'),
+    ('KS', 'Kansas'),
+    ('KY', 'Kentucky'),
+    ('LA', 'Louisiana'),
+    ('ME', 'Maine'),
+    ('MD', 'Maryland'),
+    ('MA', 'Massachusetts'),
+    ('MI', 'Michigan'),
+    ('MN', 'Minnesota'),
+    ('MS', 'Mississippi'),
+    ('MO', 'Missouri'),
+    ('MT', 'Montana'),
+    ('NE', 'Nebraska'),
+    ('NV', 'Nevada'),
+    ('NH', 'New Hampshire'),
+    ('NJ', 'New Jersey'),
+    ('NM', 'New Mexico'),
+    ('NY', 'New York'),
+    ('NC', 'North Carolina'),
+    ('ND', 'North Dakota'),
+    ('OH', 'Ohio'),
+    ('OK', 'Oklahoma'),
+    ('OR', 'Oregon'),
+    ('PA', 'Pennsylvania'),
+    ('RI', 'Rhode Island'),
+    ('SC', 'South Carolina'),
+    ('SD', 'South Dakota'),
+    ('TN', 'Tennessee'),
+    ('TX', 'Texas'),
+    ('UT', 'Utah'),
+    ('VT', 'Vermont'),
+    ('VA', 'Virginia'),
+    ('WA', 'Washington'),
+    ('WV', 'West Virginia'),
+    ('WI', 'Wisconsin'),
+    ('WY', 'Wyoming'),
+)
+
+=======
 PARTY_TYPE_CHOICES = (
     ('AI', 	'American Independent'),
     ('C', 	'Constitution'),
@@ -24,6 +78,7 @@ PARTY_TYPE_CHOICES = (
     ('SW', 	'Socialist Workers Party'),
 )
 
+>>>>>>> .r59
 class Race(models.Model):
     race_type = models.CharField(max_length=3, choices=RACE_TYPE_CHOICES)
     state = models.CharField(max_length=2, choices=STATE_CHOICES, blank=True, null=True)
@@ -46,11 +101,11 @@ class Race(models.Model):
         """shows the proper title of the race"""
         if self.race_type == 'pre':
             return "President of the United States"
-        elif self.race_type == 'con':
+        elif self.race_type == 'hou':
             return "U.S. House of Representatives, %s District of %s" % (humanize.ordinal(self.district),self.get_state_display())
         elif self.race_type == 'sen':
             return "U.S. Senate, %s" % (self.get_state_display())
-        elif self.race_type == 'gub':
+        elif self.race_type == 'gov':
             return "Governor of %s" % (self.get_state_display())
         else:
             return "I don't know what race type this is"

@@ -3,31 +3,19 @@
 {% load race_extras %}
 {% block filling %}
 
-<div class="column states">
-  <div class="elections">
-      <h2>Elections</h2>
-      {% for name, election_meter_info in elections %}
-      {{name}}
-      {% show_meter election_meter_info %}
+<div class="column left">
+  <div class="states">
+      <h2>States</h2>
+      {% for name, state_meter_info, url_name in states %}
+      <a href="/{{url_name}}">{{name}}
+      {% show_meter state_meter_info %}
+      </a>
       {% endfor %}
   </div>
 </div>
 
 <div class="column center">
-<div class="endorse-o-meter">
-  <div style="font-size:2.8em;line-height:1em;letter-spacing:-.08em"><strong>{{meter_info.green_races}}</strong> out of <strong>{{meter_info.decided_races}}</strong> winners</div>
-  <div style="font-size:1.4em;margin-bottom:.8em">in today’s elections were the top picks of<br/>
-  environmental groups in America</div>
-  {% show_meter meter_info %}
-  <div style="text-align:right;">{{meter_info.decided_races}} races decided, {{meter_info.remaining_races}} races remain</div>
-  <div style="font-size:2.5em;line-height:.8em;margin-top:.2em">That's</div>
-  <div>
-    <div style="line-height:1em;float:left;font-size:4em;padding-bottom:.4em;padding-right:.1em;letter-spacing:-.10em"><strong>{{meter_info.percent_change|floatformat:0}}%</strong></div>
-    <div style="font-size:2em;overflow:hidden;line-height:1em">more green candidates<br/>
-    than last election</div>
-  </div>  
-  <a href="/about">(Learn how we calculate this)</a>
-</div>
+{% show_big_meter meter_info %}
 <br/><br/>
 <h2>Key Races</h2>
 <div class="key-races">

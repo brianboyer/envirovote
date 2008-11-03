@@ -11,7 +11,7 @@ h1.masthead span.vote {color:#333; font-variant: small-caps;}
 div.column {float:left;overflow:hidden;padding:.2em;}
 div.center {width:54%;}
 div.incoming-wins {width:28%;margin-left:.5em;padding-left:.5em;border-left:.1em solid #999;}
-div.states {width:12%;border-right:.1em solid #999;margin-right:.5em;padding-right:.5em;}
+div.left {width:12%;border-right:.1em solid #999;margin-right:.5em;padding-right:.5em;}
 
 div.key-race {border-bottom:2px solid #999;}
 div.key-race table {padding:0;border:.1em solid #999;margin:0;width:100%;}
@@ -43,8 +43,8 @@ div.endorse-o-meter div.meter {background:url(/public/images/bar-right.png) top 
 div.endorse-o-meter div.meter div.bar {height: 2em; border-width:0.1em;height:44px;background:url(/public/images/bar-left.png) top left no-repeat;padding:6px;border:0 !important;}
 div.endorse-o-meter div.meter div.bar div {height: 2em;background:url(/public/images/bar-fill.png);}
 
-div.elections div.meter div.bar {height: 1em; border-width:0.1em;background:url(/public/images/mini-bar-back.png);}
-div.elections div.meter div.bar div {height: 1em;background:url(/public/images/mini-bar-fill.png);}
+div.states div.meter div.bar {height: 1em; border-width:0.1em;background:url(/public/images/mini-bar-back.png);}
+div.states div.meter div.bar div {height: 1em;background:url(/public/images/mini-bar-fill.png);}
 
 div.incoming-wins div {background-color:#efefef;border:#999 solid 1px;padding:0.5em;margin-bottom: 0.5em;}
 div.incoming-wins div p.tally-notes {font-size:0.8em;}
@@ -57,5 +57,7 @@ div.incoming-wins div ol li.greenest {background-color:#61bb0a;color:white;borde
 div.incoming-wins div ol li.winner {font-weight:bold; font-size:1em;}
 div.incoming-wins div ol li {font-size:0.9em}
 
-div.about {margin:1em;width:80%}
-div.about ul {list-style:none;}
+div#about {margin:1em;width:80%;}
+div#about ul {list-style:none;}
+
+div#state div.meter {width:40em;}
