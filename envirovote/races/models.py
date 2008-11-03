@@ -8,7 +8,6 @@ RACE_TYPE_CHOICES = (
     ('gov', 'Governor'),
 )
 
-<<<<<<< .mine
 STATE_CHOICES = (
     ('AL', 'Alabama'),
     ('AK', 'Alaska'),
@@ -62,7 +61,6 @@ STATE_CHOICES = (
     ('WY', 'Wyoming'),
 )
 
-=======
 PARTY_TYPE_CHOICES = (
     ('AI', 	'American Independent'),
     ('C', 	'Constitution'),
@@ -78,7 +76,6 @@ PARTY_TYPE_CHOICES = (
     ('SW', 	'Socialist Workers Party'),
 )
 
->>>>>>> .r59
 class Race(models.Model):
     race_type = models.CharField(max_length=3, choices=RACE_TYPE_CHOICES)
     state = models.CharField(max_length=2, choices=STATE_CHOICES, blank=True, null=True)

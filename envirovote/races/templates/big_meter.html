@@ -1,0 +1,15 @@
+{% load race_extras %}
+<div class="endorse-o-meter">
+  <div style="font-size:2.8em;line-height:1em;letter-spacing:-.08em"><strong>{{meter_info.green_races}}</strong> out of <strong>{{meter_info.decided_races}}</strong> winners</div>
+  <div style="font-size:1.4em;margin-bottom:.8em">in today’s elections were the top picks of<br/>
+  environmental groups in America</div>
+  {% show_meter meter_info %}
+  <div style="text-align:right;">{{meter_info.decided_races}} races decided, {{meter_info.remaining_races}} races remain</div>
+  <div style="font-size:2.5em;line-height:.8em;margin-top:.2em">That's</div>
+  <div>
+    <div style="line-height:1em;float:left;font-size:4em;padding-bottom:.4em;padding-right:.1em;letter-spacing:-.10em"><strong>{{meter_info.percent_change|floatformat:0}}%</strong></div>
+    <div style="font-size:2em;overflow:hidden;line-height:1em">more green candidates<br/>
+    than last election</div>
+  </div>  
+  <a href="/about">(Learn how we calculate this)</a>
+</div>
