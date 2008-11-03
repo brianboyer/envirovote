@@ -1,9 +1,9 @@
 {% load humanize %}
 {% ifequal race.race_type "gov" %}
-<h3><a href="/race/{{race.id}}">Governor</a></h3>
+<h2><a href="/race/{{race.id}}">Governor</a></h2>
 {% endifequal %}
 {% ifequal race.race_type "sen" %}
-<h3><a href="/race/{{race.id}}">U.S. Senate</a></h3>
+<h2><a href="/race/{{race.id}}">U.S. Senate</a></h2>
 {% endifequal %}
 <div class="race">
     {% ifequal race.race_type "hou" %}
@@ -11,11 +11,17 @@
     {% endifequal %}
     <ul>
     {% for candidate in race.candidate_set.all %}
-        <li class="{% ifequal race.greenest candidate %}greenest{% endifequal %}">
-            {% ifequal race.winner candidate %}*** {% if race.projected %} (projected){% endif %}{% endifequal %}
-            {{candidate.name}} ({{candidate.party}})
-            {% if race.winner %} - {{candidate.vote_percentage|floatformat:2}}%{% endif %}
-        </li>
+      <li class="{% ifequal race.greenest candidate %}greenest{% endifequal %}">
+        {% ifequal race.greenest candidate  %}
+          <img src="/public/images/world.png" alt="Most endorsed by environmental groups" title="Most endorsed by environmental groups" class="badge"/>
+        {% endifequal %}
+
+        {% ifequal race.winner candidate %}
+        <img src="/public/images/star.png" alt="{% if race.projected %}Projected {% endif %}Winner" title="{% if race.projected %}Projected {% endif %}Winner" class="badge"/>
+        {% if race.projected %} (projected){% endif %}{% endifequal %}
+        {{candidate.name}} ({{candidate.party}})
+        {% if race.winner %} - {{candidate.vote_percentage|floatformat:2}}%{% endif %}
+      </li>
     {% endfor %}
     </ul>
     {% if race.winner %}
