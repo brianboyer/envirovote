@@ -47,8 +47,12 @@
  # key race stories
  # our story, affiliations, etc
 
-== Testing ==
+== Usability ==
  # make sure it makes sense to people
+ # tweak so it does!
+ # legend for incoming wins? (star, leaf?)
+ # key races confusing - headline should be more prom.  why is it key?
 
 == idea ==
- # show grand total of endorsements
+ # google analytics or something
+ # show grand total of endorsements / stats
