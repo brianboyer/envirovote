@@ -57,20 +57,6 @@ contenttypes.contenttype:id,name,app_label,model
 sites.site:id,domain,name
 1,example.com,example.com
 
-endorsements.organization:id,name,url
-1,League of Conservation Voters,http://www.lcv.org/
-2,Sierra Club,http://www.sierraclub.org/
-
-endorsements.endorsement:id,organization,candidate,url
-1,1,1,http://www.lcv.org/campaigns/endorsements/
-2,2,1,http://www.sierraclub.org/politics/endorsements/
-3,1,9,http://www.lcv.org/campaigns/endorsements/
-4,2,9,http://www.sierraclub.org/politics/endorsements/
-5,1,4,http://www.lcv.org/campaigns/endorsements/
-6,1,12,http://www.lcv.org/campaigns/endorsements/
-7,1,19,http://www.lcv.org/campaigns/endorsements/
-8,1,25,http://www.lcv.org/campaigns/endorsements/
-
 races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_candidate_id,extra_info
 1,Andrew W. Finkenstadt ,Libertarian,http://votesmart.org/canphoto/104446.jpg,1,False,,,,104446,
 2,Kenny C. Hulshof ,Republican,http://votesmart.org/canphoto/423.jpg,2,False,2006,,,423,
