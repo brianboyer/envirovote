@@ -1,11 +1,12 @@
 html {font-family:Arial, sans-serif;font-size:1em;}
 h1,h2,h3,h4,h5 {font-family:Verdana,Arial,sans-serif;}
 h1,h2 {border-bottom:.1em solid #d6f4b8;}
-body {margin:0 auto; color:#222;}
+body {margin:0 auto; color:#222; width:950px;}
 
-h1 a {font-size:2em; text-decoration:none;}
-h1 span.enviro {color:#61bb0a;font-weight:normal;}
-h1 span.vote {color:#333; font-variant: small-caps;}
+h1.masthead {margin:.1em 0 !important;}
+h1.masthead a {font-size:2em; text-decoration:none;}
+h1.masthead span.enviro {color:#61bb0a;font-weight:normal;}
+h1.masthead span.vote {color:#333; font-variant: small-caps;}
 
 div.column {float:left;overflow:hidden;padding:.2em;}
 div.center {width:54%;}
@@ -13,14 +14,23 @@ div.incoming-wins {width:28%;margin-left:.5em;padding-left:.5em;border-left:.1em
 div.states {width:12%;border-right:.1em solid #999;margin-right:.5em;padding-right:.5em;}
 
 div.key-race {border-bottom:2px solid #999;}
-div.key-race div.candidate-display {background:#efefef;float:left;width:46%;margin:0;padding:.8em;}
-div.key-race div.candidate-display img {float:left;margin-right:.4em;}
-div.key-race div.first {border-right:1px solid #999;}
-div.key-race div.greenest {background:#AED463;}
-div.key-race div.candidate-display span {display:block;}
-div.key-race div.candidate-display span.name {font-size:1.2em;}
-div.key-race div.candidate-display span.incumbent {font-size:.8em;}
+div.key-race table {padding:0;border:.1em solid #999;margin:0;width:100%;}
+div.key-race td {padding:.1em;}
+div.key-race td.candidate-display {background:#efefef;width:50%;vertical-align:top;text-align:right;padding-left:.2em;}
+div.key-race td.candidate-display img {float:right;margin-left:.4em;height:110px;margin-bottom:.2em;}
+div.key-race td.first {border-right:1px solid #999;text-align:left;padding-right:.2em;padding-left:.1em;}
+div.key-race td.first img {float:left;margin-left:0;margin-right:.4em;}
+div.key-race td.greenest {background:#B4FF8F;}
+div.key-race td.candidate-display span {display:block;}
+div.key-race td.candidate-display span.name {font-size:1.2em;}
+div.key-race td.candidate-display span.incumbent {font-size:.8em;}
+div.key-race td.candidate-display span.votes {font-size:.8em;}
+div.key-race td.candidate-display span.greenest {display:none;}
+div.key-race td.candidate-display div.detail {clear:both;text-align:left;}
+div.key-race td.candidate-display.first div.detail {clear:both;text-align:right;}
 div.key-race div.content {clear:both;}
+div.key-race div.content h3 {margin:1em 0 0;}
+div.key-race div.content h4 {margin:0;}
 div.candidates {overflow:hidden;margin-bottom:.1em;}
 
 div.meter {overflow:hidden;}

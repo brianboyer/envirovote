@@ -32,9 +32,9 @@ class Race(models.Model):
         if self.race_type == 'pre':
             return "President of the United States"
         elif self.race_type == 'con':
-            return "U.S. House of Representatives, representing the %s District of %s" % (humanize.ordinal(self.district),self.get_state_display())
+            return "U.S. House of Representatives, %s District of %s" % (humanize.ordinal(self.district),self.get_state_display())
         elif self.race_type == 'sen':
-            return "U.S. Senate, representing %s" % (self.get_state_display())
+            return "U.S. Senate, %s" % (self.get_state_display())
         elif self.race_type == 'gub':
             return "Governor of %s" % (self.get_state_display())
         else:
@@ -72,6 +72,14 @@ class Candidate(models.Model):
     #links = models.TextField(blank=True) ??
     #political courage test results
     #badges (dirty dozen, etc.  set table?  array?  merge w/ links?)
+    
+    def _get_vote_percentage(self):
+        """get the percentage of the votes this guy got"""
+        tot = 0
+        for c in self.race.candidate_set.all():
+            tot += c.votes
+        return (float(self.votes)/tot)*100
+    vote_percentage = property(_get_vote_percentage)
     
     def __unicode__(self):
         return self.name
