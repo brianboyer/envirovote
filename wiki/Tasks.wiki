@@ -11,19 +11,22 @@
  # X % change
  # X incoming results ticker
  # X your states
+ # X description of how we get green-o-meter and % change
+ # X tests for green-o-meter
+ # X tests for % change
  # pretty
- # description of how we get green-o-meter and % change
- # tests for green-o-meter
- # tests for % change
  # ajaxit
 
+== race page ==
+ # ???
+
 == state page ==
- # races
+ # basic race info, links to race page
  # candidate links and other info
  # mini green-o-meters
  # mini percent-change
  # state pic/info
- # env stats?
+ # env stats about state??
  # pretty
 
 == data ==
@@ -33,4 +36,5 @@
  # get previous elections/candidate info?
 
 == Content ==
- # explain how we calculate the endorse-o-meter
+ # X explain how we calculate the endorse-o-meter
+ # our story, affiliations, etc
