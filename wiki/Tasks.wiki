@@ -36,10 +36,10 @@
 == data ==
  # X get pvs incumbent data
  # X get pvs candidate data
- # clear dupes
- # get previous elections/candidate info?
- # pump in current candidate and race data (csv fixture?)
- # pump in historic candidate and race data (csv fixture?)
+ # X clear dupes
+ # X get previous elections/candidate info?
+ # X pump in current candidate and race data (csv fixture?)
+ # X pump in historic candidate and race data (csv fixture?)
  # endorsement data (as much as possible, csv fixture?)
 
 == Content ==
