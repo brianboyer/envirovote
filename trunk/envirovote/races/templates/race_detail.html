@@ -19,30 +19,45 @@
 
 <div class="candidates">
 {% for candidate in candidates %}
-  <div class="candidate">
-    <img src="{{candidate.photo}}"/>
-    <span class="name"><a href="{{candidate.url}}">{{candidate.name}}</a></span>
+  <div class="candidate-display">
+    <img src="{{candidate.photo}}" alt="Portrait of {{candidate.name}}"/>
+    {% ifequal race.winner candidate %}
+      <span class="winner">
+      <img src="/public/images/star.png" alt="Star" class="badge"/>
+      {% if race.projected %}
+        Projected winner
+      {% else %}
+        Winner
+      {% endif %}
+      </span>
+    {% else %}
+      <span class="winner"></span>
+    {% endifequal %}
+    <div>
+    <span class="name">{{candidate.name}}</span>
     <span class="party">{{candidate.party}}</span>
     {% if candidate.last_elected %}<span class="incumbent">(incumbent)</span>{% endif %}
     {% if candidate.votes %}<span class="votes">
-      {% ifequal race.winner candidate %}
-        {% if race.projected %}
-          Projected winner with
-        {% else %}
-          Winner with
-        {% endif %}
-      {% endifequal %}
-      {{candidate.vote_percentage|floatformat:2}}% 
-      {% ifequal race.winner candidate %} of the vote{% endifequal %}
+      {{candidate.vote_percentage|floatformat:2}}%  of the vote
       <br/>
       {{candidate.votes|intcomma}} votes</span>{% endif %}
     <div class="detail">
+    {% ifnotequal candidate.endorsement_set.all.count 0 %}
+    <br/>
+    <span class="endorsement"><strong>Endorsed by:</strong>
+    <ul>
     {% for endorsement in candidate.endorsement_set.all %}
-    <span class="endorsement"><a href="{{endorsement.url}}">{{endorsement}}</a></span>
+    <li><a href="{{endorsement.url}}">{{endorsement.organization.name}}</a></span></li>
     {% endfor %}
+    </ul></span>
+    {% endifnotequal %}
+    {% if candidate.extra_info %}
+    <div class="extra-info"><strong>More information on the candidate:</strong><br/>
+      {{ candidate.extra_info|safe }}</div>
+    {% endif %}
     {% ifequal race.greenest candidate %}<span class="greenest">Greenest</span>{% endifequal %}
     </div>
-    
+    </div>
   </div>
 {% endfor %}
 </div>
