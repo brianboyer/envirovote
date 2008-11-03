@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load race_extras %}
+{% block filling %}
+
+<h2>{{race.title}}</h2>
+<p class="tally-updated">Last updated {{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
+<p class="tally-notes">{{race.tally_notes}}</p>
+<div class="race">
+{% for candidate in candidates %}
+  <div class="candidate">
+    <img src="{{candidate.photo}}"/>
+    <span class="name"><a href="{{candidate.url}}">{{candidate.name}}</a></span>
+    <span class="party">{{candidate.party}}</span>
+    {% if candidate.last_elected %}<span class="incumbent">(incumbent)</span>{% endif %}
+    {% if candidate.votes %}<span class="votes">
+      {% ifequal race.winner candidate %}
+        {% if race.projected %}
+          Projected winner with
+        {% else %}
+          Winner with
+        {% endif %}
+      {% endifequal %}
+      {{candidate.vote_percentage|floatformat:2}}% 
+      {% ifequal race.winner candidate %} of the vote{% endifequal %}
+      <br/>
+      {{candidate.votes|intcomma}} votes</span>{% endif %}
+    <div class="detail">
+    {% for endorsement in candidate.endorsement_set.all %}
+    <span class="endorsement"><a href="{{endorsement.url}}">{{endorsement}}</a></span>
+    {% endfor %}
+    {% ifequal race.greenest candidate %}<span class="greenest">Greenest</span>{% endifequal %}
+    </div>
+    
+  </div>
+{% endfor %}
+</div>
+
+{% endblock %}

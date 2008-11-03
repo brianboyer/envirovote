@@ -171,6 +171,7 @@
 "fields": {
     "name": "Edward M. 'Ted' Kennedy, Sr.",
     "photo": "http://www.votesmart.org/canphoto/53305.jpg",
+    "party_type":"D",
     "race": 3,
     "is_key": true,
     "last_elected": "2001",
@@ -183,6 +184,7 @@
 "fields": {
     "name": "Jeffrey K. Beatty",
     "photo": "http://www.votesmart.org/canphoto/nophoto.gif",
+    "party_type":"R",
     "race": 3,
     "is_key": true,
     "last_elected": null,
@@ -195,6 +197,7 @@
 "fields": {
     "name": "Brian M. Boyer",
     "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "party_type":"S",
     "race": 4,
     "is_key": false,
     "last_elected": "2004",
@@ -207,6 +210,7 @@
 "fields": {
     "name": "Ryan T. Mark",
     "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"I",
     "race": 4,
     "is_key": false,
     "last_elected": null,
@@ -219,6 +223,7 @@
 "fields": {
     "name": "Stuart Q. Tiffin, Jr.",
     "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "party_type":"G",
     "race": 1,
     "is_key": false,
     "last_elected": null,
@@ -231,6 +236,7 @@
 "fields": {
     "name": "Kayla Webley",
     "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"PF",
     "race": 1,
     "is_key": false,
     "last_elected": null,
@@ -243,6 +249,7 @@
 "fields": {
     "name": "Rich X. Gordon",
     "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "party_type":"L",
     "race": 2,
     "is_key": true,
     "last_elected": null,
@@ -255,6 +262,7 @@
 "fields": {
     "name": "Jeremy T. Gilbert, III",
     "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"IP",
     "race": 2,
     "is_key": true,
     "last_elected": null,
@@ -267,6 +275,7 @@
 "fields": {
     "name": "Edward M. 'Ted' Kennedy, Sr.",
     "photo": "http://www.votesmart.org/canphoto/53305.jpg",
+    "party_type":"D",
     "race": 7,
     "is_key": true,
     "last_elected": "2001",
@@ -279,6 +288,7 @@
 "fields": {
     "name": "Jeffrey K. Beatty",
     "photo": "http://www.votesmart.org/canphoto/nophoto.gif",
+    "party_type":"E",
     "race": 7,
     "is_key": true,
     "last_elected": null,
@@ -291,6 +301,7 @@
 "fields": {
     "name": "Brian M. Boyer",
     "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "party_type":"S",
     "race": 8,
     "is_key": false,
     "last_elected": "2004",
@@ -303,6 +314,7 @@
 "fields": {
     "name": "Ryan T. Mark",
     "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"I",
     "race": 8,
     "is_key": false,
     "last_elected": null,
@@ -315,6 +327,7 @@
 "fields": {
     "name": "Stuart Q. Tiffin, Jr.",
     "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "party_type":"D",
     "race": 5,
     "is_key": false,
     "last_elected": null,
@@ -327,6 +340,7 @@
 "fields": {
     "name": "Kayla Webley",
     "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"D",
     "race": 5,
     "is_key": false,
     "last_elected": null,
@@ -339,6 +353,7 @@
 "fields": {
     "name": "Rich X. Gordon",
     "photo": "http://www.pbs.org/idealab/files/BrianBoyer-200pxwide.jpg",
+    "party_type":"D",
     "race": 6,
     "is_key": true,
     "last_elected": null,
@@ -351,6 +366,7 @@
 "fields": {
     "name": "Jeremy T. Gilbert, III",
     "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"D",
     "race": 6,
     "is_key": true,
     "last_elected": null,

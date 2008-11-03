@@ -23,7 +23,8 @@ div.key-race td.first img {float:left;margin-left:0;margin-right:.4em;}
 div.key-race td.greenest {background:#B4FF8F;}
 div.key-race td.candidate-display span {display:block;}
 div.key-race td.candidate-display span.name {font-size:1.2em;}
-div.key-race td.candidate-display span.incumbent {font-size:.8em;}
+div.key-race td.candidate-display span.incumbent,
+div.key-race td.candidate-display span.party {font-size:.8em;display:inline;}
 div.key-race td.candidate-display span.votes {font-size:.8em;}
 div.key-race td.candidate-display span.greenest {display:none;}
 div.key-race td.candidate-display div.detail {clear:both;text-align:left;}
@@ -32,6 +33,13 @@ div.key-race div.content {clear:both;}
 div.key-race div.content h3 {margin:1em 0 0;}
 div.key-race div.content h4 {margin:0;}
 div.candidates {overflow:hidden;margin-bottom:.1em;}
+
+div.race div.candidate {overflow:hidden;margin-bottom:2em;}
+div.race div.candidate span {display:block;margin-left:150px;}
+div.race div.candidate span.name {font-size:1.8em;font-weight:bold;}
+div.race div.candidate span.votes {font-size:1.4em;}
+div.race div.candidate span.greenest {display:none;}
+div.race div.candidate img {float:left;width:136px;}
 
 div.meter {overflow:hidden;}
 div.meter div.bar {background-color:#d6f4b8; border-style:solid; border-color: #575a41;}

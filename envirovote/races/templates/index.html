@@ -29,6 +29,7 @@
           <td class="candidate-display{% ifequal race.greenest candidate %} greenest{% endifequal %}{% if forloop.first %} first{% endif %}">
           <img src="{{candidate.photo}}"/>
           <span class="name">{{candidate.name}}</span>
+          <span class="party">({{candidate.party_type}})</span>
           {% if candidate.last_elected %}<span class="incumbent">(incumbent)</span>{% endif %}
           {% if candidate.votes %}<span class="votes">{{candidate.vote_percentage|floatformat:2}}% |
             {{candidate.votes|intcomma}} votes</span>{% endif %}
