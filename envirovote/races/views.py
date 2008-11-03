@@ -37,10 +37,10 @@ def state(request, state):
         if state == get_state_url_name(name):
             all_races = Race.objects.filter(year=2008,state=abbr)
             meter_info = calculate_meter_info(all_races)
-#            governor_races = Race.objects.filter(race_type='gov',year=2008,state=abbr)
+            governor_races = Race.objects.filter(race_type='gov',year=2008,state=abbr)
             senate_races = Race.objects.filter(race_type='sen',year=2008,state=abbr)
-#            house_races = Race.objects.filter(race_type='hou',year=2008,state=abbr)
-            return render_to_response('state.html',{'state':name, 'senate_races':senate_races, 'meter_info':meter_info,})
+            house_races = Race.objects.filter(race_type='hou',year=2008,state=abbr)
+            return render_to_response('state.html',{'state':name, 'governor_races':governor_races, 'senate_races':senate_races, 'house_races':house_races, 'meter_info':meter_info,})
     return HttpResponseRedirect('/')
 
 def get_state_url_name(name):

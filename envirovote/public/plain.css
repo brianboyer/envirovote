@@ -71,3 +71,12 @@ div#about {margin:1em;width:80%;}
 div#about ul {list-style:none;}
 
 div#state div.meter {width:40em;}
+div#state h3 {margin-bottom:0.5em;}
+div#state div.race {clear:left; margin-bottom:1em;}
+div#state div.race h4 {margin:0;}
+div#state div.race ul {padding:0;list-style:none;margin:0 0 0 1em;}
+div#state div.race ul li {float:left;width:25em;margin-right:1em;padding-left:0.5em;}
+div#state div.race ul li.greenest {background-color:#61bb0a;color:white;border:solid 1px #575a41;}
+div#state div.race p.tally-notes {clear:left;margin:0;padding-top:0.5em;padding-left:1em;font-size:0.8em;}
+div#state div.race p.tally-updated {margin:0;padding-left:1em;font-size:0.8em;}
+
