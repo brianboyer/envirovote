@@ -16,23 +16,42 @@
 
 <div class="column center">
 {% show_big_meter meter_info %}
-<br/><br/>
+<br/>
 <h2>Key Races</h2>
 <div class="key-races">
 {% for race in key_races %}
   <div class="key-race">
-    <h3>{{race.title}}</h3>
+    <h3><a href="{{race.get_absolute_url}}">{{race.title}}</a></h3>
     <div class="candidates">
       <table border="0" cellpadding="0" cellspacing="0"><tr>
     {% for candidate in race.candidate_set.all %}
         {% if candidate.is_key %}
           <td class="candidate-display{% ifequal race.greenest candidate %} greenest{% endifequal %}{% if forloop.first %} first{% endif %}">
-          <img src="{{candidate.photo}}"/>
-          <span class="name">{{candidate.name}}</span>
+          <img src="{{candidate.photo}}" alt="Portrait of {{candidate.name}}"/>
+          {% ifequal race.winner candidate %}
+            <span class="winner">
+            <img src="/public/images/star.png" alt="Star" class="badge"/>
+            {% if race.projected %}
+              Projected winner
+            {% else %}
+              Winner
+            {% endif %}
+            </span>
+          {% endifequal %}
+          <span class="name">
+          {% ifequal race.winner candidate %}
+            <strong>{{candidate.name}}</strong>
+          {% else %}
+            {{candidate.name}}
+          {% endifequal %}
+          </span>
           <span class="party">({{candidate.party_type}})</span>
           {% if candidate.last_elected %}<span class="incumbent">(incumbent)</span>{% endif %}
-          {% if candidate.votes %}<span class="votes">{{candidate.vote_percentage|floatformat:2}}% |
-            {{candidate.votes|intcomma}} votes</span>{% endif %}
+          {% if candidate.votes %}
+            <span class="votes">
+            {{candidate.vote_percentage|floatformat:2}}% of the vote
+          </span>
+          {% endif %}
           <div class="detail">
           {% ifnotequal candidate.endorsement_set.all.count 0 %}
           <span class="endorsement">Endorsed by {{candidate.endorsement_set.all.count|apnumber}} 
@@ -41,15 +60,6 @@
           <span class="endorsement">No endorsements</span>
           {% endifnotequal %}            
           {% ifequal race.greenest candidate %}<span class="greenest">Greenest</span>{% endifequal %}
-          {% ifequal race.winner candidate %}
-            <span class="winner">  
-            {% if race.projected %}
-              Projected winner
-            {% else %}
-              Winner
-            {% endif %}
-            </span>
-          {% endifequal %}
           </div>
         </td>
         {% endif %}
@@ -73,12 +83,12 @@
 <h2>Incoming wins</h2>
 {% for race in incoming_races %}
 <div>
-    <h4>
+    <h4><a href="{{race.get_absolute_url}}">
     {% ifequal race.race_type 'pre' %}U.S. President{% endifequal %}
     {% ifequal race.race_type 'con' %}{{race.get_state_display}}, U.S. House{% endifequal %}
     {% ifequal race.race_type 'sen' %}{{race.get_state_display}}, U.S. Senate{% endifequal %}
     {% ifequal race.race_type 'gub' %}{{race.get_state_display}} Governor{% endifequal %}
-    </h4>
+    </a></h4>
     {% ifequal race.race_type 'con' %}<h5>{{race.district|ordinal}} District</h5>{% endifequal %}
     <ol>
     {% for candidate, percent in race.get_candidate_percentages %}
