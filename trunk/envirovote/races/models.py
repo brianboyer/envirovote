@@ -94,12 +94,14 @@ class Race(models.Model):
     projected = models.BooleanField()
 
     def __unicode__(self):
-        return "%s %s" % (self.state, self.race_type)
+        return "%s (%s)" % (self.title, self.year)
         
     def _get_title(self):
         """shows the proper title of the race"""
         if self.race_type == 'pre':
             return "President of the United States"
+        elif self.race_type == 'hou' and self.district == 0:
+            return "U.S. House of Representatives, At Large for %s" % (self.get_state_display())
         elif self.race_type == 'hou':
             return "U.S. House of Representatives, %s District of %s" % (humanize.ordinal(self.district),self.get_state_display())
         elif self.race_type == 'sen':
@@ -142,6 +144,7 @@ class Candidate(models.Model):
     is_key = models.BooleanField()
     last_elected = models.IntegerField(blank=True, null=True)
     votes = models.IntegerField(blank=True, null=True)
+    vote_pc = models.CharField(max_length=15,blank=True, null=True)
     pvs_candidate_id = models.IntegerField(blank=True,null=True)
     extra_info = models.TextField(blank=True,null=True)
     
@@ -151,6 +154,8 @@ class Candidate(models.Model):
     
     def _get_vote_percentage(self):
         """get the percentage of the votes this guy got"""
+        if vote_pc:
+            return vote_pc
         tot = 0
         for c in self.race.candidate_set.all():
             tot += c.votes
