@@ -24,22 +24,26 @@
  # extra links
 
 == state page ==
- # basic race info, links to race page
- # candidate links and other info
- # mini green-o-meters
- # mini percent-change
- # state pic/info
- # env stats about state??
+ # X basic race info, links to race page
+ # X green-o-meters
+ # X percent-change
  # pretty
+ # ? state pic/info
+ # ? env stats about state??
+ # ? candidate links and other info
 
 == data ==
  # X get pvs incumbent data
  # X get pvs candidate data
  # clear dupes
  # get previous elections/candidate info?
+ # pump in current candidate and race data (csv fixture?)
+ # pump in historic candidate and race data (csv fixture?)
+ # endorsement data (as much as possible, csv fixture?)
 
 == Content ==
  # X explain how we calculate the endorse-o-meter
+ # key race stories
  # our story, affiliations, etc
 
 == Testing ==
