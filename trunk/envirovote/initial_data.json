@@ -166,6 +166,63 @@
     }
 },
 {
+"model": "races.race",
+"pk": 9,
+"fields": {
+    "race_type": "hou",
+    "state": "WA",
+    "district": 2,
+    "year": 2008,
+    "last_race": 10,
+    "is_key": false,
+    "headline": "",
+    "deck": "",
+    "body": "",
+    "tally_notes": "",
+    "tally_updated": null,
+    "winner": null,
+    "projected": false
+    }
+},
+{
+"model": "races.race",
+"pk": 10,
+"fields": {
+    "race_type": "hou",
+    "state": "WA",
+    "district": 3,
+    "year": 2008,
+    "last_race": 11,
+    "is_key": false,
+    "headline": "",
+    "deck": "",
+    "body": "",
+    "tally_notes": "CBS called the race with 95 out of 95 precincts reporting.",
+    "tally_updated": "2008-11-01 19:48",
+    "winner": 25,
+    "projected": true
+    }
+},
+{
+"model": "races.race",
+"pk": 11,
+"fields": {
+    "race_type": "hou",
+    "state": "WA",
+    "district": 3,
+    "year": 2006,
+    "last_race": null,
+    "is_key": false,
+    "headline": "",
+    "deck": "",
+    "body": "",
+    "tally_notes": "",
+    "tally_updated": null,
+    "winner": 26,
+    "projected": false
+    }
+},
+{
 "model": "races.candidate",
 "pk": 1,
 "fields": {
@@ -374,6 +431,136 @@
     }
 },
 {
+"model": "races.candidate",
+"pk": 17,
+"fields": {
+    "name": "Scott Tenerman",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"AI",
+    "race": 9,
+    "is_key": false,
+    "last_elected": null,
+    "votes": null
+    }
+},
+{
+"model": "races.candidate",
+"pk": 18,
+"fields": {
+    "name": "Wendy Testaberger",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"L",
+    "race": 9,
+    "is_key": false,
+    "last_elected": null,
+    "votes": null
+    }
+},
+{
+"model": "races.candidate",
+"pk": 19,
+"fields": {
+    "name": "Leopold \"Butters\" Scotch",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"S",
+    "race": 9,
+    "is_key": false,
+    "last_elected": null,
+    "votes": null
+    }
+},
+{
+"model": "races.candidate",
+"pk": 20,
+"fields": {
+    "name": "Barbara Streisand",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"SW",
+    "race": 9,
+    "is_key": false,
+    "last_elected": null,
+    "votes": null
+    }
+},
+{
+"model": "races.candidate",
+"pk": 21,
+"fields": {
+    "name": "Chief Wiggum",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"D",
+    "race": 10,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 93893
+    }
+},
+{
+"model": "races.candidate",
+"pk": 22,
+"fields": {
+    "name": "Ned \"Hi-di-ho\" Flanders",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"R",
+    "race": 10,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 12
+    }
+},
+{
+"model": "races.candidate",
+"pk": 23,
+"fields": {
+    "name": "Robert U. Terwilliger",
+    "photo": "http://havanta.files.wordpress.com/2006/11/side-show-bob.jpg",
+    "party_type":"L",
+    "race": 10,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 4355435
+    }
+},
+{
+"model": "races.candidate",
+"pk": 24,
+"fields": {
+    "name": "C. Montgomery Burns",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"AI",
+    "race": 10,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 435435
+    }
+},
+{
+"model": "races.candidate",
+"pk": 25,
+"fields": {
+    "name": "Lisa Simpson",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"G",
+    "race": 10,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 8398494
+    }
+},
+{
+"model": "races.candidate",
+"pk": 26,
+"fields": {
+    "name": "C. Montgomery Burns",
+    "photo": "http://www.pbs.org/idealab/files/RyanMark-2-200pxwide.jpg",
+    "party_type":"AI",
+    "race": 11,
+    "is_key": false,
+    "last_elected": null,
+    "votes": 93984894
+    }
+},
+{
 "model": "endorsements.organization",
 "pk": 1,
 "fields": {
@@ -442,5 +629,24 @@
     "candidate": 12,
     "url": "http://www.lcv.org/campaigns/endorsements/"
     }
+},
+{
+"model": "endorsements.endorsement",
+"pk": 7,
+"fields": {
+    "organization": 1,
+    "candidate": 19,
+    "url": "http://www.lcv.org/campaigns/endorsements/"
+    }
+},
+{
+"model": "endorsements.endorsement",
+"pk": 8,
+"fields": {
+    "organization": 1,
+    "candidate": 25,
+    "url": "http://www.lcv.org/campaigns/endorsements/"
+    }
 }
+
 ]

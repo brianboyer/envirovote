@@ -85,9 +85,9 @@
 <div>
     <h4><a href="{{race.get_absolute_url}}">
     {% ifequal race.race_type 'pre' %}U.S. President{% endifequal %}
-    {% ifequal race.race_type 'con' %}{{race.get_state_display}}, U.S. House{% endifequal %}
+    {% ifequal race.race_type 'hou' %}{{race.get_state_display}}, U.S. House{% endifequal %}
     {% ifequal race.race_type 'sen' %}{{race.get_state_display}}, U.S. Senate{% endifequal %}
-    {% ifequal race.race_type 'gub' %}{{race.get_state_display}} Governor{% endifequal %}
+    {% ifequal race.race_type 'gov' %}{{race.get_state_display}} Governor{% endifequal %}
     </a></h4>
     {% ifequal race.race_type 'con' %}<h5>{{race.district|ordinal}} District</h5>{% endifequal %}
     <ol>

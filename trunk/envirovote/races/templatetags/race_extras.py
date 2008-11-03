@@ -10,6 +10,10 @@ def show_meter(meter_info):
 def show_big_meter(meter_info):
     return {'meter_info': meter_info}
 
+@register.inclusion_tag('state_race.html')
+def show_state_race(race):
+    return {'race': race}
+
 
 
 

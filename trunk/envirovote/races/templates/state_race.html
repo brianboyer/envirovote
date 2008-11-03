@@ -1,0 +1,27 @@
+{% load humanize %}
+{% ifequal race.race_type "gov" %}
+<h3><a href="/race/{{race.id}}">Governor</a></h3>
+{% endifequal %}
+{% ifequal race.race_type "sen" %}
+<h3><a href="/race/{{race.id}}">U.S. Senate</a></h3>
+{% endifequal %}
+<div class="race">
+    {% ifequal race.race_type "hou" %}
+    <h4><a href="/race/{{race.id}}">{{race.district|ordinal}} District</a></h4>
+    {% endifequal %}
+    <ul>
+    {% for candidate in race.candidate_set.all %}
+        <li class="{% ifequal race.greenest candidate %}greenest{% endifequal %}">
+            {% ifequal race.winner candidate %}*** {% if race.projected %} (projected){% endif %}{% endifequal %}
+            {{candidate.name}} ({{candidate.party}})
+            {% if race.winner %} - {{candidate.vote_percentage|floatformat:2}}%{% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    {% if race.winner %}
+    <p class="tally-notes">{{race.tally_notes}}</p>
+    <p class="tally-updated">Updated {{race.tally_updated|naturalday}} at {{race.tally_updated|date:"h:i a"}}</p>
+    {% else %}
+    <p class="tally-notes">Results are not yet available for this race.</p>
+    {% endif %}
+</div>

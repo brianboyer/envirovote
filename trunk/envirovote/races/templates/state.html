@@ -1,38 +1,30 @@
 {% extends "base.html" %}
-{% load humanize %}
 {% load race_extras %}
 {% block filling %}
 <div id="state">
 <h2>{{state}}</h2>
 {% show_big_meter meter_info %}
-<p>TODO governor</p>
-{% ifnotequal 0 senate_races.count %}
-<h3>U.S. Senate</h3>
-{% for race in senate_races %}
-<div class="race">
-{% if race.winner %}
-    <ol>
-    {% for candidate, percent in race.get_candidate_percentages %}
-        <li class="{% ifequal race.greenest candidate %}greenest{% endifequal %} {% ifequal race.winner candidate %}winner{% endifequal %}">
-        {{candidate.name}} {{percent|floatformat:2}}%
-        {% ifequal race.winner candidate %}{% if race.projected %} (projected){% endif %}{% endifequal %}
-        </li>
-    {% endfor %}
-    </ol>
-    <p class="tally-notes">{{race.tally_notes}}</p>
-    <p class="tally-updated">{{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
+
+{% ifequal 0 governor_races.count %}
+    <h3>Governor</h3>
+    <div class="race"><p>No gubernatorial election this year.</p></div>
 {% else %}
-    <ul>
-    {% for candidate in race.get_candidate_set %}
-        <li class="{% ifequal race.greenest candidate %}greenest{% endifequal %}">
-            {{candidate.name}}
-        </li>
+    {% for race in governor_races %}
+        {% show_state_race race %}
     {% endfor %}
-    </ul>
-{% endif%}
-</div>
+{% endifequal %}
+
+{% ifequal 0 senate_races.count %}
+    <h3>Senate</h3>
+    <p>No senate election this year.</p>
+{% else %}
+    {% for race in senate_races %}
+        {% show_state_race race %}
+    {% endfor %}
+{% endifequal %}
+<h3>U.S. House of Representatives</h3>
+{% for race in house_races %}
+{% show_state_race race %}
 {% endfor %}
-{% endifnotequal %}
-<p>TODO house</p>
 </div>
 {% endblock %}
