@@ -127,6 +127,10 @@ class Race(models.Model):
         for c in candidates:
             total += c.votes
         return [ (c, 100*float(c.votes)/total) for c in candidates]
+        
+    def get_absolute_url(self):
+        return '/race/%s/' % self.id
+
 
 class Candidate(models.Model):
     name = models.CharField(max_length=200)
@@ -157,4 +161,4 @@ class Candidate(models.Model):
     party = property(_get_party)
     
     def __unicode__(self):
-        return self.name
+        return "%s (%s)" % (self.name,self.party_type)

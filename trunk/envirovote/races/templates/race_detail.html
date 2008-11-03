@@ -4,9 +4,20 @@
 {% block filling %}
 
 <h2>{{race.title}}</h2>
-<p class="tally-updated">Last updated {{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
-<p class="tally-notes">{{race.tally_notes}}</p>
 <div class="race">
+<div class="content{% if race.body %} sidebar{% endif %}">
+<h3>{{race.headline}}</h3>
+<h4>{{race.deck}}</h4>
+{% if race.vote_last_updated %}
+  <p>Last updated at {{race.vote_last_updated|date:"h:i a"}} {{race.vote_last_updated|naturalday}}</p>
+{% endif %}
+{% if race.tally_notes %}
+<p class="tally-notes">{{race.tally_notes}}</p>  
+{% endif %}
+{{race.body|linebreaks}}
+</div>
+
+<div class="candidates">
 {% for candidate in candidates %}
   <div class="candidate">
     <img src="{{candidate.photo}}"/>
@@ -35,5 +46,5 @@
   </div>
 {% endfor %}
 </div>
-
+</div>
 {% endblock %}
