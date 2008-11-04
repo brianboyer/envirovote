@@ -3,24 +3,24 @@
 {% load race_extras %}
 {% block filling %}
 
-<h2>{{race.title}}</h2>
+{% if race.title %}<h2>{{race.title}}</h2>{% endif %}
 <div class="race">
 <div class="content{% if race.body %} sidebar{% endif %}">
-<h3>{{race.headline}}</h3>
-<h4>{{race.deck}}</h4>
+{% if race.headline %}<h3>{{race.headline}}</h3>{% endif %}
+{% if race.deck %}<h4>{{race.deck}}</h4>{% endif %}
 {% if race.vote_last_updated %}
   <p>Last updated at {{race.vote_last_updated|date:"h:i a"}} {{race.vote_last_updated|naturalday}}</p>
 {% endif %}
 {% if race.tally_notes %}
 <p class="tally-notes">{{race.tally_notes}}</p>  
 {% endif %}
-{{race.body|linebreaks}}
+{% if race.body %}{{race.body|linebreaks}}{% endif %}
 </div>
 
 <div class="candidates">
 {% for candidate in candidates %}
   <div class="candidate-display">
-    <img src="{{candidate.photo}}" alt="Portrait of {{candidate.name}}"/>
+    <img src="{% firstof candidate.photo "http://www.votesmart.org/canphoto/nophoto.gif" %}" alt="Portrait of {{candidate.name}}"/>
     {% ifequal race.winner candidate %}
       <span class="winner">
       <img src="/public/images/star.png" alt="Star" class="badge"/>
