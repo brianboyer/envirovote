@@ -76,34 +76,40 @@
 
 <div class="column incoming-wins">
 <h2>Incoming wins</h2>
-{% for race in incoming_races %}
-<div>
-    <h4><a href="{{race.get_absolute_url}}">
-    {% ifequal race.race_type 'pre' %}U.S. President{% endifequal %}
-    {% ifequal race.race_type 'hou' %}{{race.get_state_display}}, U.S. House{% endifequal %}
-    {% ifequal race.race_type 'sen' %}{{race.get_state_display}}, U.S. Senate{% endifequal %}
-    {% ifequal race.race_type 'gov' %}{{race.get_state_display}} Governor{% endifequal %}
-    </a></h4>
-    {% ifequal race.race_type 'con' %}<h5>{{race.district|ordinal}} District</h5>{% endifequal %}
-    <ol>
-    {% for candidate, percent in race.get_candidate_percentages %}
-        <li class="{% ifequal race.winner candidate %}winner{% endifequal %}">
-      {% ifequal race.winner candidate %}
-        <img src="/public/images/star.png" alt="{% if race.projected %}Projected {% endif %}Winner" title="{% if race.projected %}Projected {% endif %}Winner" class="badge"/>
-      {% endifequal %}
+{% ifequal 0 incoming_races.count %}
+    <div>
+        <h4>Stay tuned!</h4>
+    </div>
+{% else %}
+    {% for race in incoming_races %}
+    <div>
+        <h4><a href="{{race.get_absolute_url}}">
+        {% ifequal race.race_type 'pre' %}U.S. President{% endifequal %}
+        {% ifequal race.race_type 'hou' %}{{race.get_state_display}}, U.S. House{% endifequal %}
+        {% ifequal race.race_type 'sen' %}{{race.get_state_display}}, U.S. Senate{% endifequal %}
+        {% ifequal race.race_type 'gov' %}{{race.get_state_display}} Governor{% endifequal %}
+        </a></h4>
+        {% ifequal race.race_type 'con' %}<h5>{{race.district|ordinal}} District</h5>{% endifequal %}
+        <ol>
+        {% for candidate, percent in race.get_candidate_percentages %}
+            <li class="{% ifequal race.winner candidate %}winner{% endifequal %}">
+          {% ifequal race.winner candidate %}
+            <img src="/public/images/star.png" alt="{% if race.projected %}Projected {% endif %}Winner" title="{% if race.projected %}Projected {% endif %}Winner" class="badge"/>
+          {% endifequal %}
 
-      {% ifequal race.greenest candidate  %}
-        <img src="/public/images/world.png" alt="Most endorsed by environmental groups" title="Most endorsed by environmental groups" class="badge"/>
-      {% endifequal %}
+          {% ifequal race.greenest candidate  %}
+            <img src="/public/images/world.png" alt="Most endorsed by environmental groups" title="Most endorsed by environmental groups" class="badge"/>
+          {% endifequal %}
 
-        {{candidate}} {{percent|floatformat:2}}%
-        {% ifequal race.winner candidate %}{% if race.projected %} (projected){% endif %}{% endifequal %}
-        </li>
+            {{candidate}} {{percent|floatformat:2}}%
+            {% ifequal race.winner candidate %}{% if race.projected %} (projected){% endif %}{% endifequal %}
+            </li>
+        {% endfor %}
+        </ol>
+        <p class="tally-notes">{{race.tally_notes}}</p>
+        <p class="tally-updated">{{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
+    </div>
     {% endfor %}
-    </ol>
-    <p class="tally-notes">{{race.tally_notes}}</p>
-    <p class="tally-updated">{{race.tally_updated|naturalday|capfirst}} at {{race.tally_updated|date:"h:i a"}}</p>
-</div>
-{% endfor %}
+{% endifequal %}
 </div>
 {% endblock %}
