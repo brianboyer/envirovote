@@ -66,7 +66,7 @@ def load_endorsements(f):
 
 d = "data/endorsements/"
 for n in os.listdir(d):
-    if (n.rpartition('.')[-1] == 'csv') & (n.find('forget') < 0):
+    if n.endswith('csv') & (n.find('forget') < 0):
         f = open("%s%s" % (d,n))
         load_endorsements(f)
         f.close()
