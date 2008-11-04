@@ -8,6 +8,8 @@
 <div class="race {% cycle "odd" "even" %}">
   {% ifequal race.race_type "hou" %}
     <fieldset><legend><a href="{{race.get_absolute_url}}">{{ race.district_display }}</a></legend>
+  {% else %}
+    <div>
   {% endifequal %}
     <ol>
     {% for candidate in race.candidate_set.all %}
@@ -34,5 +36,7 @@
   {% endif %}
   {% ifequal race.race_type "hou" %}
   </fieldset>
+  {% else %}
+  </div>
   {% endifequal %}
 </div>

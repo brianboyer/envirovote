@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from races.models import Race, STATE_CHOICES
 from endorsements.models import * 
-from helpers import calculate_meter_info
+from races.helpers import *
 
 def about(request):
     meter_info = calculate_meter_info(Race.objects.filter(year=2008))
@@ -24,14 +24,6 @@ def detail(request,race_id):
     candidates = race.candidate_set.order_by("-votes")
     return render_to_response('race_detail.html',{'race':race,'candidates':candidates})
 
-def get_states_and_info():
-    states = []
-    for abbr, name in STATE_CHOICES:
-        meter_info = calculate_meter_info(Race.objects.filter(year=2008,state=abbr))
-        url_name = get_state_url_name(name)
-        states.append((name, meter_info, url_name))
-    return states
-
 def state(request, state):
     for abbr, name in STATE_CHOICES:
         if state == get_state_url_name(name):
@@ -42,6 +34,3 @@ def state(request, state):
             house_races = Race.objects.filter(race_type='hou',year=2008,state=abbr).order_by('district')
             return render_to_response('state.html',{'state':name, 'governor_races':governor_races, 'senate_races':senate_races, 'house_races':house_races, 'meter_info':meter_info,})
     return HttpResponseRedirect('/')
-
-def get_state_url_name(name):
-    return name.lower().replace(' ', '-')

@@ -12,8 +12,8 @@ ul#navigation {position:absolute;right:1em;top:2em;list-style:none;}
 
 div.column {float:left;overflow:hidden;padding:.2em;}
 div.center {width:54%;}
-div.incoming-wins {width:28%;margin-left:.5em;padding-left:.5em;border-left:.1em solid #999;}
-div.left {width:12%;border-right:.1em solid #999;margin-right:.5em;padding-right:.5em;}
+div.incoming-wins {width:28%;margin-left:.6em;padding-left:.6em;border-left:.1em solid #999;}
+div.left {width:12%;border-right:.1em solid #999;margin-right:.6em;padding-right:.6em;}
 
 div#footer {clear:left;padding-top:2em;}
 div#footer p {margin:0.5em 0 0 0;font-size:0.8em;}
@@ -74,7 +74,7 @@ div.incoming-wins div p.tally-updated {text-align:right;font-size:0.7em;margin-t
 div.incoming-wins div p {margin:0;}
 div.incoming-wins div h4 {margin:0;}
 div.incoming-wins div ol {list-style:none;padding:0;}
-div.incoming-wins div ol li {padding:0.2em;border-bottom:solid 0.1em #333;}
+div.incoming-wins div ol li {padding:0.2em;border-bottom:solid 0.1em #333;margin:0;}
 div.incoming-wins div ol li.greenest {background-color:#61bb0a;color:white;border:solid 1px #575a41;}
 div.incoming-wins div ol li.winner {font-weight:bold; font-size:1em;background:#333;color:white;}
 div.incoming-wins div ol li {font-size:0.9em}
@@ -90,7 +90,7 @@ div#state div.race legend {font-size:1.2em;font-weight:bold;}
 div#state div.race fieldset {background:#efefef;}
 div#state div.race h4 {margin:0;}
 div#state div.race ol {list-style:none;padding:0;}
-div#state div.race ol li {padding:0.2em;border-bottom:solid 0.1em #333;}
+div#state div.race ol li {padding:0.2em;border-bottom:solid 0.1em #333;margin:0;}
 div#state div.race ol li.greenest {background-color:#61bb0a;color:white;border:solid 1px #575a41;}
 div#state div.race ol li.winner {font-weight:bold; font-size:1em;background:#333;color:white;}
 div#state div.race ol li {font-size:0.9em}
