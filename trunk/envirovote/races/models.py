@@ -124,13 +124,13 @@ class Race(models.Model):
         return ret
     greenest = property(_get_greenest)
     
-    def get_candidate_percentages(self):
-        candidates = self.candidate_set.order_by('-votes')
-        #there's totally a more pythonic way to do this.  oh well.
-        total = 0
-        for c in candidates:
-            total += c.votes
-        return [ (c, 100*float(c.votes)/total) for c in candidates]
+#    def get_candidate_percentages(self):
+#        candidates = self.candidate_set.order_by('-votes')
+#        #there's totally a more pythonic way to do this.  oh well.
+#        total = 0
+#        for c in candidates:
+#            total += c.votes
+#        return [ (c, 100*float(c.votes)/total) for c in candidates]
         
     def get_absolute_url(self):
         return '/race/%s/' % self.id
@@ -161,8 +161,8 @@ class Candidate(models.Model):
     
     def _get_vote_percentage(self):
         """get the percentage of the votes this guy got"""
-        if vote_pc:
-            return vote_pc
+        if self.vote_pc:
+            return self.vote_pc
         tot = 0
         for c in self.race.candidate_set.all():
             tot += c.votes
