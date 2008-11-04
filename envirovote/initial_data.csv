@@ -1073,7 +1073,7 @@ races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_c
 1012,Christopher Van Hollen Jr.,Democratic,http://votesmart.org/canphoto/6098.JPG,383,False,1,,,6098,
 1013,Daniel K. East,Republican,http://votesmart.org/canphoto/102417.jpg,389,False,0,,,102417,
 1014,Martin T. Heinrich,Democratic,,390,False,0,,,74517,
-1015,Ben Ray Lujan Jr.,Democratic,,389,False,0,,,102842,
+1015,Ben Ray Luján Jr.,Democratic,,389,False,0,,,102842,
 1016,Carol A. Miller,Independent,http://votesmart.org/canphoto/16399.jpg,389,False,0,,,16399,
 1017,Harry Teague,Democratic,,391,False,0,,,102408,
 1018,Edward R. Tinsley,Republican,http://votesmart.org/canphoto/43508.bmp,391,False,0,,,43508,
@@ -2183,8 +2183,8 @@ races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_c
 2122,David Gereighty,Democrat,,686,False,,,7.4%,,
 2123,Stacey Tallitsch,Democrat,,686,False,,,3.4%,,
 2124,Peter Beary,Libertarian,,686,False,,,1.1% ,,
-2125,Bill Jefferson*,Democrat,,687,False,,,30.1% (56.6%) ,,
-2126,Karen Carter*,Democrat,,687,False,,,21.7% (43.4%) ,,
+2125,Bill Jefferson,Democrat,,687,False,,,30.1% (56.6%) ,,
+2126,Karen Carter,Democrat,,687,False,,,21.7% (43.4%) ,,
 2127,Derrick Shepherd,Democrat,,687,False,,,17.9% ,,
 2128,Joe Lavigne,Republican,,687,False,,,13.3% ,,
 2129,Troy Carter,Democrat,,687,False,,,12.0% ,,
@@ -2471,7 +2471,7 @@ races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_c
 2410,Stephen Finger,Republican,,784,False,,,7.6%,,
 2411,Mariana Blume,Cons,,784,False,,,1.4%,,
 2412,Ollie McClean,Freedom,,784,False,,,1.0%,,
-2413,Nydia Velazquez,Democrat,,785,False,,,89.7%,,
+2413,Nydia Velázquez,Democrat,,785,False,,,89.7%,,
 2414,Allan Romaguera,Republican,,785,False,,,10.3% ,,
 2415,Vito Fossella,Republican,,786,False,,,56.8%,,
 2416,Steve Harrison,Democrat,,786,False,,,43.2% ,,
@@ -2895,7 +2895,7 @@ races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_c
 2834,Thomas Rankin,Libertarian,,949,False,,,3.9%,,
 
 races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,tally_updated,tally_notes,winner,projected
-0,pres,,,2008,0,False,,,,,,,False
+0,pre,,,2008,0,False,,,,,,,False
 1,gov,MO,,2008,0,False,,,,,,,False
 2,gov,MT,,2008,0,False,,,,,,,False
 3,gov,IN,,2008,0,False,,,,,,,False
