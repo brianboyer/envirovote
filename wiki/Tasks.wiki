@@ -40,7 +40,7 @@
  # X get previous elections/candidate info?
  # X pump in current candidate and race data (csv fixture?)
  # X pump in historic candidate and race data (csv fixture?)
- # endorsement data (as much as possible, csv fixture?)
+ # X endorsement data (as much as possible, csv fixture?)
 
 == Content ==
  # X explain how we calculate the endorse-o-meter
