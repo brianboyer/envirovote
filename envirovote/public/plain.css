@@ -10,8 +10,8 @@ h1.masthead {margin:.1em 0 !important;}
 h1.masthead a {font-size:2em; text-decoration:none;}
 h1.masthead span.enviro {color:#61bb0a;font-weight:normal;}
 h1.masthead span.vote {color:#333; font-variant: small-caps;}
-p#project {position:absolute;right:1em;top:0.5em;}
-ul#navigation {position:absolute;right:1em;top:2em;list-style:none;}
+ul#navigation {position:absolute;right:1em;top:0.5em;list-style:none;}
+ul#navigation li {text-align:right;margin-bottom:0.3em;}
 
 div.column {float:left;overflow:hidden;padding:.2em;}
 div.center {overflow:hidden;}
