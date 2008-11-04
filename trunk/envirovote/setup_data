@@ -1,0 +1,7 @@
+#!/bin/sh
+rm envirovote.sqlite3
+python manage.py syncdb --noinput
+python load_john_kerry.py
+python load_missing_louisiana.py
+python load_endorsements.py
+python load_other_endorsements.py
