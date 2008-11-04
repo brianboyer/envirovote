@@ -1234,7 +1234,7 @@ races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_c
 1173,Richard Steven Atkins,None,,0,False,0,,,101914,
 1174,Daniel Avery Bacon,Independent,,0,False,0,,,101915,
 1175,George Brent Bailey Dr.,Republican,,0,False,0,,,57612,
-1176,Charles O. Baldwin,"Independent, Write-In, Alaskan Independence, Constitution, Constitution Party of Florida, Constitution Party of Illinois, Independent Green, Nebraska, Nominated by Petition, Reform Party of Kansas, U.S. Taxpayers, U.S. Taxpayers Party of Michigan",http://votesmart.org/canphoto/53051.JPG,0,False,0,,,53051,
+1176,Charles O. Baldwin,Constitution,http://votesmart.org/canphoto/53051.JPG,0,False,0,,,53051,
 1177,Jared Arlen Ball,Green Party,,0,False,0,,,101180,
 1178,George H. Ballard III,Democratic,,0,False,0,,,15721,
 1179,Jedidiah Elijah Wendell Kennedy Banks,Republican,,0,False,0,,,101181,
