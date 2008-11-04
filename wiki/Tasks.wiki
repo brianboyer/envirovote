@@ -44,9 +44,9 @@
 
 == Content ==
  # X explain how we calculate the endorse-o-meter
+ # X footer w/ copyleft
  # key race stories
  # our story, affiliations, etc
- # footer w/ copyleft
 
 == Usability ==
  # make sure it makes sense to people
