@@ -39,7 +39,7 @@ def state(request, state):
             meter_info = calculate_meter_info(all_races)
             governor_races = Race.objects.filter(race_type='gov',year=2008,state=abbr)
             senate_races = Race.objects.filter(race_type='sen',year=2008,state=abbr)
-            house_races = Race.objects.filter(race_type='hou',year=2008,state=abbr)
+            house_races = Race.objects.filter(race_type='hou',year=2008,state=abbr).order_by('district')
             return render_to_response('state.html',{'state':name, 'governor_races':governor_races, 'senate_races':senate_races, 'house_races':house_races, 'meter_info':meter_info,})
     return HttpResponseRedirect('/')
 

@@ -1,0 +1,11 @@
+{% load race_extras %}
+<div class="endorse-o-meter">
+  <div style="font-size:1.4em;"><strong>{{meter_info.green_races}}</strong> out of <strong>{{meter_info.decided_races}}</strong> winners are the top picks of
+  environmental groups</div>
+  {% show_meter meter_info %}
+  <div style="text-align:right;">{{meter_info.decided_races}} races decided, {{meter_info.remaining_races}} races remain</div>
+  <div>
+    <div style="font-size:1.8em;">That's <strong>{{meter_info.percent_change|floatformat:0}}%</strong> more than last election</div>
+  </div>  
+  <a href="/about">(Learn how we calculate this)</a>
+</div>
