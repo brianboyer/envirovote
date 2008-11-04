@@ -138,7 +138,7 @@ class Race(models.Model):
 
 class Candidate(models.Model):
     name = models.CharField(max_length=200)
-    party = models.CharField(max_length=120)
+    party = models.CharField(max_length=120, null=True)
     photo = models.URLField(blank=True, null=True)
     race = models.ForeignKey(Race)
     is_key = models.BooleanField()
