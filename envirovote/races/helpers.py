@@ -1,3 +1,5 @@
+from races.models import Race, STATE_CHOICES
+
 # all races must have a last_race, and all last_races must have a winner
 # TODO what about two races w/o a greenest candidate?  it should work if they have a winner.
 def calculate_meter_info(races):
@@ -21,5 +23,17 @@ def calculate_meter_info(races):
     remaining_races = total_races - decided_races
     return {'decided_races': decided_races, 'remaining_races': remaining_races, 'green_races': green_races, 'percent_green': percent_green, 'percent_change': percent_change,}
     
+
+def get_states_and_info():
+    states = []
+    for abbr, name in STATE_CHOICES:
+        meter_info = calculate_meter_info(Race.objects.filter(year=2008,state=abbr))
+        url_name = get_state_url_name(name)
+        states.append((name, meter_info, url_name))
+    return states
+
+def get_state_url_name(name):
+    return name.lower().replace(' ', '-')
+
         
         

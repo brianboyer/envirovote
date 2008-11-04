@@ -1,10 +1,16 @@
 from django import template
+from races.models import Race, STATE_CHOICES
+from races.helpers import get_states_and_info
 
 register = template.Library()
     
 @register.inclusion_tag('meter.html')
 def show_meter(meter_info):
     return meter_info
+    
+@register.inclusion_tag('state_list.html')
+def show_state_list():
+    return {'states':get_states_and_info()}
 
 @register.inclusion_tag('big_meter.html')
 def show_big_meter(meter_info):

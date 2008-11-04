@@ -1,0 +1,10 @@
+{% load race_extras %}
+
+<div class="states">
+    <h2>States</h2>
+    {% for name, state_meter_info, url_name in states %}
+    <a href="/{{url_name}}">{{name}}
+    {% show_meter state_meter_info %}
+    </a>
+    {% endfor %}
+</div>

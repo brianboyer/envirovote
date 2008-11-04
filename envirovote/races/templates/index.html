@@ -3,18 +3,8 @@
 {% load race_extras %}
 {% block filling %}
 
-<div class="column left">
-  <div class="states">
-      <h2>States</h2>
-      {% for name, state_meter_info, url_name in states %}
-      <a href="/{{url_name}}">{{name}}
-      {% show_meter state_meter_info %}
-      </a>
-      {% endfor %}
-  </div>
-</div>
-
 <div class="column center">
+<br/>
 {% show_big_meter meter_info %}
 <br/>
 <h2>Key Races</h2>

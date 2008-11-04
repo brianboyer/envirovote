@@ -2,12 +2,12 @@
 {% load race_extras %}
 {% block filling %}
 <div id="state">
-<h1 style="border-bottom:0;margin: .6em 0 0;font-size:2.4em;font-weight:normal">In {{state}}</h1>
+<h1 style="margin:.5em 0">{{state}}</h1>
 {% show_medium_meter meter_info %}
 
 {% ifequal 0 governor_races.count %}
-    <h2>Governor</h2>
-    <div class="race"><p>No gubernatorial election this year.</p></div>
+    <h3>Governor</h3>
+    <div>No gubernatorial election this year.</div>
 {% else %}
     {% for race in governor_races %}
         {% show_state_race race %}
@@ -15,8 +15,8 @@
 {% endifequal %}
 
 {% ifequal 0 senate_races.count %}
-    <h2>Senate</h2>
-    <p>No senate election this year.</p>
+    <h3>Senate</h3>
+    <div class="race">No senate election this year.<div class="race">
 {% else %}
     {% for race in senate_races %}
         {% show_state_race race %}
