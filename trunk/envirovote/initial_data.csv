@@ -1,4 +1,38 @@
 
+admin.logentry:id,action_time,user,content_type,object_id,object_repr,action_flag,change_message
+32,2008-11-04 02:11:20,1,9,456,"U.S. Senate, Colorado (2008)",2,Changed deck.
+31,2008-11-04 02:09:41,1,10,1160,John Sidney McCain III (Republican),2,Changed is_key.
+30,2008-11-04 02:09:33,1,10,1161,Barack Hussein Obama Jr. (Democratic),2,Changed is_key.
+29,2008-11-04 02:08:36,1,10,1519,Robert W. Schaffer (Republican),2,Changed is_key.
+28,2008-11-04 02:08:12,1,10,1520,Mark E. Udall (Democratic),2,Changed is_key.
+27,2008-11-04 02:07:33,1,10,1510,Mark Begich (Democratic),2,Changed is_key.
+26,2008-11-04 02:06:23,1,9,468,"U.S. Senate, Oklahoma (2008)",2,Changed last_race and deck.
+25,2008-11-04 02:05:52,1,9,456,"U.S. Senate, Colorado (2008)",2,Changed deck.
+24,2008-11-04 02:05:33,1,9,472,"U.S. Senate, New Mexico (2008)",2,Changed headline and deck.
+23,2008-11-04 02:05:13,1,9,470,"U.S. Senate, New Hampshire (2008)",2,Changed headline and deck.
+22,2008-11-04 02:03:18,1,9,474,"U.S. Senate, Kentucky (2008)",2,Changed headline and deck.
+21,2008-11-04 02:03:00,1,9,454,"U.S. Senate, Alaska (2008)",2,Changed headline and deck.
+20,2008-11-04 02:01:38,1,9,454,"U.S. Senate, Alaska (2008)",2,"Changed last_race, headline, deck and body."
+19,2008-11-04 02:00:24,1,9,474,"U.S. Senate, Kentucky (2008)",2,"Changed last_race, headline and body."
+18,2008-11-04 01:59:42,1,9,470,"U.S. Senate, New Hampshire (2008)",2,"Changed last_race, headline and body."
+17,2008-11-04 01:59:01,1,9,472,"U.S. Senate, New Mexico (2008)",2,"Changed last_race, is_key, headline and body."
+16,2008-11-04 01:56:59,1,9,456,"U.S. Senate, Colorado (2008)",2,"Changed last_race, is_key, headline and body."
+15,2008-11-04 01:54:27,1,9,468,"U.S. Senate, Oklahoma (2008)",2,Changed headline and body.
+14,2008-11-04 01:10:47,1,10,1514,Ted Stevens (Republican),2,Changed is_key.
+13,2008-11-04 01:10:25,1,10,1571,Mitch McConnell (Republican),2,Changed is_key.
+12,2008-11-04 01:09:39,1,10,1570,William Bruce Lunsford (Democratic),2,Changed is_key.
+11,2008-11-04 01:09:03,1,10,1562,John E. Sununu (Republican),2,Changed is_key.
+10,2008-11-04 01:08:35,1,10,1561,Jeanne Shaheen (Democratic),2,Changed is_key.
+9,2008-11-04 01:07:29,1,10,1565,Stevan E. Pearce (Republican),2,Changed is_key.
+8,2008-11-04 01:07:17,1,10,1566,Tom S. Udall (Democratic),2,Changed is_key.
+7,2008-11-04 01:06:12,1,10,1553,James M. Inhofe (Republican),2,Changed is_key.
+6,2008-11-04 01:05:48,1,10,1554,Andrew Rice (Democratic),2,Changed is_key.
+5,2008-11-04 01:05:13,1,9,454,"U.S. Senate, Alaska (2008)",2,Changed is_key.
+4,2008-11-04 01:04:57,1,9,474,"U.S. Senate, Kentucky (2008)",2,Changed is_key.
+3,2008-11-04 01:04:40,1,9,470,"U.S. Senate, New Hampshire (2008)",2,Changed is_key.
+2,2008-11-04 01:04:06,1,9,468,"U.S. Senate, Oklahoma (2008)",2,Changed is_key.
+1,2008-11-04 01:03:22,1,9,950,President of the United States (2008),2,Changed is_key.
+
 auth.permission:id,name,content_type,codename
 1,Can add log entry,1,add_logentry
 2,Can change log entry,1,change_logentry
@@ -38,7 +72,7 @@ auth.permission:id,name,content_type,codename
 24,Can delete site,8,delete_site
 
 auth.user:id,username,first_name,last_name,email,password,is_staff,is_active,is_superuser,last_login,date_joined,groups,user_permissions
-1,admin, , ,admin@envirovote.us,sha1$82540$63ad33deebdc60d4769c8c22e7f5f6481dcf6d89,True,True,True,2008-11-01 19:59:16,2008-11-01 19:59:16,,
+1,admin, , ,admin@envirovote.us,sha1$82540$63ad33deebdc60d4769c8c22e7f5f6481dcf6d89,True,True,True,2008-11-04 01:02:48,2008-11-01 19:59:16,,
 
 contenttypes.contenttype:id,name,app_label,model
 10,candidate,races,candidate
@@ -53,6 +87,12 @@ contenttypes.contenttype:id,name,app_label,model
 7,session,sessions,session
 8,site,sites,site
 4,user,auth,user
+
+sessions.session:session_key,session_data,expire_date
+cc976bcbc45d095ce6e6ebec56924681,"gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k
+cy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEESwF1Ljg5YTZjYTMyNTdhNmIzNWVlODk2
+NTE5NzcxNjJmODFl
+",2008-11-18 01:02:48
 
 sites.site:id,domain,name
 1,example.com,example.com
@@ -511,9 +551,9 @@ races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,
 451,sen,IA,,2008,,False,,,,,,,False
 452,sen,IL,,2008,,False,,,,,,,False
 453,sen,NC,,2008,,False,,,,,,,False
-454,sen,AK,,2008,,False,,,,,,,False
+454,sen,AK,,2008,481,True,Green takes a back seat to legal issues,Stevens/Begich in Alaska,"Talk about pedigree: The main picture on Incumbent Ted Stevens’ Web site shows him as a young man with then-President Dwight Eisenhower. Stevens has been in the Senate for 40 years, almost as long as Alaska has been a state. But being convicted on seven of seven felony counts a week before the election takes the wind out of the sails of the SS Pedigree. Anchorage Mayor Mark Begich, the Democratic challenger, stands to benefit from Stevens’ legal woes. Begich calls Alaska “ground zero” for global warming but favors drilling in ANWR.",, ,,False
 455,sen,AR,,2008,,False,,,,,,,False
-456,sen,CO,,2008,,False,,,,,,,False
+456,sen,CO,,2008,483,True, Friends or foes? ,Udall/Schaffer in Colorado,"Both Democrat Mark Udall and Republican Rob Schaffer talk about their strong relationship with Colorado’s wondrous natural resources, but at least one environmental group accuses Schaffer of historically siding with polluters when it comes to keeping Colorado’s waterways clean. Udall is heavily favored to win this seat, which is being vacated by Republican Wayne Allard.",, ,,False
 457,sen,KS,,2008,,False,,,,,,,False
 458,sen,OR,,2008,,False,,,,,,,False
 459,sen,AL,,2008,,False,,,,,,,False
@@ -525,13 +565,16 @@ races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,
 465,sen,WV,,2008,,False,,,,,,,False
 466,sen,WY,,2008,,False,,,,,,,False
 467,sen,WY,,2008,,False,,,,,,,False
-468,sen,OK,,2008,,False,,,,,,,False
+468,sen,OK,,2008,468,True,C is for conservative … and cantankerous,Inhofe/Rice in Oklahoma,"Democratic challenger Andrew Rice acknowledges that Oklahoma’s voters are conservative, but he says that they also realize that global warming is real and that the state’s senator, “rather than standing as a stubborn obstacle to change … should help his state by taking a leadership role in Congress to advocate for reduced carbon emissions and development of alternative, clean-burning energy technology.”  
+
+Nice stance, but Republican incumbent James Inhofe, who first won the seat in a 1994 special election to succeed David Boren, is favored to win a third full term handily. Inhofe, generally viewed as no friend of the environment from his role on the Senate’s environment committee, highlights his advocacy of limited government, individual liberty and personal responsibility.",, ,,False
 469,sen,NE,,2008,,False,,,,,,,False
-470,sen,NH,,2008,,False,,,,,,,False
+470,sen,NH,,2008,501,True,Clash of the titans ,Shaheen/Sununu in New Hampshire,"The state that brought us acid rain figures prominently in the battle for going green this year. Incumbent Sen. John Sununu, the Republican, is “too close to big oil” and “no friend of the environment,” according to environmental groups. His challenger, former Gov. Jeanne Shaheen, cites her solid record as governor as evidence of her support of green causes. Most polls show this race tilting toward Shaheen, although many are within the margin of error.",, ,,False
 471,sen,ME,,2008,,False,,,,,,,False
-472,sen,NM,,2008,,False,,,,,,,False
+472,sen,NM,,2008,503,True,A clear choice for green voters ,Udall/Pearce in New Mexico,"Some polls have had Democrat Tom Udall up by as much as 28 percent; all have shown him with a double-digit lead over Republican Steve Pearce. Both candidates gave up secure House seats for this race to succeed ailing GOP stalwart Pete Domenici, who retired. Googling Pearce brings up a litany of headlines slamming him on the environment and revealing him as one of the LCV’s “Dirty Dozen.”
+",, ,,False
 473,sen,MA,,2008,,False,,,,,,,False
-474,sen,KY,,2008,,False,,,,,,,False
+474,sen,KY,,2008,490,True,Bluegrass greener on the other side of the fence?,McConnell/Lunsford in Kentucky,"Senate Minority Leader Mitch McConnell is in a fight. Real Clear Politics rates the race a toss up, and McConnell’s Web site lists polling place locations across the state and urges people to “invite five friends to get out the vote for Mitch.” Dubiously drew a zero rating from the LCV in 2003. The counterbalance to McConnell’s consummate insider resume is non-politician Bruce Lunsford, who hopes to expand oil drilling to ANWR and work to make mountaintop removal in coal-rich Kentucky more environmentally friendly.",, ,,False
 475,sen,VA,,2008,,False,,,,,,,False
 476,sen,NJ,,2008,,False,,,,,,,False
 477,sen,MS,,2008,,False,,,,,,,False
@@ -1007,7 +1050,7 @@ races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,
 947,hou,WI,7,2006,,False,,,,,,2827,False
 948,hou,WI,8,2006,,False,,,,,,2830,False
 949,hou,WY,0,2006,,False,,,,,,2832,False
-950,pre,,,2008,951,False,,,,,,,False
+950,pre,,,2008,951,True, , , ,, ,,False
 951,pre,,,2004,,False,,,,,,,False
 952,hou,LA,2,2008,687,False,,,,,,,False
 953,hou,LA,4,2008,689,False,,,,,,,False
@@ -2173,8 +2216,8 @@ races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_c
 1157,Charles J. Melancon Sr.,Democratic,http://votesmart.org/canphoto/35601.jpg,444,False,1,,,35601,
 1158,Stephen J. Scalise,Republican,http://votesmart.org/canphoto/9026.JPG,443,False,1,,,9026,
 1159,Peter Vidrine,Other,http://votesmart.org/canphoto/1937.jpg,441,False,0,,,1937,
-1160,John Sidney McCain III,Republican,http://votesmart.org/canphoto/53270.jpg,950,False,1,,,53270,
-1161,Barack Hussein Obama Jr.,Democratic,http://votesmart.org/canphoto/9490.JPG,950,False,1,,,9490,
+1160,John Sidney McCain III,Republican,http://votesmart.org/canphoto/53270.jpg,950,True,1,, ,53270, 
+1161,Barack Hussein Obama Jr.,Democratic,http://votesmart.org/canphoto/9490.JPG,950,True,1,, ,9490, 
 1162,Cynthia Ann McKinney,Green Party,http://votesmart.org/canphoto/26826.JPG,950,False,0,,,26826,
 1163,Robert Laurence Barr Jr.,Libertarian,http://votesmart.org/canphoto/22028.jpg,950,False,0,,,22028,
 1164,Ralph Nader,Independent,http://votesmart.org/canphoto/2508.JPG,950,False,0,,,2508,
@@ -2220,17 +2263,17 @@ races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_c
 1507,Christopher S. Cole,Libertarian,http://votesmart.org/canphoto/12999.jpg,453,False,0,,,12999,
 1508,Elizabeth H. Dole,Republican,http://votesmart.org/canphoto/41533.JPG,453,False,1,,,41533,
 1509,Kay R. Hagan,Democratic,http://votesmart.org/canphoto/21082.jpg,453,False,1,,,21082,
-1510,Mark Begich,Democratic,,454,False,0,,,79426,
+1510,Mark Begich,Democratic, ,454,True,0,, ,79426, 
 1511,Bob Bird,Alaskan Independence,,454,False,0,,,107612,
 1512,Ted Gianoutsos,Nominated by Petition,,454,False,0,,,27156,
 1513,Frederick D. Haase,Libertarian,http://votesmart.org/canphoto/107616.jpg,454,False,0,,,107616,
-1514,Ted Stevens,Republican,http://votesmart.org/canphoto/53268.jpg,454,False,1,,,53268,
+1514,Ted Stevens,Republican,http://votesmart.org/canphoto/53268.jpg,454,True,1,, ,53268, 
 1515,Rebekah J. Kennedy,Green Party,http://votesmart.org/canphoto/104896.JPG,455,False,0,,,104896,
 1516,Mark Lunsford Pryor,Democratic,http://votesmart.org/canphoto/35.jpg,455,False,1,,,35,
 1517,Douglas Campbell,American Constitution Party,http://votesmart.org/canphoto/29892.JPG,456,False,0,,,29892,
 1518,Robert A. Kinsey,Green Party,http://votesmart.org/canphoto/30118.jpg,456,False,0,,,30118,
-1519,Robert W. Schaffer,Republican,http://votesmart.org/canphoto/568.JPG,456,False,0,,,568,
-1520,Mark E. Udall,Democratic,http://votesmart.org/canphoto/12329.jpg,456,False,1,,,12329,
+1519,Robert W. Schaffer,Republican,http://votesmart.org/canphoto/568.JPG,456,True,0,, ,568, 
+1520,Mark E. Udall,Democratic,http://votesmart.org/canphoto/12329.jpg,456,True,1,, ,12329, 
 1521,Randall L. Hodgkinson,Libertarian,http://votesmart.org/canphoto/109704.jpg,457,False,0,,,109704,
 1522,Joseph L. Martin,Reform,http://votesmart.org/canphoto/109705.jpg,457,False,0,,,109705,
 1523,Pat Roberts,Republican,http://votesmart.org/canphoto/26866.jpg,457,False,1,,,26866,
@@ -2263,25 +2306,25 @@ races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_c
 1550,Christopher Rothfuss,Democratic,http://votesmart.org/canphoto/106281.jpg,466,False,0,,,106281,
 1551,John Barrasso,Republican,http://votesmart.org/canphoto/52662.JPG,467,False,1,,,52662,
 1552,Nicholas H. Carter,Democratic,http://votesmart.org/canphoto/106282.jpg,467,False,0,,,106282,
-1553,James M. Inhofe,Republican,http://votesmart.org/canphoto/27027.jpg,468,False,1,,,27027,
-1554,Andrew Rice,Democratic,http://votesmart.org/canphoto/65051.jpg,468,False,0,,,65051,
+1553,James M. Inhofe,Republican,http://votesmart.org/canphoto/27027.jpg,468,True,1,, ,27027, 
+1554,Andrew Rice,Democratic,http://votesmart.org/canphoto/65051.jpg,468,True,0,, ,65051, 
 1555,Stephen P. Wallace,Independent,,468,False,0,,,106410,
 1556,Mike O. Johanns,Republican,http://votesmart.org/canphoto/21309.JPG,469,False,0,,,21309,
 1557,Scott Kleeb,Democratic,http://votesmart.org/canphoto/57775.JPG,469,False,0,,,57775,
 1558,Steven R. Larrick,Green,,469,False,0,,,42000,
 1559,Kelly Renee Rosberg,Nebraska,,469,False,0,,,103088,
 1560,Ken Blevens Sr.,Libertarian,http://votesmart.org/canphoto/615.jpg,470,False,0,,,615,
-1561,Jeanne Shaheen,Democratic,http://votesmart.org/canphoto/1663.JPG,470,False,0,,,1663,
-1562,John E. Sununu,Republican,http://votesmart.org/canphoto/617.jpg,470,False,1,,,617,
+1561,Jeanne Shaheen,Democratic,http://votesmart.org/canphoto/1663.JPG,470,True,0,, ,1663, 
+1562,John E. Sununu,Republican,http://votesmart.org/canphoto/617.jpg,470,True,1,, ,617, 
 1563,Thomas H. Allen,Democratic,,471,False,1,,,380,
 1564,Susan M. Collins,Republican,http://votesmart.org/canphoto/379.JPG,471,False,1,,,379,
-1565,Stevan E. Pearce,Republican,http://votesmart.org/canphoto/10655.jpg,472,False,1,,,10655,
-1566,Tom S. Udall,Democratic,http://votesmart.org/canphoto/22658.jpg,472,False,1,,,22658,
+1565,Stevan E. Pearce,Republican,http://votesmart.org/canphoto/10655.jpg,472,True,1,, ,10655, 
+1566,Tom S. Udall,Democratic,http://votesmart.org/canphoto/22658.jpg,472,True,1,, ,22658, 
 1567,Jeffrey K. Beatty,Republican,,473,False,0,,,67666,
 1568,John Forbes Kerry,Democratic,http://votesmart.org/canphoto/53306.JPG,473,False,1,,,53306,
 1569,Robert J. Underwood,Libertarian,,473,False,0,,,68139,
-1570,William Bruce Lunsford,Democratic,,474,False,0,,,35055,
-1571,Mitch McConnell,Republican,http://votesmart.org/canphoto/53298.JPG,474,False,1,,,53298,
+1570,William Bruce Lunsford,Democratic, ,474,True,0,, ,35055, 
+1571,Mitch McConnell,Republican,http://votesmart.org/canphoto/53298.JPG,474,True,1,, ,53298, 
 1572,James S. Gilmore III,Republican,http://votesmart.org/canphoto/17457.jpg,475,False,0,,,17457,
 1573,Glenda Gail Parker,Independent Green,,475,False,0,,,57155,
 1574,William B. Redpath,Libertarian,http://votesmart.org/canphoto/55856.jpg,475,False,0,,,55856,
