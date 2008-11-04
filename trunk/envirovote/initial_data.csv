@@ -1218,20 +1218,20 @@ races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_c
 1157,Charles J. Melancon Sr.,Democratic,http://votesmart.org/canphoto/35601.jpg,444,False,1,,,35601,
 1158,Stephen J. Scalise,Republican,http://votesmart.org/canphoto/9026.JPG,443,False,1,,,9026,
 1159,Peter Vidrine,Other,http://votesmart.org/canphoto/1937.jpg,441,False,0,,,1937,
-1160,John Sidney McCain III,"Republican",http://votesmart.org/canphoto/53270.jpg,0,False,1,,,53270,
-1161,Barack Hussein Obama Jr.,"Democratic",http://votesmart.org/canphoto/9490.JPG,0,False,1,,,9490,
-1162,Cynthia Ann McKinney,"Green Party",http://votesmart.org/canphoto/26826.JPG,0,False,0,,,26826,
-1163,Robert Laurence Barr Jr.,"Libertarian",http://votesmart.org/canphoto/22028.jpg,0,False,0,,,22028,
-1164,Ralph Nader,"Independent",http://votesmart.org/canphoto/2508.JPG,0,False,0,,,2508,
-1165,Gene Amondson,Prohibition,http://votesmart.org/canphoto/53244.jpg,0,False,0,,,53244,
-1166,Charles O. Baldwin,Constitution,http://votesmart.org/canphoto/53051.JPG,0,False,0,,,53051,
-1167,Roger Calero,"Socialist Workers Party",,0,False,0,,,69450,
-1168,Charles Jay,"Boston Tea Party",,0,False,0,,,110492,
-1169,Alan L. Keyes,"Independent",http://votesmart.org/canphoto/96136.jpg,0,False,0,,,96136,
-1170,Gloria Estela La Riva,"Party for Socialism and Liberation",http://votesmart.org/canphoto/16457.JPG,0,False,0,,,16457,
-1171,Brian P. Moore,"Socialist",http://votesmart.org/canphoto/30971.JPG,0,False,0,,,30971,
-1172,Thomas Robert Stevens,Objectivist,,0,False,0,,,110495,
-1173,Ted C. Weill,"Reform",http://votesmart.org/canphoto/53036.JPG,0,False,0,,,53036,
+1160,John Sidney McCain III,"Republican",http://votesmart.org/canphoto/53270.jpg,950,False,1,,,53270,
+1161,Barack Hussein Obama Jr.,"Democratic",http://votesmart.org/canphoto/9490.JPG,950,False,1,,,9490,
+1162,Cynthia Ann McKinney,"Green Party",http://votesmart.org/canphoto/26826.JPG,950,False,0,,,26826,
+1163,Robert Laurence Barr Jr.,"Libertarian",http://votesmart.org/canphoto/22028.jpg,950,False,0,,,22028,
+1164,Ralph Nader,"Independent",http://votesmart.org/canphoto/2508.JPG,950,False,0,,,2508,
+1165,Gene Amondson,Prohibition,http://votesmart.org/canphoto/53244.jpg,950,False,0,,,53244,
+1166,Charles O. Baldwin,Constitution,http://votesmart.org/canphoto/53051.JPG,950,False,0,,,53051,
+1167,Roger Calero,"Socialist Workers Party",,950,False,0,,,69450,
+1168,Charles Jay,"Boston Tea Party",,950,False,0,,,110492,
+1169,Alan L. Keyes,"Independent",http://votesmart.org/canphoto/96136.jpg,950,False,0,,,96136,
+1170,Gloria Estela La Riva,"Party for Socialism and Liberation",http://votesmart.org/canphoto/16457.JPG,950,False,0,,,16457,
+1171,Brian P. Moore,"Socialist",http://votesmart.org/canphoto/30971.JPG,950,False,0,,,30971,
+1172,Thomas Robert Stevens,Objectivist,,950,False,0,,,110495,
+1173,Ted C. Weill,"Reform",http://votesmart.org/canphoto/53036.JPG,950,False,0,,,53036,
 1477,Scott Avery Boman,Libertarian,http://votesmart.org/canphoto/790.jpg,445,False,0,,,790,
 1478,Douglas P. Dern,Natural Law Party,http://votesmart.org/canphoto/37454.JPG,445,False,0,,,37454,
 1479,Jacob W. Hoogendyk Jr.,Republican,http://votesmart.org/canphoto/37348.jpg,445,False,0,,,37348,
@@ -2592,7 +2592,6 @@ races.candidate:id,name,party,photo,race,is_key,last_elected,votes,vote_pc,pvs_c
 2834,Thomas Rankin,Libertarian,,949,False,,,3.9%,,
 
 races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,tally_updated,tally_notes,winner,projected
-0,pre,,,2008,0,False,,,,,,,False
 1,gov,MO,,2008,0,False,,,,,,,False
 2,gov,MT,,2008,0,False,,,,,,,False
 3,gov,IN,,2008,0,False,,,,,,,False
@@ -3542,3 +3541,4 @@ races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,
 947,hou,WI,7,2006,0,False,,,,,,2827,False
 948,hou,WI,8,2006,0,False,,,,,,2830,False
 949,hou,WY,0,2006,0,False,,,,,,2832,False
+950,pre,,,2008,0,False,,,,,,,False
