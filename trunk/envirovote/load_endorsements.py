@@ -14,7 +14,7 @@ def load_endorsements(f):
     print '===',f.name,'==='
     reader = csv.reader(f)
     n = os.path.basename(f.name)
-    org_name,x,year = n.rpartition('.csv')[0].rpartition(' ')[0].rpartition(' ')
+    org_name,year = n.split('.')[0].rstrip(' endorsements').rsplit(' ',1)
     endorsement_url = reader.next()[0]
     # "AL","U.S. House",7,"Artur Davis","Democratic"
     reader = csv.DictReader(f, (
@@ -68,7 +68,7 @@ def load_endorsements(f):
 
 d = "data/endorsements/Vote Smart/"
 for n in os.listdir(d):
-    if n.rpartition('.')[0].rpartition(' ')[2] == 'endorsements':
+    if n.endswith('csv') & (n.find('endorsements') > 0) & (n.find('forget') < 0):
         f = open("%s%s" % (d,n))
         load_endorsements(f)
         f.close()
