@@ -3,78 +3,7 @@
 {% load race_extras %}
 {% block filling %}
 
-<div class="column center">
-<br/>
-{% show_big_meter meter_info %}
-<br/>
-<h2>Key Races</h2>
-<div class="key-races">
-{% for race in key_races %}
-  <div class="key-race">
-    <h3><a href="{{race.get_absolute_url}}">{{race.title}}</a></h3>
-    <div class="candidates">
-      <table border="0" cellpadding="0" cellspacing="0"><tr>
-    {% for candidate in race.candidate_set.all %}
-        {% if candidate.is_key %}
-          <td class="candidate-display{% ifequal race.greenest candidate %} greenest{% endifequal %}{% if forloop.first %} first{% endif %}">
-          <img src="{{candidate.photo}}" alt="Portrait of {{candidate.name}}"/>
-          {% ifequal race.winner candidate %}
-            <span class="winner">
-            <img src="/public/images/star.png" alt="Star" class="badge"/>
-            {% if race.projected %}
-              Projected winner
-            {% else %}
-              Winner
-            {% endif %}
-            </span>
-          {% else %}<span class="winner" style="background:transparent">&nbsp;</span>
-          {% endifequal %}
-          <span class="name">
-          {% ifequal race.winner candidate %}
-            <strong>{{candidate.name}}</strong>
-          {% else %}
-            {{candidate.name}}
-          {% endifequal %}
-          </span>
-          <span class="party">({{candidate.party_type}})</span>
-          {% if candidate.last_elected %}<span class="incumbent">(incumbent)</span>{% endif %}
-          {% if candidate.votes %}
-            <span class="votes">
-            {{candidate.vote_percentage|floatformat:2}}% of the vote
-          </span>
-          {% endif %}
-          <div class="detail">
-          {% ifnotequal candidate.endorsement_set.all.count 0 %}
-          <span class="endorsement">
-            {% ifequal race.greenest candidate  %}
-              <img src="/public/images/world.png" alt="Most endorsed by environmental groups" title="Most endorsed by environmental groups" class="badge"/>
-            {% endifequal %}
-            Endorsed by {{candidate.endorsement_set.all.count|apnumber}} 
-            organization{% ifnotequal candidate.endorsement_set.all.count 1 %}s{% endifnotequal %}</span>
-          {% else %}
-          <span class="endorsement">No endorsements</span>
-          {% endifnotequal %}            
-          {% ifequal race.greenest candidate %}<span class="greenest">Greenest</span>{% endifequal %}
-          </div>
-        </td>
-        {% endif %}
-    {% endfor%}    
-      </tr></table>
-    </div>
-    <div class="content">
-    <h3>{{race.headline}}</h3>
-    <h4>{{race.deck}}</h4>
-    {% if race.vote_last_updated %}
-      <p>Last updated at {{race.vote_last_updated|date:"h:i a"}} {{race.vote_last_updated|naturalday}}</p>
-    {% endif %}
-    {{race.body|linebreaks}}
-    </div>
-  </div>
-{% endfor %}
-</div>
-</div>
-
-<div class="column incoming-wins">
+<div class="incoming-wins" style="float:right">
 <h2>Incoming wins</h2>
 {% ifequal 0 incoming_races.count %}
     <div>
@@ -83,6 +12,7 @@
         <p>As the results come in tonight, we'll post them right here.</p>
     </div>
 {% else %}
+  <p>here are the latest results in races we're watching:</p>
     {% for race in incoming_races %}
     <div>
         <h4><a href="{{race.get_absolute_url}}">
@@ -113,5 +43,81 @@
     </div>
     {% endfor %}
 {% endifequal %}
+</div>
+
+<div class="center">
+<br/>
+{% show_big_meter meter_info %}
+<br/>
+<h2>Key Races</h2>
+<div class="key-races">
+{% for race in key_races %}
+  <div class="key-race">
+    {% if race.headline %}
+    <h2 style="border:0"><a href="{{race.get_absolute_url}}">{{race.headline}}</a></h2>
+    {% else %}
+    <h2 style="border:0"><a href="{{race.get_absolute_url}}">{{race.title}}</a></h2>
+    {% endif %}
+    
+    <div class="candidates">
+      <table border="0" cellpadding="0" cellspacing="0"><tr>
+    {% for candidate in race.candidate_set.all %}
+        {% if candidate.is_key %}
+          <td class="candidate-display{% ifequal race.greenest candidate %} greenest{% endifequal %} {% cycle "first" "last" %}">
+          <img height="135" width="110" src="{% firstof candidate.photo "http://www.votesmart.org/canphoto/nophoto.gif" %}" alt="Portrait of {{candidate.name}}"/>
+          {% ifequal race.winner candidate %}
+            <span class="winner">
+            <img src="/public/images/star.png" alt="Star" class="badge"/>
+            {% if race.projected %}
+              Projected winner
+            {% else %}
+              Winner
+            {% endif %}
+            </span>
+          {% else %}<span class="winner" style="background:transparent">&nbsp;</span>
+          {% endifequal %}
+          <span class="name">
+          {% ifequal race.winner candidate %}
+            <strong>{{candidate.name}}</strong>
+          {% else %}
+            {{candidate.name}}
+          {% endifequal %}
+          </span>
+          <span class="party">({{candidate.party_abbv}})</span>
+          {% if candidate.last_elected %}<span class="incumbent">(incumbent)</span>{% endif %}
+          {% if candidate.votes %}
+            <span class="votes">
+            {{candidate.vote_percentage|floatformat:2}}% of the vote
+          </span>
+          {% endif %}
+          <div class="detail">
+          {% ifnotequal candidate.endorsement_set.all.count 0 %}
+          <span class="endorsement">
+            {% ifequal race.greenest candidate  %}
+              <img src="/public/images/world.png" alt="Most endorsed by environmental groups" title="Most endorsed by environmental groups" class="badge"/>
+            {% endifequal %}
+            Endorsed by {{candidate.endorsement_set.all.count|apnumber}} 
+            organization{% ifnotequal candidate.endorsement_set.all.count 1 %}s{% endifnotequal %}</span>
+          {% else %}
+          <span class="endorsement">No endorsements</span>
+          {% endifnotequal %}            
+          {% ifequal race.greenest candidate %}<span class="greenest">Greenest</span>{% endifequal %}
+          </div>
+        </td>
+        {% endif %}
+    {% endfor%}    
+      </tr></table>
+      <div class="content">
+      {% if race.deck %}<h3>{{race.deck}} - {{race.title}}</h3>{% endif %}
+      {% if race.vote_last_updated %}
+        <p>Last updated at {{race.vote_last_updated|date:"h:i a"}} {{race.vote_last_updated|naturalday}}</p>
+      {% endif %}
+      {{race.body|linebreaks}}
+      </div>
+      
+    </div>
+  </div>
+{% endfor %}
+</div>
 </div>
 {% endblock %}
