@@ -6,25 +6,31 @@
 {% show_medium_meter meter_info %}
 
 {% ifequal 0 governor_races.count %}
-    <h3>Governor</h3>
-    <div>No gubernatorial election this year.</div>
+  <h3>Governor</h3>
+  <div>No gubernatorial election this year.</div>
 {% else %}
-    {% for race in governor_races %}
-        {% show_state_race race %}
-    {% endfor %}
+<div class="guber-races">
+  {% for race in governor_races %}
+    {% show_state_race race %}
+  {% endfor %}
+</div>
 {% endifequal %}
 
 {% ifequal 0 senate_races.count %}
-    <h3>Senate</h3>
-    <div class="race">No senate election this year.<div class="race">
+  <h3>Senate</h3>
+  <div class="race">No senate election this year.</div>
 {% else %}
+  <div class="senate-races">
     {% for race in senate_races %}
-        {% show_state_race race %}
+      {% show_state_race race %}
     {% endfor %}
+  </div>
 {% endifequal %}
 <h2>U.S. House of Representatives</h2>
-{% for race in house_races %}
-{% show_state_race race %}
-{% endfor %}
+<div class="house-races">
+  {% for race in house_races %}
+    {% show_state_race race %}
+  {% endfor %}
+</div>
 </div>
 {% endblock %}
