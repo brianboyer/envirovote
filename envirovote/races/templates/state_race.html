@@ -1,15 +1,15 @@
 {% load humanize %}
 {% ifequal race.race_type "gov" %}
-<h2><a href="/race/{{race.id}}">Governor</a></h2>
+<h2><a href="{{ race.get_absolute_url }}">Governor</a></h2>
 {% endifequal %}
 {% ifequal race.race_type "sen" %}
-<h2><a href="/race/{{race.id}}">U.S. Senate</a></h2>
+<h2><a href="{{ race.get_absolute_url }}">U.S. Senate</a></h2>
 {% endifequal %}
-<div class="race">
-    {% ifequal race.race_type "hou" %}
-    <h4><a href="/race/{{race.id}}">{{race.district|ordinal}} District</a></h4>
-    {% endifequal %}
-    <ul>
+<div class="race {% cycle "odd" "even" %}">
+  {% ifequal race.race_type "hou" %}
+    <fieldset><legend><a href="{{race.get_absolute_url}}">{{ race.district_display }}</a></legend>
+  {% endifequal %}
+    <ol>
     {% for candidate in race.candidate_set.all %}
       <li class="{% ifequal race.greenest candidate %}greenest{% endifequal %}">
         {% ifequal race.greenest candidate  %}
@@ -17,17 +17,22 @@
         {% endifequal %}
 
         {% ifequal race.winner candidate %}
-        <img src="/public/images/star.png" alt="{% if race.projected %}Projected {% endif %}Winner" title="{% if race.projected %}Projected {% endif %}Winner" class="badge"/>
-        {% if race.projected %} (projected){% endif %}{% endifequal %}
-        {{candidate.name}} ({{candidate.party}})
+          <img src="/public/images/star.png" alt="{% if race.projected %}Projected {% endif %}Winner" title="{% if race.projected %}Projected {% endif %}Winner" class="badge"/>
+          {% if race.projected %} (projected){% endif %}
+        {% endifequal %}
+        {{candidate.name}} ({{candidate.party_abbv}})
         {% if race.winner %} - {{candidate.vote_percentage|floatformat:2}}%{% endif %}
       </li>
     {% endfor %}
-    </ul>
-    {% if race.winner %}
+    </ol>
+    
+  {% if race.winner %}
     <p class="tally-notes">{{race.tally_notes}}</p>
     <p class="tally-updated">Updated {{race.tally_updated|naturalday}} at {{race.tally_updated|date:"h:i a"}}</p>
-    {% else %}
+  {% else %}
     <p class="tally-notes">Results are not yet available for this race.</p>
-    {% endif %}
+  {% endif %}
+  {% ifequal race.race_type "hou" %}
+  </fieldset>
+  {% endifequal %}
 </div>

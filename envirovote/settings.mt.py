@@ -1,5 +1,8 @@
 # Django settings for envirovote project.
 
+ENVIROVOTE_ROOT = '/home/54010/containers/django/envirovote'
+STATIC_DOC_ROOT = ENVIROVOTE_ROOT + '/public'
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -72,6 +75,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    ENVIROVOTE_ROOT+"/races/templates",
 )
 
 INSTALLED_APPS = (
@@ -85,5 +89,3 @@ INSTALLED_APPS = (
     'envirovote.endorsements'
 )
 
-ENVIROVOTE_ROOT = '/home/54010/containers/django/envirovote'
-STATIC_DOC_ROOT = ENVIROVOTE_ROOT + '/public'

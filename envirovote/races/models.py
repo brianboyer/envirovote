@@ -64,18 +64,18 @@ STATE_CHOICES = (
 )
 
 PARTY_TYPE_CHOICES = (
+    ('I', 	'Independent'),
+    ('R', 	'Republican'),
+    ('D', 	'Democrat'),
+    ('PF', 	'Peace and Freedom'),
+    ('SW', 	'Socialist Workers'),
     ('AI', 	'American Independent'),
     ('C', 	'Constitution'),
-    ('D', 	'Democrat'),
     ('G', 	'Green'),
-    ('I', 	'Independent'),
     ('IP', 	'Independence'),
     ('L', 	'Libertarian'),
     ('Ref', 'Reform'),
-    ('R', 	'Republican'),
-    ('PF', 	'Peace and Freedom Party'),
     ('S', 	'Socialist'),
-    ('SW', 	'Socialist Workers Party'),
 )
 
 class Race(models.Model):
@@ -134,6 +134,13 @@ class Race(models.Model):
         
     def get_absolute_url(self):
         return '/race/%s/' % self.id
+        
+    def _get_district_display(self):
+        if self.district == 0:
+            return "At Large"
+        else:
+            return "%s District" % humanize.ordinal(self.district)
+    district_display = property(_get_district_display)
 
 
 class Candidate(models.Model):
@@ -165,8 +172,9 @@ class Candidate(models.Model):
     def _get_party_abbv(self):
         """full party name"""
         for k,v in PARTY_TYPE_CHOICES:
-            if k == self.party:
-                return v
+            if self.party.lower().find(v.lower()) >= 0:
+                return k
+        return "I"
     party_abbv = property(_get_party_abbv)
     
     def __unicode__(self):
