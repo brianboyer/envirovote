@@ -11,15 +11,13 @@
 </head>
 <body>
     <h1 class="masthead"><a href="/"><span class="enviro">enviro</span><span class="vote">vote</span></a>
-      <div style="font-weight:normal;font-size:.7em">Tracking the election results for eco-friendly candidates</div>
+      <span style="font-weight:normal;font-size:.7em;display:block;">Tracking the election results for eco-friendly candidates</span>
     </h1>
     <p id="project">A Medill Reports and News 21 project.</p>
     <ul id="navigation">
         <li><a href="/about">About us</a></li>
-    </ul>
-    
-    <div class="column left">{% show_state_list %}</div>
-    
+    </ul> 
+    <div class="column left">{% show_state_list %}</div>   
     <div style="overflow:hidden;">{% block filling %}{% endblock %}</div>
     <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -31,7 +29,7 @@
     </script>
     <div id="footer">
         <p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by/3.0/us/88x31.png" /></a>The content of this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>.</p>
-        <p><a rel="license" href="http://www.gnu.org/licenses/gpl.html"><img alt="GNU GPL License" src="/public/images/gplv3-88x31.png" /></a>The source code of this site is licensed under the <a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License v3</a>, and can be found at our project on <a href="http://code.google.com/p/envirovote/">Google Code.</p>
+        <p><a rel="license" href="http://www.gnu.org/licenses/gpl.html"><img alt="GNU GPL License" src="/public/images/gplv3-88x31.png" /></a>The source code of this site is licensed under the <a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License v3</a>, and can be found at our project on <a href="http://code.google.com/p/envirovote/">Google Code</a>.</p>
     </div>
 </body>
 </html>

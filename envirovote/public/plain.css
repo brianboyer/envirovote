@@ -93,7 +93,7 @@ div#state h3 {margin-bottom:0.5em;}
 div#state div.senate-races div.race ol li,
 div#state div.guber-races div.race ol li {font-size:1em;padding:0.2em;margin:0;}
 div#state div.senate-races div.race ol,
-div#state div.guber-races div.race ol {list-style:bullet;padding:0;margin:.8em;}
+div#state div.guber-races div.race ol {list-style:none;padding:0;margin:.8em;}
 div#state div.odd {clear:left;margin-right:1em;}
 div#state div.race {margin-bottom:1em;width:45%;float:left;}
 div#state div.race legend {font-size:1.2em;font-weight:bold;}
