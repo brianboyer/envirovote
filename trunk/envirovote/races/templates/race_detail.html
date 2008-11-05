@@ -42,6 +42,18 @@
       <br/>
       {{candidate.votes|intcomma}} votes</span>{% endif %}
     <div class="detail">
+    {% if candidate.pvs_candidate_id %}
+    <br/>
+      <span class="endorsements"><strong>More information at Project Vote Smart:</strong>
+      <ul>
+        <li><a href="http://www.votesmart.org/summary.php?can_id={{ candidate.pvs_candidate_id }}">Candidate summary</a></li>
+        <li><a href="http://www.votesmart.org/bio.php?can_id={{ candidate.pvs_candidate_id }}">Candidate bio</a></li>
+        <li><a href="http://www.votesmart.org/voting_category.php?can_id={{ candidate.pvs_candidate_id }}">Voting record</a></li>
+        <li><a href="http://www.votesmart.org/npat.php?can_id={{ candidate.pvs_candidate_id }}">Issue positions:<br/>National Political Courage Test</a></li>
+        <li><a href="http://www.votesmart.org/issue_rating_category.php?can_id={{ candidate.pvs_candidate_id }}">Ratings from interest groups</a></li>
+      </ul>  
+        </span>
+    {% endif %}
     {% ifnotequal candidate.endorsement_set.all.count 0 %}
     <br/>
     <span class="endorsement"><strong>Endorsed by:</strong>
@@ -51,6 +63,7 @@
     {% endfor %}
     </ul></span>
     {% endifnotequal %}
+    
     {% if candidate.extra_info %}
     <div class="extra-info"><strong>More information on the candidate:</strong><br/>
       {{ candidate.extra_info|safe }}</div>
