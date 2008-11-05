@@ -83,7 +83,7 @@ class Race(models.Model):
     state = models.CharField(max_length=2, choices=STATE_CHOICES, blank=True, null=True)
     district = models.IntegerField(blank=True, null=True)
     year = models.IntegerField()
-    last_race = models.ForeignKey("Race", blank=True, null=True)
+    last_race = models.ForeignKey("Race", null=True)
     is_key = models.BooleanField()
     headline = models.CharField(max_length=200, blank=True, null=True)
     deck = models.CharField(max_length=200, blank=True, null=True)
