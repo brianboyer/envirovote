@@ -1,0 +1,4 @@
+#!/bin/sh
+rm envirovote.sqlite3
+./manage.py syncdb --noinput
+./manage.py runserver 0.0.0.0:8080
