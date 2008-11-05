@@ -75,10 +75,11 @@ div.states div.meter div.bar {height: 1em; border-width:0.1em;background:url(/pu
 div.states div.meter div.bar div {height: 1em;background:url(/public/images/mini-bar-fill.png);}
 
 div.incoming-wins div {background-color:#efefef;border:#999 solid 1px;padding:0.5em;margin-bottom: 0.5em;}
-div.incoming-wins div p.tally-notes {margin:0;font-size:0.8em;}
+div.incoming-wins div p.tally-notes {margin:0;font-size:0.8em;text-align:right;}
 div.incoming-wins div p.tally-updated {margin:0.3em 0 0 0;text-align:right;font-size:0.7em;}
 div.incoming-wins div h4 {margin:0;}
-div.incoming-wins div ol {list-style:none;padding:0;margin:.6em;}
+div.incoming-wins div h5 {margin:0;}
+div.incoming-wins div ol {list-style:none;padding:0;margin:0.5em; 0 0.5em 0.5em;}
 div.incoming-wins div ol li {padding:0.2em;border-bottom:solid 0.1em #333;margin:0;}
 div.incoming-wins div ol li.greenest {background-color:#61bb0a;color:white;border:solid 1px #575a41;}
 div.incoming-wins div ol li.winner {font-weight:bold; font-size:1em;background:#333;color:white;}
