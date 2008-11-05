@@ -36,8 +36,5 @@ def state(request, state):
     return HttpResponseRedirect('/')
 
 def embed(request):
-    key = Race.objects.filter(is_key=True)
-    incoming_races = Race.objects.filter(year=2008,winner__isnull=False).order_by('-tally_updated')[:10]
-    states = get_states_and_info()
     meter_info = calculate_meter_info(Race.objects.filter(year=2008))
-    return render_to_response('embedable.html', {'key_races': key, 'incoming_races': incoming_races, 'meter_info': meter_info, 'states': states,})
+    return render_to_response('embeddable.html', {'meter_info': meter_info})
