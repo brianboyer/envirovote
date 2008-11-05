@@ -21,7 +21,7 @@
         {% ifequal race.race_type 'sen' %}{{race.get_state_display}}, U.S. Senate{% endifequal %}
         {% ifequal race.race_type 'gov' %}{{race.get_state_display}} Governor{% endifequal %}
         </a></h4>
-        {% ifequal race.race_type 'con' %}<h5>{{race.district|ordinal}} District</h5>{% endifequal %}
+        {% ifequal race.race_type 'hou' %}<h5>{{ race.district_display }}</h5>{% endifequal %}
         <ol>
         {% for candidate in race.candidate_set.all %}
             <li class="{% ifequal race.winner candidate %}winner{% endifequal %}">
@@ -33,7 +33,10 @@
             <img src="/public/images/world.png" alt="Most endorsed by environmental groups" title="Most endorsed by environmental groups" class="badge"/>
           {% endifequal %}
 
-            {{candidate.name}} ({{candidate.party_abbv}}) {{candidate.vote_percentage|floatformat:2}}%
+            {{candidate.name}} ({{candidate.party_abbv}}) 
+            {% if candidate.vote_percentage %}
+            {{candidate.vote_percentage|floatformat:2}}%              
+            {% endif %}            
             {% ifequal race.winner candidate %}{% if race.projected %} (projected){% endif %}{% endifequal %}
             </li>
         {% endfor %}
@@ -89,6 +92,10 @@
                 <span class="votes">
                 {{candidate.vote_percentage|floatformat:2}}% of the vote
               </span>
+              {% else %}
+              {% if candidate.vote_pc %}
+                <span class="vote">{{ candidate.vote_pc }}</span>
+              {% endif %}
               {% endif %}
               <div class="detail">
               {% ifnotequal candidate.endorsement_set.all.count 0 %}
