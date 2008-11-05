@@ -1,5 +1,7 @@
 from django.contrib import admin
 from envirovote.races.models import Candidate, Race
+from datetime import datetime
+
 
 from django import forms
 
@@ -11,6 +13,8 @@ class RaceAdminForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(RaceAdminForm, self).__init__(*args, **kwargs)
+        self.fields["tally_updated"] = datetime.now()
+        self.fields["last_race"].queryset = Race.objects.filter(year__lt='2008',race_type=self.instance.race_type,district=self.instance.district,state=self.instance.state)
         self.fields["winner"].queryset = Candidate.objects.filter(race=self.instance).order_by('name')
         
 class CandidateAdmin(admin.ModelAdmin):
