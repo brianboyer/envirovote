@@ -34,3 +34,10 @@ def state(request, state):
             house_races = Race.objects.filter(race_type='hou',year=2008,state=abbr).order_by('district')
             return render_to_response('state.html',{'state':name, 'governor_races':governor_races, 'senate_races':senate_races, 'house_races':house_races, 'meter_info':meter_info,})
     return HttpResponseRedirect('/')
+
+def embed(request):
+    key = Race.objects.filter(is_key=True)
+    incoming_races = Race.objects.filter(year=2008,winner__isnull=False).order_by('-tally_updated')[:10]
+    states = get_states_and_info()
+    meter_info = calculate_meter_info(Race.objects.filter(year=2008))
+    return render_to_response('embedable.html', {'key_races': key, 'incoming_races': incoming_races, 'meter_info': meter_info, 'states': states,})
