@@ -112,6 +112,20 @@ class Race(models.Model):
             return "I don't know what race type this is"
     title = property(_get_title)
     
+    def _get_short_title(self):
+        """shows the proper title of the race"""
+        if self.race_type == 'pre':
+            return "President"
+        elif self.race_type == 'hou' and self.district == 0:
+            return "%s House" % (self.get_state_display())
+        elif self.race_type == 'hou':
+            return "%s House %s District" % (self.get_state_display(),humanize.ordinal(self.district))
+        elif self.race_type == 'sen':
+            return "%s Senate" % (self.get_state_display())
+        elif self.race_type == 'gov':
+            return "%s Governor" % (self.get_state_display())
+    short_title = property(_get_short_title)
+    
     def _get_greenest(self):
         """returns the greenest candidate in this race"""
         high = 0
@@ -179,3 +193,15 @@ class Candidate(models.Model):
     
     def __unicode__(self):
         return "%s (%s)" % (self.name,self.party)
+
+from django.db.models import signals
+from helpers import calculate_meter_info
+from twitter import twitter
+
+def tweet_minty(sender, instance=None, **kwargs):
+    info = calculate_meter_info(Race.objects.filter(year=2008))
+    msg = "%s(%s) wins %s. %s/%s eco-happy races. America now %s%% environmintier." % (instance.winner.name, instance.winner.party_abbv,instance.short_title,info['green_races'],info['decided_races'],info['percent_change'])
+    api = twitter.Api(username='envirovote',password='unicorn')
+    api.PostUpdate(msg)
+
+signals.post_save.connect(tweet_minty, sender=Race)
