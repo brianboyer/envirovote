@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load race_extras %}
+{% block filling %}
+<div id="about">
+    <h2>About enviroVOTE</h2>
+
+    <h3>Our story</h3>
+    <p>enviroVOTE was jointly developed by hacker-journalists with <a href="http://news.medill.northwestern.edu/">Medill Reports</a> and <a href="http://news21project.org/">News21</a>.</p>
+    <p><a href="http://ryan-mark.com/">Ryan Mark</a> and <a href="http://sixthw.com">Brian Boyer</a> are graduate students at the Medill School of Journalism at Northwestern University.</p>
+    
+    <h3>Acknowledgements and licensing</h3>
+    <p>Alexander Reed and Julia Dilday, graduate students at Medill, watched the races and updated enviroVOTE as the news came in.</p>
+    <p>A great deal of the data found here was lovingly yanked through the tubes via the <a href="http://www.votesmart.org/services_api.php">Project VoteSmart API</a>. Thanks, VoteSmart! We couldn't have done it without ya. Previous <a href="http://en.wikipedia.org/wiki/United_States_House_of_Representatives_elections,_2006_-_complete_list">House</a> and <a href="http://en.wikipedia.org/wiki/United_States_Senate_election,_2002">Senate</a> elections data was scraped from the Wikipedia. Woo, wiki!</p>
+    <p>The icons on this site were created by Mark James, and can be found at <a href="http://www.famfamfam.com/lab/icons/silk/">FAMFAMFAM</a>.  Thanks, Mark!</p>
+    <p>All content on this site is free to use, as long as you attribute it to us, as described by the <a href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>. The source code for enviroVOTE is available on <a href="http://code.google.com/p/envirovote/">Google Code</a> and is released under the <a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a>.</p>
+    
+    <p>enviroVOTE is so cool it opened its <a href="http://twitter.com/envirovote">own twitter page</a> and started tweeting incoming races by itself (with a little help from Mr. Boyer).</p>
+
+    <a name="calculations"></a>
+    <h3>How we run the numbers</h3>
+    <p>On our homepage, you'll find a meter like the one below.</p>
+    <div class="endorse-o-meter">
+        {% show_medium_meter meter_info %}
+    </div>
+    <p>It represents the potential environmental impact of the 2008 elections.  To create the meter, we compare endorsements or candidates made by environmental groups like the Sierra Club and Republicans for Environmental Protection.</p>
+    <p>The candidate in a race with the most endorsements is considered friendliest to the enviroment.  When the race is decided, if the environmentally friendly candidate won the race, then the meter registers a win for the environment.</p>
+    
+    <h4>Environmintiness</h4>
+    <p>Below the bar, the meter shows a figure representing the percent change in environmentally-friendly candidates since the last elections.  This is a touch more complicated.</p>
+    <p>To calculate this number, we compare the current race with the last time the seat was up for election.  For example, in a race for a seat in the U.S. House of Representatives, we look back to the election two years ago.</p>
+    <p>If two years ago the friendly candidate <b>lost</b>, and this year...</p>
+    <ul>
+        <li>...the friendly candidate <b>won</b>, then the win counts towards environmintiness.</li>
+        <li>...the friendly candidate <b>lost again</b>, then the race is neutral.</li>
+    </ul>
+    <p>On the other hand, if two years ago the friendly candidate <b>won</b>, and this year...</p>
+    <ul>
+        <li>...the friendly candidate <b>won again</b>, then the race is neutral.</li>
+        <li>...the friendly candidate <b>lost</b>, then the loss counts against environmintiness.</li>
+    </ul>
+    <p>We give each environmentally-friendly win one point, and add up the points for the current and previous races.  We then subtract the previous points from the current points and divide by the number of races that we're comparing.  This figure, multiplied by 100, represents the environmintiness of the elections.</p>
+</div>
+{% endblock %}

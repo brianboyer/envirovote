@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load race_extras %}
+{% block filling %}
+
+{% if race.title %}<h2>{{race.title}}</h2>{% endif %}
+<div class="race">
+<div class="content{% if race.body %} sidebar{% endif %}">
+{% if race.headline %}<h3>{{race.headline}}</h3>{% endif %}
+{% if race.deck %}<h4>{{race.deck}}</h4>{% endif %}
+{% if race.vote_last_updated %}
+  <p>Last updated at {{race.vote_last_updated|date:"h:i a"}} {{race.vote_last_updated|naturalday}}</p>
+{% endif %}
+{% if race.tally_notes %}
+<p class="tally-notes">{{race.tally_notes}}</p>  
+{% endif %}
+{% if race.body %}{{race.body|linebreaks}}{% endif %}
+</div>
+
+<div class="candidates">
+{% for candidate in candidates %}
+  <div class="candidate-display">
+    <img src="{% firstof candidate.photo "http://www.votesmart.org/canphoto/nophoto.gif" %}" alt="Portrait of {{candidate.name}}"/>
+    {% ifequal race.winner candidate %}
+      <span class="winner">
+      <img src="/public/images/star.png" alt="Star" class="badge"/>
+      {% if race.projected %}
+        Projected winner
+      {% else %}
+        Winner
+      {% endif %}
+      </span>
+    {% else %}
+      <span class="winner"></span>
+    {% endifequal %}
+    <div>
+    <span class="name">{{candidate.name}}</span>
+    <span class="party">{{candidate.party}}</span>
+    {% if candidate.last_elected %}<span class="incumbent">(incumbent)</span>{% endif %}
+    {% if candidate.votes %}<span class="votes">
+      {{candidate.vote_percentage|floatformat:2}}%  of the vote
+      <br/>
+      {{candidate.votes|intcomma}} votes</span>{% endif %}
+    <div class="detail">
+    {% if candidate.pvs_candidate_id %}
+    <br/>
+      <span class="endorsements"><strong>More information at Project Vote Smart:</strong>
+      <ul>
+        <li><a href="http://www.votesmart.org/summary.php?can_id={{ candidate.pvs_candidate_id }}">Candidate summary</a></li>
+        <li><a href="http://www.votesmart.org/bio.php?can_id={{ candidate.pvs_candidate_id }}">Candidate bio</a></li>
+        <li><a href="http://www.votesmart.org/voting_category.php?can_id={{ candidate.pvs_candidate_id }}">Voting record</a></li>
+        <li><a href="http://www.votesmart.org/npat.php?can_id={{ candidate.pvs_candidate_id }}">Issue positions:<br/>National Political Courage Test</a></li>
+        <li><a href="http://www.votesmart.org/issue_rating_category.php?can_id={{ candidate.pvs_candidate_id }}">Ratings from interest groups</a></li>
+      </ul>  
+        </span>
+    {% endif %}
+    {% ifnotequal candidate.endorsement_set.all.count 0 %}
+    <br/>
+    <span class="endorsement"><strong>Endorsed by:</strong>
+    <ul>
+    {% for endorsement in candidate.endorsement_set.all %}
+    <li><a href="{{endorsement.url}}">{{endorsement.organization.name}}</a></span></li>
+    {% endfor %}
+    </ul></span>
+    {% endifnotequal %}
+    
+    {% if candidate.extra_info %}
+    <div class="extra-info"><strong>More information on the candidate:</strong><br/>
+      {{ candidate.extra_info|safe }}</div>
+    {% endif %}
+    {% ifequal race.greenest candidate %}<span class="greenest">Greenest</span>{% endifequal %}
+    </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

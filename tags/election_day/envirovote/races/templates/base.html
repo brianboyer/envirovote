@@ -1,0 +1,38 @@
+{% load race_extras %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>enviroVOTE</title>
+    <script src="/public/jquery-1.2.6.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="/public/plain.css" type="text/css" media="screen" title="Plain" charset="utf-8" />
+</head>
+<body>
+  <div style="background:yellow;padding:.2em;font-size:1.6em">
+    Thanks for a fun evening! <br/>We will be back to wrap things up <br/>after the dust settles.
+  </div>
+    <h1 class="masthead"><a href="/"><span class="enviro">enviro</span><span class="vote">vote</span></a>
+      <span style="font-weight:normal;font-size:.7em;display:block;">Tracking the election results for eco-friendly candidates</span>
+    </h1>
+    <ul id="navigation">
+        <li><strong><a href="http://twitter.com/envirovote">Follow @enviroVOTE on Twitter for the play-by-play</a></strong></li>
+        <li>A Medill Reports and News 21 project. <a href="/about">About us</a></li>
+    </ul> 
+    <div class="column left">{% show_state_list %}</div>   
+    <div style="overflow:hidden;">{% block filling %}{% endblock %}</div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-4270061-2");
+    pageTracker._trackPageview();
+    </script>
+    <div id="footer">
+        <p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by/3.0/us/88x31.png" /></a>The content of this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>.</p>
+        <p><a rel="license" href="http://www.gnu.org/licenses/gpl.html"><img alt="GNU GPL License" src="/public/images/gplv3-88x31.png" /></a>The source code of this site is licensed under the <a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License v3</a>, and can be found at our project on <a href="http://code.google.com/p/envirovote/">Google Code</a>.</p>
+    </div>
+</body>
+</html>
