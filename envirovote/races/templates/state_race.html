@@ -23,7 +23,6 @@
           {% if race.projected %} (projected){% endif %}
         {% endifequal %}
         {{candidate.name}} ({{candidate.party_abbv}})
-        {% if race.winner %} - {{candidate.vote_percentage|floatformat:2}}%{% endif %}
       </li>
     {% endfor %}
     </ol>

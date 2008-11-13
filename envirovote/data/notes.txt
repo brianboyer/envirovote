@@ -1,0 +1,38 @@
+still undecided races
+
+Senate
+AK
+GA
+MN
+OR    X
+
+House
+AK|0
+CA|4
+KY|3  X
+LA|2  - Election is on Dec. 6
+LA|4  - Election is on Dec. 6
+MD|1  X
+OH|15 
+WA|8  X
+TX 2  X (the one we broke)
+
+Need old endorsements, and more new.
+Governor
+DE|   X no old, one new
+IN|   X nil
+MO|   X no old, one new
+MT|   X no old, one new
+NC|   X no old, one new
+ND|   X nil
+NH|   X no old, one new
+UT|   X nil
+VT|   X nil
+WA|   X no old, two new
+WV|   X no old, one new
+
+good link:
+http://www.heatison.org/states/utah
+
+
+
