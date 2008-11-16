@@ -29,7 +29,10 @@
 <h2>U.S. House of Representatives</h2>
 <div class="house-races">
   {% for race in house_races %}
-    {% show_state_race race %}
+    <fieldset class="{% cycle "odd" "even" %}">
+        <legend><a href="{{race.get_absolute_url}}">{{ race.district_display }}</a></legend>
+        {% show_state_race race %}
+    </fieldset>
   {% endfor %}
 </div>
 </div>
