@@ -4,16 +4,9 @@
 {% block filling %}
 
 {% if race.title %}<h2>{{race.title}}</h2>{% endif %}
-<div class="race">
 <div class="content{% if race.body %} sidebar{% endif %}">
 {% if race.headline %}<h3>{{race.headline}}</h3>{% endif %}
 {% if race.deck %}<h4>{{race.deck}}</h4>{% endif %}
-{% if race.vote_last_updated %}
-  <p>Last updated at {{race.vote_last_updated|date:"h:i a"}} {{race.vote_last_updated|naturalday}}</p>
-{% endif %}
-{% if race.tally_notes %}
-<p class="tally-notes">{{race.tally_notes}}</p>  
-{% endif %}
 {% if race.body %}{{race.body|linebreaks}}{% endif %}
 </div>
 
@@ -44,24 +37,24 @@
     <div class="detail">
     {% if candidate.pvs_candidate_id %}
     <br/>
-      <span class="endorsements"><strong>More information at Project Vote Smart:</strong>
-      <ul>
+    <strong>More information at Project Vote Smart:</strong>
+    <ul>
         <li><a href="http://www.votesmart.org/summary.php?can_id={{ candidate.pvs_candidate_id }}">Candidate summary</a></li>
         <li><a href="http://www.votesmart.org/bio.php?can_id={{ candidate.pvs_candidate_id }}">Candidate bio</a></li>
         <li><a href="http://www.votesmart.org/voting_category.php?can_id={{ candidate.pvs_candidate_id }}">Voting record</a></li>
         <li><a href="http://www.votesmart.org/npat.php?can_id={{ candidate.pvs_candidate_id }}">Issue positions:<br/>National Political Courage Test</a></li>
         <li><a href="http://www.votesmart.org/issue_rating_category.php?can_id={{ candidate.pvs_candidate_id }}">Ratings from interest groups</a></li>
-      </ul>  
-        </span>
+    </ul>
     {% endif %}
     {% ifnotequal candidate.endorsement_set.all.count 0 %}
     <br/>
-    <span class="endorsement"><strong>Endorsed by:</strong>
-    <ul>
+    <img src="/public/images/world.png" alt="World" class="badge"/>
+    <strong>Endorsed by:</strong>
     {% for endorsement in candidate.endorsement_set.all %}
-    <li><a href="{{endorsement.url}}">{{endorsement.organization.name}}</a></span></li>
+    {% ifequal forloop.counter 1 %}<ul>{% endifequal %}
+        <li><a href="{{endorsement.url}}">{{endorsement.organization.name}}</a></li>
     {% endfor %}
-    </ul></span>
+    {% ifequal forloop.counter 1 %}</ul>{% endifequal %}
     {% endifnotequal %}
     
     {% if candidate.extra_info %}
@@ -73,6 +66,20 @@
     </div>
   </div>
 {% endfor %}
+    {% if race.winner %}
+    {% if race.tally_notes %}
+        <p class="tally-notes">{{race.tally_notes}}</p>
+    {% endif %}
+    {% if race.tally_updated %}
+        <p class="tally-updated">Updated {{race.tally_updated|naturalday}} at {{race.tally_updated|date:"h:i a"}}</p>
+    {% endif %}
+    {% else %}
+    <p class="tally-notes">Results are not yet available for this race.</p>
+{% endif %}
 </div>
+
+<div class="last_election">
+<h3>Last election: {{race.last_race.year}}</h3>
+{% show_race_short race.last_race %}
 </div>
 {% endblock %}

@@ -24,6 +24,10 @@ def show_medium_meter(meter_info):
 def show_state_race(race):
     return {'race': race}
 
+@register.inclusion_tag('race_short.html')
+def show_race_short(race):
+    return {'race': race}
+
 
 
 
