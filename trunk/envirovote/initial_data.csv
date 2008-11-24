@@ -1,5 +1,7 @@
 
 admin.logentry:id,action_time,user,content_type,object_id,object_repr,action_flag,change_message
+620,2008-11-24 10:47:49,1,9,454,"U.S. Senate, Alaska (2008)",2,"Changed tally_updated, tally_notes and winner."
+619,2008-11-24 10:44:49,1,9,205,"U.S. House of Representatives, At Large for Alaska (2008)",2,"Changed tally_updated, tally_notes and winner."
 618,2008-11-13 00:53:22,1,12,921,National Wildlife Federation endorsed Kathy Dahlkemper in 2008,1, 
 617,2008-11-13 00:51:18,1,12,920,National Wildlife Federation endorsed Mark E. Udall in 2008,1, 
 616,2008-11-13 00:50:26,1,12,919,National Wildlife Federation endorsed Jeanne Shaheen in 2008,1, 
@@ -658,7 +660,7 @@ auth.permission:id,name,content_type,codename
 24,Can delete site,8,delete_site
 
 auth.user:id,username,first_name,last_name,email,password,is_staff,is_active,is_superuser,last_login,date_joined,groups,user_permissions
-1,admin, , ,admin@envirovote.us,sha1$f2d28$71a10f0d47a6d47dee8943a5284eef63ef888ad6,True,True,True,2008-11-12 21:03:21,2008-11-01 19:59:16,,
+1,admin, , ,admin@envirovote.us,sha1$f2d28$71a10f0d47a6d47dee8943a5284eef63ef888ad6,True,True,True,2008-11-24 10:36:56,2008-11-01 19:59:16,,
 
 contenttypes.contenttype:id,name,app_label,model
 10,candidate,races,candidate
@@ -706,6 +708,10 @@ ZmY0ODA2NTY0MGMzYw==
 cy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEESwF1Ljg5YTZjYTMyNTdhNmIzNWVlODk2
 NTE5NzcxNjJmODFl
 ",2008-11-26 21:03:21
+5fc3d739229b3cdadd74fdace724a871,"gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k
+cy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEESwF1Ljg5YTZjYTMyNTdhNmIzNWVlODk2
+NTE5NzcxNjJmODFl
+",2008-12-08 10:36:56
 
 sites.site:id,domain,name
 1,envirovote.us,enviroVOTE
@@ -915,7 +921,7 @@ races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,
 202,hou,OH,3,2008,819,False, , , ,2008-11-05 16:00:38,According to the Associated Press.,530,False
 203,hou,OH,13,2008,829,False, , , ,2008-11-05 16:04:37,According to the Associated Press.,526,False
 204,hou,OH,6,2008,822,False, , , ,2008-11-05 16:02:43,According to the Associated Press.,533,False
-205,hou,AK,0,2008,522,False,,,,,,,False
+205,hou,AK,0,2008,522,False, , , ,2008-11-24 10:44:35,According to the Associated Press,537,False
 206,hou,AR,1,2008,531,False, , , ,2008-11-04 19:52:55,According to the Associated Press.,538,False
 207,hou,AR,3,2008,533,False, , , ,2008-11-04 21:09:30,According to the Associated Press.,539,False
 208,hou,AR,4,2008,534,False, , , ,2008-11-04 19:56:27,According to the Associated Press.,542,False
@@ -1164,7 +1170,7 @@ races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,
 451,sen,IA,,2008,488,False, , , ,2008-11-04 22:24:23,According to the Associated Press.,1500,False
 452,sen,IL,,2008,487,False, , , ,2008-11-05 11:33:15,According to the Associated Press.,1503,False
 453,sen,NC,,2008,504,False, , , ,2008-11-04 20:10:12,According to the Associated Press.,1509,False
-454,sen,AK,,2008,481,True,Green takes a back seat to legal issues,Stevens/Begich in Alaska,"Talk about pedigree: The main picture on Incumbent Ted Stevens’ Web site shows him as a young man with then-President Dwight Eisenhower. Stevens has been in the Senate for 40 years, almost as long as Alaska has been a state. But being convicted on seven of seven felony counts a week before the election takes the wind out of the sails of the SS Pedigree. Anchorage Mayor Mark Begich, the Democratic challenger, stands to benefit from Stevens’ legal woes. Begich calls Alaska “ground zero” for global warming but favors drilling in ANWR.",, ,,False
+454,sen,AK,,2008,481,True,Green takes a back seat to legal issues,Stevens/Begich in Alaska,"Talk about pedigree: The main picture on Incumbent Ted Stevens’ Web site shows him as a young man with then-President Dwight Eisenhower. Stevens has been in the Senate for 40 years, almost as long as Alaska has been a state. But being convicted on seven of seven felony counts a week before the election takes the wind out of the sails of the SS Pedigree. Anchorage Mayor Mark Begich, the Democratic challenger, stands to benefit from Stevens’ legal woes. Begich calls Alaska “ground zero” for global warming but favors drilling in ANWR.",2008-11-24 10:47:43,According to the Associated Press,1510,False
 455,sen,AR,,2008,482,False, , , ,2008-11-04 19:52:08,According to the Associated Press.,1516,False
 456,sen,CO,,2008,483,True, Friends or foes?,Udall/Schaffer in Colorado,"Both Democrat Mark Udall and Republican Rob Schaffer talk about their strong relationship with Colorado’s wondrous natural resources, but at least one environmental group accuses Schaffer of historically siding with polluters when it comes to keeping Colorado’s waterways clean. Udall is heavily favored to win this seat, which is being vacated by Republican Wayne Allard.",2008-11-05 11:23:33,According to the Associated Press.,1520,False
 457,sen,KS,,2008,489,False, , , ,2008-11-04 21:10:09,According to the Associated Press.,1523,False
