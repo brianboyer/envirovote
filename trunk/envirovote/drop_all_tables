@@ -1,2 +1,2 @@
 #!/bin/sh
-mysqldump --add-drop-table --no-data db54010_envirovote -h internal-db.s54010.gridserver.com -u db54010_evote -pas3092j30ajwer3 | grep DROP | mysql db54010_envirovote -h internal-db.s54010.gridserver.com -u db54010_evote -pas3092j30ajwer3
+mysqldump --add-drop-table --no-data bboyer_envirovote -u bboyer_evote -pCzngqcBRpIC1 | grep DROP | mysql bboyer_envirovote -u bboyer_evote -pCzngqcBRpIC1

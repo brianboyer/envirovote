@@ -3,8 +3,6 @@
 ENVIROVOTE_ROOT = '/Users/rmark/Documents/django/envirovote'
 STATIC_DOC_ROOT = ENVIROVOTE_ROOT + '/public'
 
-ENABLE_TWITTER = False
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
