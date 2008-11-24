@@ -16,8 +16,9 @@
         {% for endorsement in candidate.endorsement_set.all %}
         {% ifequal forloop.counter 1 %}<ul>{% endifequal %}
             <li><a href="{{endorsement.url}}">{{endorsement.organization.name}}</a></li>
+        {% ifequal forloop.counter candidate.endorsement_set.all.count %}</ul>{% endifequal %}
         {% endfor %}
-        {% ifequal forloop.counter 1 %}</ul>{% endifequal %}
+
 
       </li>
     {% endfor %}
