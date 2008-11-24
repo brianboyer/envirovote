@@ -39,5 +39,11 @@
         <li>...the friendly candidate <b>lost</b>, then the loss counts against environmintiness.</li>
     </ul>
     <p>We give each environmentally-friendly win one point, and add up the points for the current and previous races.  We then subtract the previous points from the current points and divide by the number of races that we're comparing.  This figure, multiplied by 100, represents the environmintiness of the elections.</p>
+
+    <a name="governors"></a>
+    <h4>The trouble with governors</h4>
+    <p>Our primary source of endorsement data, Project VoteSmart, is super awesome, but they don't have data for endorsements in current or historical governor races.  So, we were left to our own devices to discover out if gubernatorial candidates were endorsed by any environmental groups.  This was relatively easy for current candidates, but ended up being quite tricky for previous races.</p>
+    <p>So, we don't have any endorsements for past governor races, which means that if an environmentally-friendly candidate won this year, our algorithm will score a win for the environment.  If an endorsed candidate won last time around, a race that should register as a neutral ends up looking environminty.  This may skew our numbers *ever so slightly* to optimistically environminty, on the order of a fraction of a percent.</p>
+    <p>It's probably not very big deal, but we thought we should let you know.</p>
 </div>
 {% endblock %}

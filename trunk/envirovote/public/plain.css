@@ -90,6 +90,9 @@ div.incoming-wins div ol li.greenest {background-color:#61bb0a;color:white;borde
 div.incoming-wins div ol li.winner {font-weight:bold; font-size:1em;background:#333;color:white;}
 div.incoming-wins div ol li {font-size:0.9em}
 
+div.incoming-wins div.update {margin-top:.5em;}
+div.incoming-wins div.update p {margin: 0 0 .5em 0;font-size:0.9em;}
+
 div#about {margin:1em;width:80%;}
 div#about ul {list-style:none;}
 
