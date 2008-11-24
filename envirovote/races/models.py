@@ -193,23 +193,3 @@ class Candidate(models.Model):
     
     def __unicode__(self):
         return "%s, %s, %s" % (self.name,self.party,self.race.year)
-
-from django.db.models import signals
-from django.conf import settings
-from helpers import calculate_meter_info
-from twitter import twitter
-import random
-
-def tweet_minty(sender, instance=None, **kwargs):
-    if settings.ENABLE_TWITTER:
-        info = calculate_meter_info(Race.objects.filter(year=2008))
-        minty = ''
-        if instance.winner == instance.greenest:
-            minty = ',Minty!'
-        beautiful = ['amber-wavy','purpley-majestic','frutily-plained'][random.randint(0,2)]   
-        msg = "%s(%s%s) wins %s. %s/%s eco-happy races. America now %.1f%% more %s." % (instance.winner.name, instance.winner.party_abbv,minty,instance.short_title,info['green_races'],info['decided_races'],info['percent_change'],beautiful)
-        api = twitter.Api(username='envirovote',password='unicorn')
-        api.PostUpdate(msg)
-    
-
-signals.post_save.connect(tweet_minty, sender=Race)
