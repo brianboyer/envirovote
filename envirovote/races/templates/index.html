@@ -62,7 +62,6 @@
         <h2 style="border:0"><a href="{{race.get_absolute_url}}">{{race.title}}</a></h2>
         {% endif %}
         
-        <div class="candidates">
           <table border="0" cellpadding="0" cellspacing="0"><tr>
         {% for candidate in race.candidate_set.all %}
             {% if candidate.is_key %}
@@ -97,7 +96,7 @@
                 <span class="vote">{{ candidate.vote_pc }}</span>
               {% endif %}
               {% endif %}
-              <div class="detail">
+              <div class="endorsements">
               {% ifnotequal candidate.endorsement_set.all.count 0 %}
               <span class="endorsement">
                 {% ifequal race.greenest candidate  %}
@@ -113,7 +112,8 @@
             </td>
             {% endif %}
         {% endfor%}    
-          </tr></table>
+          </tr>
+        </table>
           <div class="content">
               {% if race.deck %}<h3>{{race.deck}} - {{race.title}}</h3>{% endif %}
               {% if race.vote_last_updated %}
@@ -122,7 +122,6 @@
               {{race.body|linebreaks}}
           </div>
           
-        </div>
       </div>
     {% endfor %}
     </div>

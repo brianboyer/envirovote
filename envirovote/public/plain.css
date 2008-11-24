@@ -36,7 +36,7 @@ div.key-race td.candidate-display span.winner {background:#333;color:white;paddi
 div.key-race td.candidate-display span.winner img {float:none;margin:0;height:auto;}
 div.key-race td.candidate-display span.name {font-size:1.2em;}
 div.key-race td.candidate-display span.votes {font-size:.8em;}
-div.key-race td.candidate-display div.detail {clear:both;background:#333;color:white;padding:.2em;text-align:center;}
+div.key-race td.candidate-display div.endorsements {clear:both;background:#333;color:white;padding:.2em;text-align:center;}
 div.key-race div.content {clear:both;}
 div.key-race div.content h3 {margin:1em 0 0;}
 div.key-race div.content h4 {margin:0;}
