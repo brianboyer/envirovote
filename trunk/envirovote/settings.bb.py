@@ -61,9 +61,11 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+#    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+#    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'envirovote.urls'
@@ -85,3 +87,9 @@ INSTALLED_APPS = (
     'envirovote.races',
     'envirovote.endorsements'
 )
+
+# Caching for 30 days! Why not? Nothing is gonna change on this site for a very long time
+# Might as well be cached
+#CACHE_BACKEND = 'db://envirovote_cache'
+#CACHE_MIDDLEWARE_SECONDS = 2592000
+#CACHE_MIDDLEWARE_KEY_PREFIX = ''

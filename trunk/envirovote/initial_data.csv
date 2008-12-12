@@ -1,5 +1,10 @@
 
 admin.logentry:id,action_time,user,content_type,object_id,object_repr,action_flag,change_message
+625,2008-12-12 16:38:52,1,9,448,"U.S. Senate, Georgia (2008)",2,"Changed last_race, tally_updated, tally_notes and winner."
+624,2008-12-12 16:37:33,1,9,223,"U.S. House of Representatives, 4th District of California (2008)",2,"Changed tally_updated, tally_notes and winner."
+623,2008-12-12 16:36:09,1,9,194,"U.S. House of Representatives, 15th District of Ohio (2008)",2,"Changed tally_updated, tally_notes and winner."
+622,2008-12-12 16:34:21,1,9,953,"U.S. House of Representatives, 4th District of Louisiana (2008)",2,"Changed tally_updated, tally_notes and winner."
+621,2008-12-12 16:01:32,1,9,952,"U.S. House of Representatives, 2nd District of Louisiana (2008)",2,"Changed tally_updated, tally_notes and winner."
 620,2008-11-24 10:47:49,1,9,454,"U.S. Senate, Alaska (2008)",2,"Changed tally_updated, tally_notes and winner."
 619,2008-11-24 10:44:49,1,9,205,"U.S. House of Representatives, At Large for Alaska (2008)",2,"Changed tally_updated, tally_notes and winner."
 618,2008-11-13 00:53:22,1,12,921,National Wildlife Federation endorsed Kathy Dahlkemper in 2008,1, 
@@ -660,7 +665,7 @@ auth.permission:id,name,content_type,codename
 24,Can delete site,8,delete_site
 
 auth.user:id,username,first_name,last_name,email,password,is_staff,is_active,is_superuser,last_login,date_joined,groups,user_permissions
-1,admin, , ,admin@envirovote.us,sha1$f2d28$71a10f0d47a6d47dee8943a5284eef63ef888ad6,True,True,True,2008-11-24 10:36:56,2008-11-01 19:59:16,,
+1,admin, , ,admin@envirovote.us,sha1$f2d28$71a10f0d47a6d47dee8943a5284eef63ef888ad6,True,True,True,2008-12-12 16:33:05,2008-11-01 19:59:16,,
 
 contenttypes.contenttype:id,name,app_label,model
 10,candidate,races,candidate
@@ -712,6 +717,18 @@ NTE5NzcxNjJmODFl
 cy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEESwF1Ljg5YTZjYTMyNTdhNmIzNWVlODk2
 NTE5NzcxNjJmODFl
 ",2008-12-08 10:36:56
+e17a9f2bc327b4edc64dcb5520592a5c,"gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k
+cy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBdS4zZWYwMjcxOGJhZDI4ZGQ4ZGQ5
+ZmY0ODA2NTY0MGMzYw==
+",2008-12-08 20:26:30
+6f8c205a8c47525a26d2804dec1cc4a6,"gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k
+cy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEBdS4zZWYwMjcxOGJhZDI4ZGQ4ZGQ5
+ZmY0ODA2NTY0MGMzYw==
+",2008-12-26 15:56:48
+8be504d2329650b54b1793ca81d11afd,"gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k
+cy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEESwF1Ljg5YTZjYTMyNTdhNmIzNWVlODk2
+NTE5NzcxNjJmODFl
+",2008-12-26 16:33:05
 
 sites.site:id,domain,name
 1,envirovote.us,enviroVOTE
@@ -910,7 +927,7 @@ races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,
 191,hou,OH,1,2008,817,False, , , ,2008-11-05 15:59:52,According to the Associated Press.,498,False
 192,hou,OH,10,2008,826,False, , , ,2008-11-05 16:03:15,According to the Associated Press.,506,False
 193,hou,OH,18,2008,834,False, , , ,2008-11-04 22:41:52,According to the Associated Press,522,False
-194,hou,OH,15,2008,831,False,,,,,,,False
+194,hou,OH,15,2008,831,False, , , ,2008-12-12 16:36:00,According to the Associated Press,504,False
 195,hou,OH,11,2008,827,False, , , ,2008-11-05 16:03:39,According to the Associated Press.,500,False
 196,hou,OH,17,2008,833,False, , , ,2008-11-04 20:27:28,According to the Associated Press.,519,False
 197,hou,OH,9,2008,825,False, , , ,2008-11-04 20:28:03,According to the Associated Press.,503,False
@@ -939,7 +956,7 @@ races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,
 220,hou,CA,50,2008,584,False, , , ,2008-11-05 16:19:08,According to the Associated Press.,555,False
 221,hou,CA,45,2008,579,False, , , ,2008-11-05 00:14:25,According to the Associated Press.,556,False
 222,hou,CA,14,2008,548,False, , , ,2008-11-05 12:45:37,According to the Associated Press.,581,False
-223,hou,CA,4,2008,538,False,,,,,,,False
+223,hou,CA,4,2008,538,False, , , ,2008-12-12 16:37:23,According to the Associated Press,621,False
 224,hou,CA,26,2008,560,False, , , ,2008-11-05 12:48:23,According to the Associated Press.,578,False
 225,hou,CA,7,2008,541,False, , , ,2008-11-04 23:37:29,According to the Associated Press,626,False
 226,hou,CA,44,2008,578,False, , , ,2008-11-05 12:50:58,According to the Associated Press.,562,False
@@ -1164,7 +1181,7 @@ races.race:id,race_type,state,district,year,last_race,is_key,headline,deck,body,
 445,sen,MI,,2008,494,False, , , ,2008-11-04 21:08:01,According to the Associated Press.,1480,False
 446,sen,MT,,2008,499,False, , , ,2008-11-04 22:17:11,According to the Associated Press.,1483,False
 447,sen,ID,,2008,486,False, , , ,2008-11-04 22:40:42,According to the Associated Press,1489,False
-448,sen,GA,,2008,,False,,,,,,,False
+448,sen,GA,,2008,485,False, , , ,2008-12-12 16:38:45,According to the Associated Press,1491,False
 449,sen,MN,,2008,,False,,,,,,,False
 450,sen,DE,,2008,484,False, , , ,2008-11-05 11:24:55,According to the Associated Press.,1498,False
 451,sen,IA,,2008,488,False, , , ,2008-11-04 22:24:23,According to the Associated Press.,1500,False
@@ -1671,8 +1688,8 @@ Nice stance, but Republican incumbent James Inhofe, who first won the seat in a 
 949,hou,WY,0,2006,,False,,,,,,2832,False
 950,pre,,,2008,951,True, , , ,2008-11-04 22:01:12,According to MSNBC,1161,True
 951,pre,,,2004,,False,,,,,,,False
-952,hou,LA,2,2008,687,False,,,,,,,False
-953,hou,LA,4,2008,689,False,,,,,,,False
+952,hou,LA,2,2008,687,False, , , ,2008-12-12 16:01:00,According to the Associated Press,2838,False
+953,hou,LA,4,2008,689,False, , , ,2008-12-12 16:34:10,According to the Associated Press,2844,False
 954,gov,DE,,2004,,False, , , ,, ,2846,False
 955,gov,IN,,2004,,False, , , ,, ,2850,False
 956,gov,MO,,2004,,False, , , ,, ,2852,False
