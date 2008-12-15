@@ -1,6 +1,6 @@
 # Django settings for envirovote project.
 
-ENVIROVOTE_ROOT = '/Users/rmark/Documents/django/envirovote'
+ENVIROVOTE_ROOT = '/home/54010/containers/django/envirovote'
 STATIC_DOC_ROOT = ENVIROVOTE_ROOT + '/public'
 
 ENABLE_TWITTER = False
@@ -14,11 +14,14 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'envirovote.sqlite3'  # Or path to database file if using sqlite3.
-DATABASE_USER = ''                    # Not used with sqlite3.
-DATABASE_PASSWORD = ''                # Not used with sqlite3.
-DATABASE_HOST = ''                    # Set to empty string for localhost. Not used with sqlite3.
+# Necessary for (mt) Django GridContainer
+FORCE_SCRIPT_NAME = ""
+
+DATABASE_ENGINE = 'mysql'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+DATABASE_NAME = 'db54010_envirovote'  # Or path to database file if using sqlite3.
+DATABASE_USER = 'db54010_evote'                    # Not used with sqlite3.
+DATABASE_PASSWORD = 'as3092j30ajwer3'                # Not used with sqlite3.
+DATABASE_HOST = 'internal-db.s54010.gridserver.com'                    # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''                    # Set to empty string for default. Not used with sqlite3.
 
 # Local time zone for this installation. Choices can be found here:

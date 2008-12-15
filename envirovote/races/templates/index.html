@@ -4,17 +4,6 @@
 {% block filling %}
 
 <div class="incoming-wins" style="float:right">
-<div class="update">
-    <p><strong>11/24/2008 update</strong></p>
-    <p>We've fixed a few bugs, entered a couple more results, and added more
-    information about current and prior endorsements.</p>
-    <p>The gubernatorial races
-    proved to be a bit tricky, and may throw off our numbers a hair.
-    <a href="/about#governors">See the about page for the details.</a></p>
-    <p>Following the resolution of the last six races, enviroVOTE will go on
-    vacation until next year.</p>
-    <p>Thanks for tuning in!</p>
-</div>
 <h2>Incoming wins</h2>
 {% ifequal 0 incoming_races.count %}
     <div>
@@ -23,7 +12,7 @@
         <p>As the results come in tonight, we'll post them right here.</p>
     </div>
 {% else %}
-  <p>The latest results in<br/> races we're watching:</p>
+  <p>The latest results in races we're watching:</p>
     {% for race in incoming_races %}
     <div>
         <h4><a href="{{race.get_absolute_url}}">
@@ -73,6 +62,7 @@
         <h2 style="border:0"><a href="{{race.get_absolute_url}}">{{race.title}}</a></h2>
         {% endif %}
         
+        <div class="candidates">
           <table border="0" cellpadding="0" cellspacing="0"><tr>
         {% for candidate in race.candidate_set.all %}
             {% if candidate.is_key %}
@@ -107,7 +97,7 @@
                 <span class="vote">{{ candidate.vote_pc }}</span>
               {% endif %}
               {% endif %}
-              <div class="endorsements">
+              <div class="detail">
               {% ifnotequal candidate.endorsement_set.all.count 0 %}
               <span class="endorsement">
                 {% ifequal race.greenest candidate  %}
@@ -123,8 +113,7 @@
             </td>
             {% endif %}
         {% endfor%}    
-          </tr>
-        </table>
+          </tr></table>
           <div class="content">
               {% if race.deck %}<h3>{{race.deck}} - {{race.title}}</h3>{% endif %}
               {% if race.vote_last_updated %}
@@ -133,6 +122,7 @@
               {{race.body|linebreaks}}
           </div>
           
+        </div>
       </div>
     {% endfor %}
     </div>

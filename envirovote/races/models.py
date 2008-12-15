@@ -83,14 +83,14 @@ class Race(models.Model):
     state = models.CharField(max_length=2, choices=STATE_CHOICES, blank=True, null=True)
     district = models.IntegerField(blank=True, null=True)
     year = models.IntegerField()
-    last_race = models.ForeignKey("Race", null=True, blank=True)
+    last_race = models.ForeignKey("Race", null=True)
     is_key = models.BooleanField()
     headline = models.CharField(max_length=200, blank=True, null=True)
     deck = models.CharField(max_length=200, blank=True, null=True)
     body = models.TextField(blank=True, null=True)
     tally_updated = models.DateTimeField(blank=True, null=True)
     tally_notes = models.CharField(max_length=200, blank=True, null=True)
-    winner = models.ForeignKey("Candidate", related_name="won", null=True, blank=True)
+    winner = models.ForeignKey("Candidate", blank=True, null=True, related_name="won")
     projected = models.BooleanField()
 
     def __unicode__(self):
@@ -192,4 +192,24 @@ class Candidate(models.Model):
     party_abbv = property(_get_party_abbv)
     
     def __unicode__(self):
-        return "%s, %s, %s" % (self.name,self.party,self.race.year)
+        return "%s (%s)" % (self.name,self.party)
+
+from django.db.models import signals
+from django.conf import settings
+from helpers import calculate_meter_info
+from twitter import twitter
+import random
+
+def tweet_minty(sender, instance=None, **kwargs):
+    if settings.ENABLE_TWITTER:
+        info = calculate_meter_info(Race.objects.filter(year=2008))
+        minty = ''
+        if instance.winner == instance.greenest:
+            minty = ',Minty!'
+        beautiful = ['amber-wavy','purpley-majestic','frutily-plained'][random.randint(0,2)]   
+        msg = "%s(%s%s) wins %s. %s/%s eco-happy races. America now %.1f%% more %s." % (instance.winner.name, instance.winner.party_abbv,minty,instance.short_title,info['green_races'],info['decided_races'],info['percent_change'],beautiful)
+        api = twitter.Api(username='envirovote',password='unicorn')
+        api.PostUpdate(msg)
+    
+
+signals.post_save.connect(tweet_minty, sender=Race)

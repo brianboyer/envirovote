@@ -1,9 +1,42 @@
 {% load humanize %}
-{% load race_extras %}
 {% ifequal race.race_type "gov" %}
 <h2><a href="{{ race.get_absolute_url }}">Governor</a></h2>
 {% endifequal %}
 {% ifequal race.race_type "sen" %}
 <h2><a href="{{ race.get_absolute_url }}">U.S. Senate</a></h2>
 {% endifequal %}
-{% show_race_short race %}
+<div class="race {% cycle "odd" "even" %}">
+  {% ifequal race.race_type "hou" %}
+    <fieldset><legend><a href="{{race.get_absolute_url}}">{{ race.district_display }}</a></legend>
+  {% else %}
+    <div>
+  {% endifequal %}
+    <ol>
+    {% for candidate in race.candidate_set.all %}
+      <li class="{% ifequal race.greenest candidate %}greenest{% endifequal %}">
+        {% ifequal race.greenest candidate  %}
+          <img src="/public/images/world.png" alt="Most endorsed by environmental groups" title="Most endorsed by environmental groups" class="badge"/>
+        {% endifequal %}
+
+        {% ifequal race.winner candidate %}
+          <img src="/public/images/star.png" alt="{% if race.projected %}Projected {% endif %}Winner" title="{% if race.projected %}Projected {% endif %}Winner" class="badge"/>
+          {% if race.projected %} (projected){% endif %}
+        {% endifequal %}
+        {{candidate.name}} ({{candidate.party_abbv}})
+        {% if race.winner %} - {{candidate.vote_percentage|floatformat:2}}%{% endif %}
+      </li>
+    {% endfor %}
+    </ol>
+    
+  {% if race.winner %}
+    <p class="tally-notes">{{race.tally_notes}}</p>
+    <p class="tally-updated">Updated {{race.tally_updated|naturalday}} at {{race.tally_updated|date:"h:i a"}}</p>
+  {% else %}
+    <p class="tally-notes">Results are not yet available for this race.</p>
+  {% endif %}
+  {% ifequal race.race_type "hou" %}
+  </fieldset>
+  {% else %}
+  </div>
+  {% endifequal %}
+</div>
