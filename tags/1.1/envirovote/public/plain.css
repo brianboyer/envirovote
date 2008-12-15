@@ -1,0 +1,119 @@
+html {font-family:Arial, sans-serif;font-size:1em;}
+h1,h2,h3,h4,h5 {font-family:Verdana,Arial,sans-serif;}
+h1,h2 {border-bottom:.1em solid #d6f4b8;}
+body {margin:0 1em; color:#222;}
+
+a:link, a:visited {color:blue;}
+a:hover, a:active {color:purple;}
+
+h1.masthead {margin:.1em 0 !important;}
+h1.masthead a {font-size:2em; text-decoration:none;}
+h1.masthead span.enviro {color:#61bb0a;font-weight:normal;}
+h1.masthead span.vote {color:#333; font-variant: small-caps;}
+ul#navigation {position:absolute;right:1em;top:0.5em;list-style:none;}
+ul#navigation li {text-align:right;margin-bottom:0.3em;}
+
+div.column {float:left;overflow:hidden;padding:.2em;}
+div.center {overflow:hidden;}
+div.incoming-wins {overflow:hidden;width:16em;margin-left:.6em;padding-left:.6em;border-left:.1em solid #999;}
+div.left {width:12%;border-right:.1em solid #999;margin-right:.6em;padding-right:.6em;}
+
+div#footer {clear:left;padding-top:2em;}
+div#footer p {margin:0.5em 0 0 0;font-size:0.8em;}
+div#footer p a img {border:0;margin-right:0.5em;vertical-align:middle;}
+
+img.badge {float:none !important;margin:0 !important;height:auto !important;width:auto !important;line-height:.8em;vertical-align:bottom;}
+
+div.key-race {border-bottom:2px solid #999;}
+div.key-race table {padding:0;border:.1em solid #999;margin:0;width:100%;}
+div.key-race td {padding:0;}
+div.key-race td.candidate-display {background:#efefef;width:50%;vertical-align:top;text-align:right;}
+div.key-race td.candidate-display img {float:right;margin-left:.4em;}
+div.key-race td.first {border-right:1px solid #999;text-align:left;}
+div.key-race td.first img {float:left;margin-left:0;margin-right:.4em;}
+div.key-race td.greenest {background:#B4FF8F;}
+div.key-race td.candidate-display span.winner {background:#333;color:white;padding:.2em;}
+div.key-race td.candidate-display span.winner img {float:none;margin:0;height:auto;}
+div.key-race td.candidate-display span.name {font-size:1.2em;}
+div.key-race td.candidate-display span.votes {font-size:.8em;}
+div.key-race td.candidate-display div.endorsements {clear:both;background:#333;color:white;padding:.2em;text-align:center;}
+div.key-race div.content {clear:both;}
+div.key-race div.content h3 {margin:1em 0 0;}
+div.key-race div.content h4 {margin:0;}
+
+div.candidates {overflow:hidden;margin-bottom:.1em;width:50%;}
+div.candidates p.tally-notes {clear:left;margin:0;padding-top:0.5em;padding-left:1em;font-size:0.8em;}
+div.candidates p.tally-updated {margin:0;padding-left:1em;font-size:0.8em;}
+div.sidebar {width:40%;float:left;padding-right:1em;margin-right:1em;border-right:.1em solid #999;}
+div.candidate-display {overflow:hidden;margin-bottom:2em;}
+div.candidate-display div {overflow:hidden;background:white;}
+div.candidate-display img {width:110px;}
+div.candidate-display span {padding-left:.4em;overflow:hidden;}
+div.candidate-display span.winner {background:#333;color:white;padding:.2em;font-weight:bold;}
+div.candidate-display span.winner img {float:none;margin:0;height:auto;width:auto;}
+div.candidate-display span.name {font-size:1.6em;font-weight:bold;}
+div.candidate-display span.incumbent,
+div.candidate-display span.party {font-size:1.2em;}
+div.candidate-display span.votes {font-size:1.2em;}
+div.candidate-display img {float:left;}
+div.candidate-display ul {text-indent:0;padding:0 0 0 1em;margin:0;}
+.candidate-display span {display:block;}
+.candidate-display span.incumbent,
+.candidate-display span.party {font-size:.8em;display:inline;}
+.candidate-display span.greenest {display:none;}
+.candidate-display div.detail {margin-left:0.5em;}
+.candidate-display div.detail ul li {margin-bottom:0.2em; font-size:0.8em;}
+
+div.last_election {width:50%;}
+
+div.meter {overflow:hidden;}
+div.meter div.bar {background-color:#d6f4b8; border-style:solid; border-color: #575a41;}
+div.meter div.bar div {background-color: #61bb0a;}
+div.meter p.learn {text-align:right;font-size:0.8em;}
+
+div.endorse-o-meter {font-family:Verdana,Arial,sans-serif;}
+div.endorse-o-meter div.meter {background:url(/public/images/bar-right.png) top right no-repeat;height:44px;}
+div.endorse-o-meter div.meter div.bar {height: 2em; border-width:0.1em;height:44px;background:url(/public/images/bar-left.png) top left no-repeat;padding:6px;border:0 !important;}
+div.endorse-o-meter div.meter div.bar div {height: 2em;background:url(/public/images/bar-fill.png);}
+
+div.states div.meter div.bar {height: 1em; border-width:0.1em;background:url(/public/images/mini-bar-back.png);}
+div.states div.meter div.bar div {height: 1em;background:url(/public/images/mini-bar-fill.png);}
+
+div.incoming-wins div {background-color:#efefef;border:#999 solid 1px;padding:0.5em;margin-bottom: 0.5em;}
+div.incoming-wins div p.tally-notes {margin:0;font-size:0.8em;text-align:right;}
+div.incoming-wins div p.tally-updated {margin:0.3em 0 0 0;text-align:right;font-size:0.7em;}
+div.incoming-wins div h4 {margin:0;}
+div.incoming-wins div h5 {margin:0;}
+div.incoming-wins div ol {list-style:none;padding:0;margin:0.5em; 0 0.5em 0.5em;}
+div.incoming-wins div ol li {padding:0.2em;border-bottom:solid 0.1em #333;margin:0;}
+div.incoming-wins div ol li.greenest {background-color:#61bb0a;color:white;border:solid 1px #575a41;}
+div.incoming-wins div ol li.winner {font-weight:bold; font-size:1em;background:#333;color:white;}
+div.incoming-wins div ol li {font-size:0.9em}
+
+div.incoming-wins div.update {margin-top:.5em;}
+div.incoming-wins div.update p {margin: 0 0 .5em 0;font-size:0.9em;}
+
+div#about {margin:1em;width:80%;}
+div#about ul {list-style:none;}
+
+div#state h2,h3,h4 {clear:both;}
+div#state h3 {margin-bottom:0.5em;}
+div#state div.senate-races div.race,
+div#state div.guber-races div.race {width:50%;}
+div#state div.senate-races div.race ol li,
+div#state div.guber-races div.race ol li {font-size:1em;padding:0.2em;margin:0;}
+div#state div.senate-races div.race ol,
+div#state div.guber-races div.race ol {list-style:none;padding:0;margin:.8em;}
+div#state legend {font-size:1.2em;font-weight:bold;}
+div#state fieldset {background:#f5f5f5; float:left;width:45%;border:1px solid #999;}
+div#state fieldset.odd {clear:left;margin-right:1em;}
+div.race {margin-bottom:1em;}
+div.race h4 {margin:0;}
+div.race ol {list-style:none;padding:0;margin:.6em;}
+div.race ol li {padding:0.2em;border-bottom:solid 0.1em #333;margin:0;}
+div.race ol li.greenest {background-color:#61bb0a;color:white;border:solid 1px #575a41;margin-top:-1px;}
+div.race ol li.winner {font-weight:bold; font-size:1em;background:#333;color:white;}
+div.race ol li {font-size:0.9em}
+div.race ul li {border:0;}
+div.race p.tally-notes {clear:left;margin:0;padding-top:0.5em;padding-left:1em;font-size:0.8em;}
+div.race p.tally-updated {margin:0;padding-left:1em;font-size:0.8em;}

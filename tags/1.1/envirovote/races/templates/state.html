@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load race_extras %}
+{% block filling %}
+<div id="state">
+<h1 style="margin:.5em 0">{{state}}</h1>
+{% show_medium_meter meter_info %}
+
+{% ifequal 0 governor_races.count %}
+  <h3>Governor</h3>
+  <div>No gubernatorial election this year.</div>
+{% else %}
+<div class="guber-races">
+  {% for race in governor_races %}
+    {% show_state_race race %}
+  {% endfor %}
+</div>
+{% endifequal %}
+
+{% ifequal 0 senate_races.count %}
+  <h3>Senate</h3>
+  <div class="race">No senate election this year.</div>
+{% else %}
+  <div class="senate-races">
+    {% for race in senate_races %}
+      {% show_state_race race %}
+    {% endfor %}
+  </div>
+{% endifequal %}
+<h2>U.S. House of Representatives</h2>
+<div class="house-races">
+  {% for race in house_races %}
+    <fieldset class="{% cycle "odd" "even" %}">
+        <legend><a href="{{race.get_absolute_url}}">{{ race.district_display }}</a></legend>
+        {% show_state_race race %}
+    </fieldset>
+  {% endfor %}
+</div>
+</div>
+{% endblock %}

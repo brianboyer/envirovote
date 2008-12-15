@@ -1,0 +1,2 @@
+#!/bin/sh
+mysqldump --add-drop-table --no-data bboyer_envirovote -u bboyer_evote -pCzngqcBRpIC1 | grep DROP | mysql bboyer_envirovote -u bboyer_evote -pCzngqcBRpIC1

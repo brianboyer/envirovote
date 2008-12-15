@@ -1,0 +1,14 @@
+{% load race_extras %}
+<div class="endorse-o-meter">
+  <div style="font-size:2.8em;line-height:1em;letter-spacing:-.08em"><strong>{{meter_info.green_races}}</strong> out of <strong>{{meter_info.decided_races}}</strong> winners</div>
+  <div style="font-size:1.4em;margin-bottom:.8em">in the 2008 elections were endorsed<br/> by environmental groups</div>
+  {% show_meter meter_info %}
+  <div style="text-align:right;">{{meter_info.decided_races}} races decided, {{meter_info.remaining_races}} race remains</div>
+  <div style="font-size:2.2em;line-height:.8em;margin-top:.2em">That's</div>
+  <div>
+    <div style="line-height:1em;float:left;font-size:3.8em;padding-bottom:.8em;padding-right:.1em;letter-spacing:-.10em"><strong>{{meter_info.percent_change|floatformat:0}}%</strong></div>
+    <div style="font-size:1.8em;overflow:hidden;line-height:1em">more eco-friendly officeholders<br/>
+    than last election</div>
+  </div>  
+  <a target="_parent" href="/about">(Learn how we calculate this)</a>
+</div>

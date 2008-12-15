@@ -1,0 +1,301 @@
+Index: django/core/serializers/__init__.py
+===================================================================
+--- django/core/serializers/__init__.py	(revision 9232)
++++ django/core/serializers/__init__.py	(working copy)
+@@ -23,6 +23,7 @@
+     "xml"    : "django.core.serializers.xml_serializer",
+     "python" : "django.core.serializers.python",
+     "json"   : "django.core.serializers.json",
++    "csv"    : "django.core.serializers.csv_serializer",
+ }
+ 
+ # Check for PyYaml and register the serializer if it's available.
+Index: django/core/serializers/csv_serializer.py
+===================================================================
+--- django/core/serializers/csv_serializer.py	(revision 0)
++++ django/core/serializers/csv_serializer.py	(revision 0)
+@@ -0,0 +1,284 @@
++"""
++Serialize multiple table data to and from a single csv stream, using the
++standard csv module.
++
++The format of csv is sort of standardized in rfc4180, stating that there
++are more implementations, even incompatible ones.  It treats headers as
++optional where column names are separated the same way as field values.
++It leaves some important questions open,
++ - how to handle null values as opposed to empty strings,
++ - how to handle relations, such as foreign keys or many-to-many
++   relations,
++ - how to represent multiple tables in a single csv file.
++
++The latter issue is addressed in Creativyst's ctx format at
++http://www.creativyst.com/Doc/Std/ctx/ctx.htm where a multiple-line
++header is used to describe metadata.  I didn't want to use their
++approach because it conflicts with existing csv tools (such as the
++python csv module) for simpler cases.
++
++Let's start with an example what csv this module produces and
++understands.
++
++news_author:registration_number,name
++555001,Jack
++555002,Jill
++
++news_article:id,authors,title,text,published
++1,"[1, 2]",On Life And Chees,Once upon a time...,2001-05-30
++2,[2],,I should write this,
++
++Here is a summary of how values are represented.
++ - Tables are separated by two lineterminators because it's not
++   intrusive and gives a good visual guidance.  It's simply parsed as an
++   empty line by csv tools, preserving the structure.  A single csv file
++   is also easy to split by the separator using csplit for example.
++ - Headers are mandatory, containing the column names separated by
++   commas.
++ - The first header field is special, it has the form '<table name>:<pk
++   name>'.  This doesn't conflict with other parsers; and the colon as
++   separator is widely used in the Unix world and it cannot be part of
++   the table or column name.  The usage of <pk name> instead of just
++   'pk' is intentional, although it differs from the constant usage of
++   'pk' is the json an xml serializers modules -- this is how database
++   dumps work, for example in sqlite.
++ - None is represented as an empty string.
++ - Foreign keys are represented as integers.
++ - Many-to-many relations are represented as a list of foreign keys.
++ - Strings are represented as they are except for strings that contain
++   only zero or more spaces.
++ - Strings of only zero or more spaces are prepended an extra leading
++   space, so '' becomes ' ', ' ' becomes '  ', etc.  This may look
++   strange first but this is how None (represented as '') and ''
++   (represented as ' ') are distinguished.  Space-only strings are a
++   rare beast, leading and trailing spaces are also frequently trimmed
++   by csv parsers, so I find this a fair compromise.
++"""
++import codecs
++import csv
++try:
++    from cStringIO import StringIO
++except ImportError:
++    from StringIO import StringIO
++import os
++import re
++
++from django.core.serializers import base
++from django.db import models
++# These fields should all extend CharField since they all work with
++# string data
++from django.db.models.fields import CharField, FilePathField, SlugField, TextField
++from django.db.models.fields.files import FileField
++from django.contrib.localflavor.us.models import USStateField
++
++
++spaces_re = re.compile('^[ ]*$')
++
++class Serializer(base.Serializer):
++    "Serialize to csv"
++
++    def start_serialization(self):
++        self.last_model = None
++        # By default, csv module uses '\r\n' as lineterminator
++        self.output = UnicodeWriter(self.stream, lineterminator=os.linesep)
++
++    def start_object(self, obj):
++        if not hasattr(obj, "_meta"):
++            raise base.SerializationError("Non-model object (%s) encountered during serialization" % type(obj))
++        if self.last_model != obj._meta:
++            meta = obj._meta
++            self.last_model = meta
++            fields = self.selected_fields
++            if fields:
++                fields = list(fields)
++            else:
++                fields = \
++                    [field.name for field in meta.fields] + \
++                    [field.name for field in meta.many_to_many]
++            if meta.pk.attname in fields:
++                fields.remove(meta.pk.attname)
++            header = ['%s:%s' % (meta, meta.pk.attname)]
++            for field_name in fields:
++                header.append(field_name)
++            # Table separator is an empty row
++            self.output.writerow([])
++            self.output.writerow(header)
++        self.row = [str(obj._get_pk_val())]
++
++    def end_object(self, obj):
++        self.output.writerow(self.row)
++
++    def handle_field(self, obj, field):
++        self.row.append(self.get_string_value(obj, field))
++
++    def handle_fk_field(self, obj, field):
++        related = getattr(obj, field.name)
++        if related is None:
++            repr = ''
++        else:
++            if field.rel.field_name == related._meta.pk.name:
++                # relation via pk
++                repr = str(related._get_pk_val())
++            else:
++                # relation via other field
++                repr = str(getattr(related, field.rel.field_name))
++        self.row.append(repr)
++
++    def handle_m2m_field(self, obj, field):
++        """Represented as a tuple of related ids, or empty string of there
++        are no related objects"""
++        related = [related._get_pk_val() for related in getattr(obj, field.name).iterator()]
++        if related:
++            self.row.append(str(related))
++        else:
++            self.row.append('')
++
++    def get_string_value(self, obj, field):
++        """
++        None always becomes ''.  For string values prepend a leading
++        space if the string contains only spaces so '' becomes ' ' and '
++        ' becomes '  ', etc.  Other values are handled normally.
++        """
++        value = getattr(obj, field.name)
++        if value is None:
++            return ''
++        elif is_string_field(field):
++            if spaces_re.match(value):
++                return ' ' + value
++            else:
++                return value
++        else:
++            return super(Serializer, self).get_string_value(obj, field)
++
++
++class Deserializer(base.Deserializer):
++    "Deserialize from csv"
++
++    def __init__(self, stream_or_string, **options):
++        super(Deserializer, self).__init__(stream_or_string, **options)
++        self.next = self.__iter__().next
++
++    def __iter__(self):
++        header_coming = True
++        for values in UnicodeReader(self.stream):
++            if not values:
++                header_coming = True
++            else:
++                if header_coming:
++                    # Model
++                    model, first_field = values[0].split(':', 2)
++                    try:
++                        self.model = models.get_model(*model.split("."))
++                    except TypeError:
++                        raise base.DeserializationError("No model %s in db" % model)
++                    # Field names
++                    self.field_names = [first_field] + values[1:]
++                    header_coming = False
++                else:
++                    # An object
++                    meta = self.model._meta
++                    data = {meta.pk.attname: meta.pk.to_python(values[0])}
++                    m2m_data = {}
++                    for i in range(1, len(values)):
++                        name = self.field_names[i]
++                        value = values[i]
++                        field = meta.get_field(name)
++                        if field.rel and isinstance(field.rel, models.ManyToManyRel):
++                            m2m_data[field.name] = self.handle_m2m_field(value, field)
++                        elif field.rel and isinstance(field.rel, models.ManyToOneRel):
++                            data[field.attname] = self.handle_fk_field(value, field)
++                        else:
++                            data[field.name] = self.handle_field(value, field)
++                    yield base.DeserializedObject(self.model(**data), m2m_data)
++
++    def handle_field(self, raw, field):
++        if raw == '':
++            raw = None
++        elif is_string_field(field):
++            if spaces_re.match(raw):
++                raw = raw[1:]
++        return field.to_python(raw)
++
++    def handle_fk_field(self, raw, field):
++        if raw == '':
++            return None
++        related_field = field.rel.to._meta.get_field(field.rel.field_name)
++        return related_field.to_python(raw)
++
++    def handle_m2m_field(self, raw, field):
++        if raw:
++            return eval(raw)
++        else:
++            return []
++
++
++def is_string_field(field):
++    """If all field classes working with strings extended CharField, we
++    wouldn't need this method"""
++    return bool(isinstance(field, 
++        (CharField, FileField, FilePathField, SlugField, TextField,
++        USStateField)))
++
++
++# Copied from csv module examples with some modifications
++# - getincrementalencoder replaced with getencoder because it works with
++# python < 2.5
++
++class UTF8Recoder:
++    """
++    Iterator that reads an encoded stream and reencodes the input to UTF-8
++    """
++    def __init__(self, f, encoding):
++        self.reader = codecs.getreader(encoding)(f)
++
++    def __iter__(self):
++        return self
++
++    def next(self):
++        return self.reader.next().encode("utf-8")
++
++class UnicodeReader:
++    """
++    A CSV reader which will iterate over lines in the CSV file "f",
++    which is encoded in the given encoding.
++    """
++
++    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
++        f = UTF8Recoder(f, encoding)
++        self.reader = csv.reader(f, dialect=dialect, **kwds)
++
++    def next(self):
++        row = self.reader.next()
++        return [unicode(s, "utf-8") for s in row]
++
++    def __iter__(self):
++        return self
++
++class UnicodeWriter:
++    """
++    A CSV writer which will write rows to CSV file "f",
++    which is encoded in the given encoding.
++    """
++
++    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
++        # Redirect output to a queue
++        self.queue = StringIO()
++        self.writer = csv.writer(self.queue, dialect=dialect, **kwds)
++        self.stream = f
++        self.encode = codecs.getencoder(encoding)
++
++    def writerow(self, row):
++        self.writer.writerow([s.encode("utf-8") for s in row])
++        # Fetch UTF-8 output from the queue ...
++        data = self.queue.getvalue()
++        data = data.decode("utf-8")
++        # ... and reencode it into the target encoding
++        data = self.encode(data)[0]
++        # write to the target stream
++        self.stream.write(data)
++        # empty queue
++        self.queue.truncate(0)
++
++    def writerows(self, rows):
++        for row in rows:
++            self.writerow(row)

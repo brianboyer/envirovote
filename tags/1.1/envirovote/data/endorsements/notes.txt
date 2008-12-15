@@ -1,0 +1,53 @@
+Do we want to use these groups>?
+* American Land Rights Association http://www.votesmart.org/issue_rating_detail.php?r_id=3429&rtype=R
+* Republicans for Environmental Prot
+
+Comprehensive US Sustainable Population scores are cool, but can't get a good one??
+ * fuck em, leave out
+
+LCV 2008.csv has an extra column, for primary endorsements - may not be in the DB
+if no older endorsements, ocean champions has a list of folks they likw who're already serving
+ * http://www.oceanchampions.org/ocean-champions.html
+
+TODO: go back and get these.  they're probably good to have
+do the local chapters of national groups get a vote?  gives EA two votes, no?
+* not putting these in yet
+* http://www.environmentnorthcarolina.org/issues/election-2008
+* http://www.pennenvironment.org/issues/election-2008
+* CLCV endorses many more than national LCV... they prob get votes.... ugh.
+
+cant find historical endorsements from
+* EA is a new org from PIRG - dont seem to have older endorsements...
+* Clean Water Action
+
+need a disclaimer that we would like to have more endorsement data
+
+would have been interesting to use all the ratings at project vote smart too
+* http://www.votesmart.org/issue_rating_detail.php?r_id=3493&rtype=R
+
+collection of links to endorsements:
+ * http://www.grinningplanet.com/environmental-voters-guide/us-state-environmental-voting-guide.htm
+ * using this list, it looks like local LCVs endorse only local candidates
+ * if we've got the time, would be a GREAT source for state-specific information
+
+we should have a note that we'll be adding propositions later
+
+might just drop governors??
+
+promote!!
+ * http://www.treehugger.com/
+ * groups with the endorsements we're using
+ * http://www.hugg.com/
+ * http://www.grinningplanet.com/
+ * http://www.mygreenelement.com/
+
+badges?
+ * http://www.sierraclub.org/politics/candidates/
+ * http://www.lcv.org/campaigns/dirty-dozen/
+
+links?
+ * http://www.youtube.com/youchoose08
+ * http://www.candidanswers.org/elections/race/MI/09
+
+2002, only senate
+2006, only congress

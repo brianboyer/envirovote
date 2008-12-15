@@ -1,0 +1,9 @@
+{% load humanize %}
+{% load race_extras %}
+{% ifequal race.race_type "gov" %}
+<h2><a href="{{ race.get_absolute_url }}">Governor</a></h2>
+{% endifequal %}
+{% ifequal race.race_type "sen" %}
+<h2><a href="{{ race.get_absolute_url }}">U.S. Senate</a></h2>
+{% endifequal %}
+{% show_race_short race %}
